@@ -88,7 +88,28 @@ Orden de cada trabajo:
 
 Una rama por trabajo; no trabajar directo sobre `main`. Borrar el `.gitkeep` de una carpeta cuando recibe contenido real.
 
-### Siempre
+### Dónde va cada cosa
+
+| Qué | Dónde | Se separa por |
+|---|---|---|
+| Diseño y código visual | `src/templates/<tipo>/` | Tipo de evento |
+| Guía de estilo | `docs/design/<tipo>-visual-guide.md` | Tipo de evento |
+| Gráficos fijos | `public/assets/templates/<tipo>/` | Tipo de evento |
+| Pedido de la invitación | `specs/NNN-nombre-corto.md` | Invitación |
+| Textos, fechas, regalos y fotos del evento | Supabase, asociados al `invitation_id` | Invitación |
+
+En el repositorio hay una carpeta por tipo de evento, no por cliente. Los datos de cada invitación viven en Supabase y no se versionan.
+
+### Trabajo en paralelo
+
+Varias invitaciones pueden armarse y publicarse a la vez sobre la misma aplicación.
+
+- Una rama y una spec por invitación o plantilla.
+- Cada rama toca solo las carpetas de su tipo de evento. Así las ramas no chocan entre sí.
+- Dos invitaciones del mismo tipo no requieren código nuevo: se cargan los datos de cada una.
+- Un cambio en lo compartido (`src/features/`, `src/components/`, `src/app/`, `src/lib/`) afecta a todas las invitaciones publicadas. Va en su propio pull request, separado del de una invitación, y se revisa contra todas las plantillas disponibles.
+- Integrar una rama publica la aplicación completa. Antes de integrar, comprobar que las invitaciones ya publicadas siguen viéndose bien.
+
 
 - Guiarse por la guía de estilo del tipo de evento. Si no existe, proponer una o preguntar.
 - Reutilizar plantillas, componentes y funcionalidades existentes antes de crear nuevos.
@@ -115,7 +136,7 @@ Una rama por trabajo; no trabajar directo sobre `main`. Borrar el `.gitkeep` de 
 En este proyecto predominan el estilo y la funcionalidad, así que todo cambio visible se valida mirándolo.
 
 - Durante el trabajo: vista previa en el navegador (`npm run dev`), compartida con el responsable del proyecto.
-- En cada pull request: enlace de vista previa de Cloudflare Pages, que se puede abrir desde un celular.
+- En cada rama publicada: enlace de vista previa de Cloudflare Pages, que se puede abrir desde un celular.
 - Revisar siempre un ancho de celular y uno de escritorio.
 - `npm run build` termina sin errores.
 - Los cambios de datos o permisos se prueban también sin sesión iniciada.
