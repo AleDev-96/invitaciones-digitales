@@ -110,6 +110,7 @@ Varias invitaciones pueden armarse y publicarse a la vez sobre la misma aplicaci
 - Un cambio en lo compartido (`src/features/`, `src/components/`, `src/app/`, `src/lib/`) afecta a todas las invitaciones publicadas. Va en su propio pull request, separado del de una invitación, y se revisa contra todas las plantillas disponibles.
 - Integrar una rama publica la aplicación completa. Antes de integrar, comprobar que las invitaciones ya publicadas siguen viéndose bien.
 
+### Siempre
 
 - Guiarse por la guía de estilo del tipo de evento. Si no existe, proponer una o preguntar.
 - Reutilizar plantillas, componentes y funcionalidades existentes antes de crear nuevos.
