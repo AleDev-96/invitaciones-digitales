@@ -87,9 +87,10 @@ Documentos de referencia:
 
 ## Forma de trabajar
 
-Se trabaja con specs ([docs/specs/README.md](docs/specs/README.md)).
+Se trabaja con specs ([docs/specs/README.md](docs/specs/README.md)), siguiendo la skill [`sdd`](.github/skills/sdd/SKILL.md).
 
-- **Specs de arquitectura:** las iniciales. Pueden tomar el tiempo que haga falta; es preferible definir bien antes que rehacer un desarrollo costoso.
+- **Specs largas:** las iniciales de arquitectura y los rediseños grandes. Pueden tomar el tiempo que haga falta; es preferible definir bien antes que rehacer un desarrollo costoso.
+- **Specs cortas:** rediseños o ajustes acotados.
 - **Specs de invitación:** cortas. Cuando ya existe la plantilla y el estilo, solo definen tipo de evento, estilo, imágenes y funcionalidades.
 - **Cambios menores** (un texto, un color, un ajuste de espaciado): directo, sin spec.
 

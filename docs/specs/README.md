@@ -6,10 +6,13 @@ Una spec describe qué se va a construir y cómo se comprueba que quedó bien, a
 
 | Tipo | Cuándo | Molde | Extensión esperada |
 |---|---|---|---|
-| Arquitectura | Decisiones de base, una funcionalidad nueva, una plantilla nueva o un estilo nuevo | [_templates/architecture-spec.md](_templates/architecture-spec.md) | La que haga falta |
+| Larga | Decisiones de base, una funcionalidad nueva, una plantilla nueva, un estilo nuevo o un rediseño grande | [_templates/architecture-spec.md](_templates/architecture-spec.md) completo | La que haga falta |
+| Corta | Un rediseño o ajuste acotado, sin cambios de datos ni dependencias | El mismo molde, solo con Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación | Una página |
 | Invitación | Una invitación nueva con plantilla y estilo ya existentes | [_templates/invitation-spec.md](_templates/invitation-spec.md) | Una página |
 
 Los cambios menores (un texto, un color, un ajuste de espaciado) no llevan spec.
+
+Cómo redactarlas e implementarlas paso a paso está en la skill [`sdd`](../../.github/skills/sdd/SKILL.md).
 
 ## Nombre y ubicación
 

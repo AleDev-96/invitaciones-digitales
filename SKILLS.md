@@ -15,6 +15,7 @@ Este archivo define **qué skills hay y cuándo es obligatorio usarlas**. Las sk
 
 | Skill | Disparador: usala cuando… | Estado |
 |---|---|---|
+| [`sdd`](.github/skills/sdd/SKILL.md) | Redactes, clarifiques, revises o cambies una spec (`docs/specs/`), o implementes y verifiques una spec | Activa |
 | [`create-invitation`](.github/skills/create-invitation/SKILL.md) | Haya que dar de alta una invitación nueva con una plantilla y un estilo que ya existen | Borrador (se completa cuando exista la aplicación) |
 | [`create-template`](.github/skills/create-template/SKILL.md) | Haya que agregar un estilo a una plantilla existente, o una plantilla para un tipo de evento nuevo (`src/templates/`, `docs/guias/`, `assets/images/templates/`) | Borrador (se completa con la primera plantilla) |
 | [`review-code`](.github/skills/review-code/SKILL.md) | Vayas a aprobar un pull request o termines un cambio propio | Activa |
