@@ -4,6 +4,14 @@ Instrucciones para cualquier agente de IA que trabaje en este repositorio. No de
 
 Proyecto para generar invitaciones digitales: cada invitación es una página web interactiva que informa de un evento. Las invitaciones se organizan por tipo de evento, porque cada tipo tiene su estructura: un baby shower no se arma igual que un cumpleaños, aunque puede parecerse a un casamiento por la selección de regalos.
 
+## Memoria del proyecto
+
+[MEMORY.md](MEMORY.md) guarda lo que tiene que sobrevivir entre sesiones: estado, aprendizajes, decisiones y próximos pasos.
+
+- Leerlo al empezar cada sesión.
+- Actualizarlo al terminar, en el mismo cambio que el trabajo realizado.
+- Mantenerlo en unas 50 líneas: resumir o eliminar lo que ya no aporte. El detalle va en `docs/` o en la spec correspondiente, no en la memoria.
+
 ## Estado actual
 
 El repositorio contiene documentación y la estructura de carpetas. Todavía no hay aplicación: no existe `package.json` ni código en `src/`. No asumir que un archivo existe sin comprobarlo.
@@ -23,6 +31,7 @@ Una sola aplicación sirve todas las invitaciones. No se copia la aplicación ni
 
 Documentos de referencia:
 
+- [MEMORY.md](MEMORY.md): memoria del proyecto entre sesiones.
 - [README.md](README.md): propósito, alcance, reglas de negocio y seguridad.
 - [docs/templates.md](docs/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
 - [docs/architecture.md](docs/architecture.md): capas, rutas y decisiones.

@@ -11,6 +11,7 @@ Las carpetas vacías se versionan con un archivo `.gitkeep`, que se borra cuando
 ```text
 invitaciones-digitales/
 ├── AGENTS.md                 # Instrucciones para agentes de IA
+├── MEMORY.md                 # Memoria del proyecto entre sesiones
 ├── README.md
 ├── docs/
 │   ├── architecture.md

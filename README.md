@@ -277,6 +277,7 @@ El MVP se considerará listo para el evento cuando:
 Este README describe el propósito, el alcance y las decisiones generales del producto. El detalle está en:
 
 - [AGENTS.md](AGENTS.md): instrucciones para agentes de IA, flujo de trabajo, reglas y definición de terminado.
+- [MEMORY.md](MEMORY.md): memoria del proyecto entre sesiones (estado, aprendizajes, decisiones y próximos pasos).
 - [specs/](specs/README.md): specs de arquitectura y de cada invitación.
 - [docs/templates.md](docs/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
 - [skills/](skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
