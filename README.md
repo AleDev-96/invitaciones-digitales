@@ -14,7 +14,7 @@ La idea central es mantener **un solo repositorio y una sola aplicación reutili
 - Publicar una lista de regalos con imágenes y descripciones de referencia.
 - Permitir que los invitados confirmen, rechacen o modifiquen su asistencia.
 - Permitir reservar un regalo y cambiar la elección posteriormente.
-- Contar con un panel privado para consultar confirmaciones y administrar regalos.
+- Poder consultar confirmaciones y reservas de regalos de forma privada (por ahora desde la pantalla de Supabase; el panel propio queda aplazado).
 - Reutilizar el sistema para futuros eventos y clientes.
 - Mantener los costos iniciales de infraestructura lo más bajos posible.
 
@@ -59,9 +59,9 @@ El formulario deberá permitir registrar, como mínimo:
 
 El invitado debe poder volver a su confirmación y modificarla mediante un mecanismo seguro, por ejemplo, un enlace individual de gestión o un token de acceso. No debe poder modificar la respuesta de otra persona.
 
-### Panel privado
+### Panel privado (aplazado)
 
-El panel de administración deberá permitir:
+Cuando se desarrolle, el panel de administración deberá permitir:
 
 - Consultar el total de confirmaciones y la cantidad de asistentes confirmados.
 - Ver confirmados, rechazados y pendientes.
@@ -263,8 +263,8 @@ El MVP se considerará listo para el evento cuando:
 - [ ] El invitado pueda cambiar o cancelar su elección de regalo.
 - [ ] Un invitado pueda confirmar o rechazar la asistencia.
 - [ ] El invitado pueda modificar su respuesta mediante un acceso seguro.
-- [ ] El panel privado muestre los totales y el detalle de las respuestas.
-- [ ] El panel permita consultar y administrar las reservas de regalos.
+- [ ] Quien administra pueda consultar, desde la pantalla de Supabase, los totales y el detalle de las respuestas.
+- [ ] Quien administra pueda consultar y corregir, desde la pantalla de Supabase, las reservas de regalos.
 - [ ] Los datos privados no sean accesibles desde la invitación pública.
 - [ ] Las políticas RLS estén activas y probadas.
 - [ ] La versión de producción funcione desde un enlace público.
@@ -299,7 +299,7 @@ La primera plantilla tendrá una identidad visual de baby shower estilo acuarela
 
 **Etapa:** definición e inicio del MVP.
 
-**Primer entregable:** invitación digital funcional para baby shower, con lista de regalos, confirmación de asistencia y panel privado.
+**Primer entregable:** invitación digital funcional para baby shower, con lista de regalos, confirmación de asistencia y consulta privada de respuestas desde la pantalla de Supabase. El panel propio queda fuera del MVP.
 
 **Principio de trabajo:** construir primero una solución pequeña, clara y segura; luego generalizarla para otros tipos de eventos sin sobredimensionar el sistema.
 

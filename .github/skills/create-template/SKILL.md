@@ -21,7 +21,8 @@ Revisar `docs/product/templates.md` antes de empezar: si la combinación ya exis
 ### Antes de empezar
 
 1. Tener una spec aprobada (molde `docs/specs/_templates/architecture-spec.md`).
-2. Guardar las referencias propias o con permiso en `assets/images/references/<tipo>/`. No se publican.
+2. Registrar la plantilla o el estilo en las tablas de `docs/product/templates.md`, con estado "en desarrollo", antes de escribir código.
+3. Guardar las referencias propias o con permiso en `assets/images/references/<tipo>/`. No se publican.
 
 ### Agregar un estilo
 
@@ -30,7 +31,7 @@ Revisar `docs/product/templates.md` antes de empezar: si la combinación ya exis
 3. Guardar los gráficos finales en `assets/images/templates/<tipo>/<estilo>/` y anotar origen y licencia en `docs/guias/ASSET_SOURCES.md`.
 4. Registrar el `theme_key` donde la aplicación elige el estilo.
 5. Revisar con datos de demostración en un ancho de celular y uno de escritorio, y comprobar que los otros estilos de la plantilla no cambiaron.
-6. Agregar el estilo a la tabla de `docs/product/templates.md`.
+6. Pasar el estilo a "disponible" en la tabla de `docs/product/templates.md`.
 
 ### Agregar una plantilla
 
@@ -38,7 +39,7 @@ Revisar `docs/product/templates.md` antes de empezar: si la combinación ya exis
 2. Componer las secciones con los componentes compartidos (ubicación, cuenta regresiva, regalos, confirmación). Si falta uno, agregarlo como compartido, no dentro de la plantilla.
 3. Registrar el `template_key` donde la aplicación elige la plantilla.
 4. Agregar su primer estilo con los pasos de la sección anterior.
-5. Agregar la plantilla a la tabla de `docs/product/templates.md` y actualizar `docs/architecture/project-structure.md`.
+5. Actualizar el estado de la plantilla en la tabla de `docs/product/templates.md` y actualizar `docs/architecture/project-structure.md`.
 
 ## Reglas / checklist
 
@@ -50,7 +51,7 @@ Revisar `docs/product/templates.md` antes de empezar: si la combinación ya exis
 - [ ] Nombres en inglés, minúsculas y con guiones.
 - [ ] Todo recurso gráfico tiene licencia verificada y anotada.
 - [ ] No se subieron capturas de diseños de terceros.
-- [ ] `docs/product/templates.md` quedó actualizado.
+- [ ] La plantilla o el estilo se registró en `docs/product/templates.md` antes de escribir código, y su estado quedó actualizado al terminar.
 
 ## Ejemplos (bien / mal)
 
