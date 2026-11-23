@@ -55,7 +55,17 @@ La aplicación busca la invitación por slug y renderiza la plantilla indicada e
 
 El detalle de reglas de negocio y seguridad está en el [README](../README.md).
 
+## Decisiones tomadas
+
+- **Panel de administración:** por ahora no se desarrolla. Confirmaciones y reservas se consultan desde la pantalla de Supabase. La ruta `/admin` y `src/features/admin/` quedan reservadas.
+- **Funcionalidades opcionales:** cada invitación activa o desactiva las suyas con datos. El catálogo está en [templates.md](templates.md).
+- **Sin generación de PDF:** el recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.
+- **Ciclo de vida:** al terminar el evento la invitación se despublica y los datos personales de invitados se borran, previa entrega de la lista de confirmados y regalos a quien la encargó. El plazo se define en la spec de arquitectura.
+
 ## Decisiones abiertas
+
+Se cierran en la spec de arquitectura base.
+
 
 1. **Operaciones de invitados.** El invitado no inicia sesión, así que las políticas RLS por sí solas no distinguen a un invitado de otro. Propuesta: funciones de Postgres (RPC) que reciben el token del invitado y validan todo adentro de la base; las tablas `rsvps` y `gift_reservations` quedan sin lectura ni escritura directa para el público.
 2. **Identificación del invitado.** Dos caminos: (a) lista de invitados precargada, con un link individual por invitado; (b) un link único para todos, donde el token se genera al confirmar y se guarda en el navegador. El estado "pendiente" del README solo tiene sentido con (a).
@@ -63,4 +73,4 @@ El detalle de reglas de negocio y seguridad está en el [README](../README.md).
 4. **Vista previa del link en WhatsApp.** Un sitio estático devuelve el mismo título e imagen para todas las invitaciones. Si se quiere una vista previa propia por invitación hace falta una Cloudflare Pages Function que complete las etiquetas Open Graph según el slug.
 5. **Tipo en la URL.** Definir si el primer tramo de la URL es el `template_key` (`/baby-shower/sofia`) o un alias propio (`/cumple/juan`), y si el slug es único en toda la aplicación o solo dentro de su tipo.
 6. **Tema por plantilla.** Los tokens de color de la guía visual son del baby shower. Para sumar otras plantillas tienen que aplicarse por plantilla (por ejemplo, variables CSS bajo un atributo `data-template`) y no como `:root` global.
-7. **Edición de la invitación.** Para el MVP alcanza con cargar los datos de la invitación directamente en Supabase; el formulario de edición en el panel puede quedar para después.
+7. **Pausa del plan gratuito de Supabase.** Verificar si el proyecto se pausa por inactividad y cómo evitar que ocurra cerca de la fecha de un evento.

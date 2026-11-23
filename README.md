@@ -72,6 +72,8 @@ El panel de administración deberá permitir:
 
 El panel y sus datos no deben quedar expuestos públicamente.
 
+> **Decisión vigente:** por ahora no se desarrolla un panel propio. Las confirmaciones y reservas se consultan desde la pantalla de Supabase; el panel se retoma cuando haya necesidad concreta.
+
 ---
 
 ## Arquitectura y tecnologías previstas
@@ -275,6 +277,8 @@ El MVP se considerará listo para el evento cuando:
 Este README describe el propósito, el alcance y las decisiones generales del producto. El detalle está en:
 
 - [AGENTS.md](AGENTS.md): instrucciones para agentes de IA, flujo de trabajo, reglas y definición de terminado.
+- [specs/](specs/README.md): specs de arquitectura y de cada invitación.
+- [docs/templates.md](docs/templates.md): tipos de evento, plantillas, guías de estilo y funcionalidades.
 - [skills/](skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
 - [docs/architecture.md](docs/architecture.md): arquitectura, rutas y decisiones abiertas.
 - [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.

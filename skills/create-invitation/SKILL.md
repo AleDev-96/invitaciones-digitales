@@ -9,9 +9,14 @@ Usar cuando hay que publicar un evento nuevo con una plantilla que ya existe. Si
 
 **Estado:** borrador. Los pasos concretos (tablas, columnas, comandos) se completan cuando existan el esquema y la aplicación.
 
+## Antes de empezar
+
+1. Buscar el tipo de evento en `docs/templates.md` para saber qué plantilla, guía de estilo y funcionalidades le corresponden.
+2. Escribir una spec corta con el molde `specs/_templates/invitation-spec.md` y esperar su aprobación.
+
 ## Datos necesarios
 
-- Tipo de evento y plantilla (`template_key`).
+- Tipo de evento, plantilla (`template_key`) y funcionalidades activas.
 - Slug para la URL.
 - Nombres, mensaje de bienvenida, fecha, horario y ubicación con link de Google Maps.
 - Lista de regalos: nombre, descripción, imágenes y enlace opcional.
@@ -22,7 +27,7 @@ Usar cuando hay que publicar un evento nuevo con una plantilla que ya existe. Si
 1. Verificar que el slug no esté en uso.
 2. Crear el registro de la invitación en Supabase con su `template_key`, en estado inactivo.
 3. Cargar los regalos asociados al `invitation_id`.
-4. Revisar la invitación en un ancho de celular y uno de escritorio.
+4. Revisar la invitación en un ancho de celular y uno de escritorio, y validarla con el responsable del proyecto en la vista previa.
 5. Probar el flujo completo con un invitado de prueba: confirmar, modificar, reservar y cambiar regalo.
 6. Borrar los datos de prueba, activar la invitación y compartir la URL.
 

@@ -30,6 +30,9 @@ Usar antes de aprobar un pull request o al terminar un cambio propio.
 - Se manejan los errores de red con un mensaje claro para el invitado.
 
 **Arquitectura**
+- El cambio corresponde a una spec aprobada, o es un cambio menor.
+- No agrega dependencias, carpetas fuera de la estructura ni servicios sin consulta previa.
+- Una plantilla o funcionalidad nueva figura en `docs/templates.md`.
 - La lógica está en `src/features/` y la plantilla solo compone la parte visual.
 - No hay textos ni datos de un evento escritos dentro de componentes.
 - No hay códigos HEX sueltos; se usan los tokens.

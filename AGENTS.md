@@ -1,47 +1,123 @@
-# AGENTS.md
+# AGENTS.md — Invitaciones Digitales
 
 Instrucciones para cualquier agente de IA que trabaje en este repositorio. No dependen de una herramienta en particular.
 
-## Antes de empezar
-
-1. Leer el [README](README.md): propósito, alcance del MVP, reglas de negocio y seguridad.
-2. Leer el documento de `docs/` que corresponda a la tarea:
-   - [docs/architecture.md](docs/architecture.md): capas, rutas y decisiones abiertas.
-   - [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.
-   - [docs/deployment.md](docs/deployment.md): variables de entorno y publicación.
-   - [docs/project-structure.md](docs/project-structure.md): qué va en cada carpeta.
-   - [docs/design/baby-shower-visual-guide.md](docs/design/baby-shower-visual-guide.md): paleta, tipografía y secciones de la plantilla baby shower.
-3. Si la tarea coincide con una skill de `skills/`, seguir sus pasos.
+Proyecto para generar invitaciones digitales: cada invitación es una página web interactiva que informa de un evento. Las invitaciones se organizan por tipo de evento, porque cada tipo tiene su estructura: un baby shower no se arma igual que un cumpleaños, aunque puede parecerse a un casamiento por la selección de regalos.
 
 ## Estado actual
 
 El repositorio contiene documentación y la estructura de carpetas. Todavía no hay aplicación: no existe `package.json` ni código en `src/`. No asumir que un archivo existe sin comprobarlo.
 
-## Reglas
+## Stack y estructura
 
-- Una sola aplicación para todas las invitaciones. No copiar la aplicación ni crear un repositorio por evento.
-- Las plantillas solo componen la parte visual. La lógica de regalos, RSVP y administración va en `src/features/`.
+Filosofía: **costo 0, inversión 0**. Todo corre en planes gratuitos.
+
+| Parte | Tecnología |
+|---|---|
+| Frontend | React + TypeScript + Vite |
+| Estilos | Tailwind CSS |
+| Datos | Supabase (plan gratuito) |
+| Hosting | Cloudflare Pages (plan gratuito) |
+
+Una sola aplicación sirve todas las invitaciones. No se copia la aplicación ni se crea un repositorio por evento.
+
+Documentos de referencia:
+
+- [README.md](README.md): propósito, alcance, reglas de negocio y seguridad.
+- [docs/templates.md](docs/templates.md): tipos de evento, plantillas, guías de estilo y funcionalidades.
+- [docs/architecture.md](docs/architecture.md): capas, rutas y decisiones.
+- [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.
+- [docs/deployment.md](docs/deployment.md): variables de entorno y publicación.
+- [docs/project-structure.md](docs/project-structure.md): qué va en cada carpeta.
+- [specs/README.md](specs/README.md): cómo se escriben y aprueban las specs.
+- [skills/](skills/): pasos para tareas repetidas.
+
+## Convenciones
+
+- Código simple, priorizando que funcione bien antes que la elegancia.
+- Código en inglés: nombres de archivos, variables, funciones, tablas y columnas.
+- Textos de la interfaz en español. Documentación y specs en español.
+- Cada tipo de evento tiene tres piezas con el mismo nombre (`<tipo>` en inglés y minúsculas, por ejemplo `baby-shower`):
+
+  | Pieza | Ubicación |
+  |---|---|
+  | Guía de estilo | `docs/design/<tipo>-visual-guide.md` |
+  | Plantilla | `src/templates/<tipo>/` |
+  | Gráficos fijos | `public/assets/templates/<tipo>/` |
+
+- Colores y tipografías viven en el tema de la plantilla. No repetir códigos HEX dentro de componentes.
 - Textos y datos de un evento van en los datos de la invitación, no escritos dentro de los componentes.
-- Colores y tipografías se toman de los tokens; no repetir códigos HEX en componentes.
 - Diseñar primero para celular (360 a 430 px de ancho).
-- Reservas y respuestas se validan en la base de datos. Ocultar un botón no es seguridad.
-- Todo cambio de esquema va en una migración nueva dentro de `supabase/migrations/` y actualiza `docs/data-model.md`. No editar migraciones ya aplicadas.
-- No subir credenciales, tokens reales ni datos personales. La clave `service_role` nunca va en el frontend.
-- No subir al repositorio capturas de diseños de terceros ni usar el material de `docs/design/references/` como imágenes del sitio. No descargar recursos gráficos sin verificar su licencia.
+
+## Reglas de dominio
+
+- [docs/templates.md](docs/templates.md) es el único lugar donde se busca qué plantilla, guía de estilo y funcionalidades corresponden a un tipo de evento. Leerlo antes de armar o modificar una invitación.
+- Si el tipo de evento pedido no está en esa tabla, no improvisar: proponer un estilo o preguntar, y registrarlo en la tabla antes de escribir código.
+- Toda plantilla o tipo de evento nuevo se agrega a la tabla en el mismo cambio.
+- Las plantillas solo componen la parte visual. La lógica de las funcionalidades va en `src/features/` y se comparte entre plantillas.
+- Cada invitación activa o desactiva sus funcionalidades con datos, sin código nuevo.
+- Reservas y confirmaciones se validan en la base de datos. Ocultar un botón no es seguridad.
+- La página pública no muestra datos personales de invitados.
+
+## Límites
+
+- Es una tarjeta interactiva cuya finalidad es informar del evento. No es una plataforma.
+- Funcionalidades previstas hoy: regalos sugeridos, confirmación de asistencia, cuenta regresiva y ubicación en Google Maps. Según el tipo de evento, una invitación puede tener todas, algunas o ninguna.
+- La lista no es cerrada, pero una funcionalidad nueva se agrega solo cuando una invitación concreta la necesita, con su spec. No agregar funcionalidades "por si acaso".
+- Las invitaciones son temporales. No hacer desarrollos complejos para algo que dura lo que dura el evento.
+- La aplicación no genera archivos PDF. El recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.
+- Al terminar el evento, la invitación se despublica y los datos personales de los invitados se borran. Antes de borrarlos, se entrega a quien encargó la invitación la lista de confirmados y regalos.
+- En el repositorio quedan plantillas y estilos, nunca datos de personas ni credenciales.
+- No hay panel de administración propio por ahora: las confirmaciones y reservas se consultan desde la pantalla de Supabase.
 - No usar la marca Tomolitech en la interfaz ni en textos públicos.
-- No implementar lo listado como fuera de alcance en el README sin pedido expreso.
-- Una decisión abierta de `docs/architecture.md` se consulta con el responsable del proyecto antes de implementarla.
 
-## Flujo de trabajo
+## Forma de trabajar
 
-- Una rama y un pull request por cambio; no trabajar directo sobre `main`.
-- Si un cambio modifica el comportamiento, la arquitectura o el esquema, actualizar la documentación en el mismo pull request.
-- Borrar el `.gitkeep` de una carpeta cuando recibe contenido real.
+Se trabaja con specs ([specs/README.md](specs/README.md)).
 
-## Definición de terminado
+- **Specs de arquitectura:** las iniciales. Pueden tomar el tiempo que haga falta; es preferible definir bien antes que rehacer un desarrollo costoso.
+- **Specs de invitación:** cortas. Cuando ya existe la plantilla y el estilo, solo definen tipo de evento, estilo, colores, imágenes y funcionalidades.
+- **Cambios menores** (un texto, un color, un ajuste de espaciado): directo, sin spec.
 
-- El cambio cumple lo pedido y respeta las reglas de negocio del README.
-- `npm run build` termina sin errores (cuando exista la aplicación).
-- Los cambios visuales se revisaron en un ancho de celular y uno de escritorio.
-- Los cambios de datos o permisos se probaron también sin sesión iniciada.
-- La documentación afectada quedó actualizada.
+Orden de cada trabajo:
+
+1. Armar, a partir de una spec aprobada.
+2. Validar con el responsable del proyecto en la vista previa.
+3. Testear.
+4. Abrir el pull request. No antes.
+
+Una rama por trabajo; no trabajar directo sobre `main`. Borrar el `.gitkeep` de una carpeta cuando recibe contenido real.
+
+### Siempre
+
+- Guiarse por la guía de estilo del tipo de evento. Si no existe, proponer una o preguntar.
+- Reutilizar plantillas, componentes y funcionalidades existentes antes de crear nuevos.
+- Actualizar la documentación afectada en el mismo cambio.
+
+### Preguntar antes
+
+- Dependencias nuevas.
+- Carpetas o capas fuera de la estructura documentada en `docs/project-structure.md`.
+- Cambios de arquitectura o de servicios, en especial los que puedan generar gastos.
+- Cualquier cosa que comprometa la filosofía de inversión 0.
+
+### Nunca
+
+- Hacer crecer el proyecto sin una necesidad concreta.
+- Implementar sin una spec aprobada, salvo cambios menores.
+- Contratar o activar servicios pagos.
+- Subir credenciales, tokens reales o datos personales. La clave `service_role` de Supabase nunca va en el frontend.
+- Subir capturas de diseños de terceros ni usar recursos gráficos sin licencia verificada.
+- Editar migraciones de base de datos ya aplicadas.
+
+## Verificación
+
+En este proyecto predominan el estilo y la funcionalidad, así que todo cambio visible se valida mirándolo.
+
+- Durante el trabajo: vista previa en el navegador (`npm run dev`), compartida con el responsable del proyecto.
+- En cada pull request: enlace de vista previa de Cloudflare Pages, que se puede abrir desde un celular.
+- Revisar siempre un ancho de celular y uno de escritorio.
+- `npm run build` termina sin errores.
+- Los cambios de datos o permisos se prueban también sin sesión iniciada.
+
+Los comandos y el enlace de vista previa aplican a partir de que exista la aplicación y su despliegue.

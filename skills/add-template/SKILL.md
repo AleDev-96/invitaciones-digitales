@@ -11,6 +11,7 @@ Usar cuando se suma un tipo de evento o un diseño nuevo (cumpleaños, bautismo,
 
 ## Antes de empezar
 
+- Tener una spec de arquitectura aprobada (`specs/_templates/architecture-spec.md`).
 - Tener una guía visual en `docs/design/<plantilla>-visual-guide.md` con paleta, tipografía y orden de secciones.
 - Las referencias propias o con permiso van en `docs/design/references/<plantilla>/` y no se publican. No subir capturas de diseños de terceros.
 
@@ -22,7 +23,7 @@ Usar cuando se suma un tipo de evento o un diseño nuevo (cumpleaños, bautismo,
 4. Registrar el `template_key` nuevo donde la aplicación elige la plantilla.
 5. Guardar los recursos gráficos finales en `public/assets/templates/<plantilla>/` y anotar origen y licencia en `docs/design/ASSET_SOURCES.md`.
 6. Agregar datos de demostración y revisar en un ancho de celular y uno de escritorio.
-7. Actualizar `docs/project-structure.md`.
+7. Agregar la plantilla a la tabla de `docs/templates.md` y actualizar `docs/project-structure.md`.
 
 ## No hacer
 

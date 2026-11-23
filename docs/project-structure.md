@@ -17,9 +17,12 @@ invitaciones-digitales/
 │   ├── data-model.md
 │   ├── deployment.md
 │   ├── project-structure.md
+│   ├── templates.md          # Tipos de evento, plantillas y funcionalidades
 │   └── design/
 │       ├── baby-shower-visual-guide.md
 │       └── references/baby-shower/   # Referencias propias (no se publican)
+├── specs/                    # Specs y sus moldes
+│   └── _templates/
 ├── skills/
 │   ├── create-invitation/
 │   ├── add-template/
@@ -83,6 +86,7 @@ Estos archivos y carpetas todavía no existen. Se crean junto con el código que
 - `docs/design/references/`: inspiración visual; no se publica en la web.
 - `supabase/migrations/`: historial de cambios del esquema de datos.
 - `skills/`: procedimientos paso a paso para tareas repetidas.
+- `specs/`: qué se va a construir y cómo se comprueba, antes de escribir código.
 
 ## Flujo esperado para una nueva invitación
 
