@@ -82,7 +82,7 @@ La propuesta inicial prioriza una aplicación sencilla de desplegar como sitio e
 
 | Parte | Tecnología prevista | Responsabilidad |
 |---|---|---|
-| Frontend | React + TypeScript + Vite | Interfaz pública y panel de administración |
+| Frontend | React + TypeScript + Vite | Interfaz pública (y panel de administración, cuando se desarrolle) |
 | Estilos | Tailwind CSS | Diseño responsive y componentes visuales |
 | Backend y base de datos | Supabase | Persistencia, autenticación y operaciones seguras |
 | Hosting | Cloudflare Pages | Publicación del frontend |
