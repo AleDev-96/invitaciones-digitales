@@ -12,7 +12,7 @@ Vacío por ahora.
 
 ## Decisiones
 
-El detalle está en `docs/architecture.md`.
+El detalle está en `docs/architecture/architecture.md`.
 
 - Costo 0: todo en planes gratuitos (Supabase y Cloudflare Pages).
 - Un solo repositorio y una sola aplicación para todas las invitaciones.
@@ -23,6 +23,7 @@ El detalle está en `docs/architecture.md`.
 - La aplicación no genera PDF: se usa la función de imprimir del navegador.
 - Al terminar el evento se despublica la invitación y se borran los datos de invitados, previa entrega de la lista a quien la encargó.
 - Las capturas de diseños de terceros no se suben al repositorio; la guía de estilo las describe con texto.
+- Estructura de carpetas según la convención habitual del responsable (`.github/`, `assets/`, `docs/`, `src/`, `tests/`); detalle en `docs/architecture/project-structure.md`.
 - Orden de trabajo: spec aprobada, armar, validar, testear y recién después el pull request.
 
 ## Próximos pasos

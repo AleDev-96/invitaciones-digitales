@@ -7,15 +7,15 @@
 ## Evento
 
 - **Tipo de evento:**
-- **Plantilla (`template_key`):** una de `docs/templates.md`
-- **Estilo (`theme_key`):** uno de `docs/templates.md`
+- **Plantilla (`template_key`):** una de `docs/product/templates.md`
+- **Estilo (`theme_key`):** uno de `docs/product/templates.md`
 - **Slug de la URL:**
 - **Fecha del evento:**
 - **Fecha de baja:** cuándo se despublica y se borran los datos de invitados
 
 ## Estilo
 
-- **Guía de estilo:** enlace a `docs/design/<tipo>/<estilo>.md`
+- **Guía de estilo:** enlace a `docs/guias/<tipo>/<estilo>.md`
 - **Cambios respecto de la guía:** "ninguno" si se usa tal cual. Si cambian colores, tipografías o ilustraciones, corresponde un estilo nuevo con su propia spec
 
 ## Imágenes

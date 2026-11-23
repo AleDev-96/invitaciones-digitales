@@ -32,11 +32,11 @@ Usar antes de aprobar un pull request o al terminar un cambio propio.
 **Arquitectura**
 - El cambio corresponde a una spec aprobada, o es un cambio menor.
 - No agrega dependencias, carpetas fuera de la estructura ni servicios sin consulta previa.
-- Una plantilla o funcionalidad nueva figura en `docs/templates.md`.
+- Una plantilla o funcionalidad nueva figura en `docs/product/templates.md`.
 - La lógica está en `src/features/` y la plantilla solo compone la parte visual.
 - No hay textos ni datos de un evento escritos dentro de componentes.
 - No hay códigos HEX sueltos; se usan los tokens.
-- Un cambio de esquema viene con su migración y con `docs/data-model.md` actualizado.
+- Un cambio de esquema viene con su migración y con `docs/architecture/data-model.md` actualizado.
 
 **Interfaz**
 - Funciona en 360 a 430 px de ancho sin scroll horizontal.

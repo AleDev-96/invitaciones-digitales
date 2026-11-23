@@ -31,12 +31,16 @@ Cualquier cambio de tecnología se justifica con una necesidad concreta y se doc
 ## Capas
 
 1. **Motor de invitaciones** (`src/app/`, `src/features/invitations/`): rutas, carga de datos por slug y elección de plantilla.
-2. **Lógica por dominio** (`src/features/`): regalos, RSVP y administración.
+2. **Funcionalidades** (`src/features/`): regalos, confirmación de asistencia y administración. Las reglas de negocio puras van en `src/domain/`, la conexión con Supabase en `src/infra/` y las operaciones que combinan ambas en `src/services/`.
 3. **Componentes compartidos** (`src/components/`): ubicación, cuenta regresiva, lista de regalos, formulario RSVP, botones.
 4. **Plantillas y estilos** (`src/templates/`): estructura de cada tipo de evento y sus estilos. Una plantilla recibe los datos de la invitación y no consulta Supabase por su cuenta.
 5. **Datos de cada invitación** (Supabase): nombres, textos, fechas, imágenes, regalos y configuración.
 
 Agregar una invitación nueva no requiere tocar código: se cargan sus datos y se elige una plantilla existente.
+
+## Imágenes
+
+Los gráficos viven en `assets/images/`, fuera de `src/`. Una imagen se publica solo si el código la importa; el resto de la carpeta, incluidas las referencias, no llega a la web.
 
 ## Rutas
 
@@ -53,13 +57,13 @@ La aplicación busca la invitación por slug y renderiza la plantilla indicada e
 - La clave `service_role` de Supabase nunca llega al frontend.
 - El panel requiere autenticación.
 
-El detalle de reglas de negocio y seguridad está en el [README](../README.md).
+El detalle de reglas de negocio y seguridad está en el [README](../../README.md).
 
 ## Decisiones tomadas
 
 - **Panel de administración:** por ahora no se desarrolla. Confirmaciones y reservas se consultan desde la pantalla de Supabase. La ruta `/admin` y `src/features/admin/` quedan reservadas.
 - **Plantilla y estilo:** una plantilla define la estructura de un tipo de evento y puede tener varios estilos (colores, tipografías, ilustraciones). Cada invitación indica `template_key` y `theme_key`. Varias invitaciones pueden compartir la misma combinación y estar publicadas a la vez.
-- **Funcionalidades opcionales:** cada invitación activa o desactiva las suyas con datos. El catálogo está en [templates.md](templates.md).
+- **Funcionalidades opcionales:** cada invitación activa o desactiva las suyas con datos. El catálogo está en [templates.md](../product/templates.md).
 - **Sin generación de PDF:** el recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.
 - **Ciclo de vida:** al terminar el evento la invitación se despublica y los datos personales de invitados se borran, previa entrega de la lista de confirmados y regalos a quien la encargó. El plazo se define en la spec de arquitectura.
 

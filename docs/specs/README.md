@@ -13,7 +13,7 @@ Los cambios menores (un texto, un color, un ajuste de espaciado) no llevan spec.
 
 ## Nombre y ubicación
 
-`specs/NNN-nombre-corto.md`, con `NNN` correlativo de tres cifras. Ejemplo: `specs/001-arquitectura-base.md`.
+`docs/specs/NNN-nombre-corto.md`, con `NNN` correlativo de tres cifras. Ejemplo: `docs/specs/001-arquitectura-base.md`.
 
 ## Estados
 

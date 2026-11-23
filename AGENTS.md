@@ -33,13 +33,13 @@ Documentos de referencia:
 
 - [MEMORY.md](MEMORY.md): memoria del proyecto entre sesiones.
 - [README.md](README.md): propósito, alcance, reglas de negocio y seguridad.
-- [docs/templates.md](docs/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
-- [docs/architecture.md](docs/architecture.md): capas, rutas y decisiones.
-- [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.
-- [docs/deployment.md](docs/deployment.md): variables de entorno y publicación.
-- [docs/project-structure.md](docs/project-structure.md): qué va en cada carpeta.
-- [specs/README.md](specs/README.md): cómo se escriben y aprueban las specs.
-- [skills/](skills/): pasos para tareas repetidas.
+- [docs/product/templates.md](docs/product/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
+- [docs/architecture/architecture.md](docs/architecture/architecture.md): capas, rutas y decisiones.
+- [docs/architecture/data-model.md](docs/architecture/data-model.md): tablas, restricciones y acceso por rol.
+- [docs/architecture/deployment.md](docs/architecture/deployment.md): variables de entorno y publicación.
+- [docs/architecture/project-structure.md](docs/architecture/project-structure.md): qué va en cada carpeta.
+- [docs/specs/README.md](docs/specs/README.md): cómo se escriben y aprueban las specs.
+- [.github/skills/](.github/skills/): pasos para tareas repetidas.
 
 ## Convenciones
 
@@ -55,8 +55,8 @@ Documentos de referencia:
   |---|---|
   | Estructura de la plantilla | `src/templates/<tipo>/` |
   | Estilo en código | `src/templates/<tipo>/themes/<estilo>/` |
-  | Guía de estilo | `docs/design/<tipo>/<estilo>.md` |
-  | Gráficos fijos | `public/assets/templates/<tipo>/<estilo>/` |
+  | Guía de estilo | `docs/guias/<tipo>/<estilo>.md` |
+  | Gráficos fijos | `assets/images/templates/<tipo>/<estilo>/` |
 
 - Un pedido que solo cambia el aspecto es un estilo nuevo. Un pedido que cambia la estructura es una plantilla nueva.
 - Colores y tipografías viven en el estilo y no afectan a los demás estilos. No repetir códigos HEX dentro de componentes.
@@ -65,7 +65,7 @@ Documentos de referencia:
 
 ## Reglas de dominio
 
-- [docs/templates.md](docs/templates.md) es el único lugar donde se busca qué plantilla, estilos y funcionalidades corresponden a un tipo de evento. Leerlo antes de armar o modificar una invitación.
+- [docs/product/templates.md](docs/product/templates.md) es el único lugar donde se busca qué plantilla, estilos y funcionalidades corresponden a un tipo de evento. Leerlo antes de armar o modificar una invitación.
 - Si el tipo de evento o el estilo pedido no está en esa tabla, no improvisar: proponer un estilo o preguntar, y registrarlo en la tabla antes de escribir código.
 - Toda plantilla o estilo nuevo se agrega a la tabla en el mismo cambio.
 - Las plantillas solo componen la parte visual. La lógica de las funcionalidades va en `src/features/` y se comparte entre plantillas.
@@ -87,7 +87,7 @@ Documentos de referencia:
 
 ## Forma de trabajar
 
-Se trabaja con specs ([specs/README.md](specs/README.md)).
+Se trabaja con specs ([docs/specs/README.md](docs/specs/README.md)).
 
 - **Specs de arquitectura:** las iniciales. Pueden tomar el tiempo que haga falta; es preferible definir bien antes que rehacer un desarrollo costoso.
 - **Specs de invitación:** cortas. Cuando ya existe la plantilla y el estilo, solo definen tipo de evento, estilo, imágenes y funcionalidades.
@@ -108,9 +108,9 @@ Una rama por trabajo; no trabajar directo sobre `main`. Borrar el `.gitkeep` de 
 |---|---|---|
 | Estructura de la plantilla | `src/templates/<tipo>/` | Tipo de evento |
 | Estilo en código | `src/templates/<tipo>/themes/<estilo>/` | Estilo |
-| Guía de estilo | `docs/design/<tipo>/<estilo>.md` | Estilo |
-| Gráficos fijos | `public/assets/templates/<tipo>/<estilo>/` | Estilo |
-| Pedido de la invitación | `specs/NNN-nombre-corto.md` | Invitación |
+| Guía de estilo | `docs/guias/<tipo>/<estilo>.md` | Estilo |
+| Gráficos fijos | `assets/images/templates/<tipo>/<estilo>/` | Estilo |
+| Pedido de la invitación | `docs/specs/NNN-nombre-corto.md` | Invitación |
 | Textos, fechas, regalos y fotos del evento | Supabase, asociados al `invitation_id` | Invitación |
 
 En el repositorio hay carpetas por tipo de evento y por estilo, no por cliente. Los datos de cada invitación viven en Supabase y no se versionan.
@@ -125,8 +125,8 @@ Varias invitaciones pueden armarse y publicarse a la vez sobre la misma aplicaci
 - Cada rama toca solo las carpetas de su plantilla o de su estilo. Así las ramas no chocan entre sí.
 - Dos invitaciones con la misma plantilla y el mismo estilo no requieren código nuevo: se cargan los datos de cada una.
 - Varias invitaciones pueden estar publicadas a la vez. Publicar o dar de baja una no afecta a las demás.
-- Cada invitación tiene un estado: borrador, publicada o dada de baja. El índice de `specs/README.md` indica cuáles están publicadas.
-- Un cambio en lo compartido (`src/features/`, `src/components/`, `src/app/`, `src/lib/`) afecta a todas las invitaciones publicadas. Va en su propio pull request, separado del de una invitación, y se revisa contra todas las plantillas disponibles.
+- Cada invitación tiene un estado: borrador, publicada o dada de baja. El índice de `docs/specs/README.md` indica cuáles están publicadas.
+- Un cambio en lo compartido (`src/features/`, `src/components/`, `src/app/`, `src/domain/`, `src/services/`, `src/infra/`) afecta a todas las invitaciones publicadas. Va en su propio pull request, separado del de una invitación, y se revisa contra todas las plantillas disponibles.
 - Integrar una rama publica la aplicación completa. Antes de integrar, comprobar que las invitaciones ya publicadas siguen viéndose bien.
 
 ### Siempre
@@ -138,7 +138,7 @@ Varias invitaciones pueden armarse y publicarse a la vez sobre la misma aplicaci
 ### Preguntar antes
 
 - Dependencias nuevas.
-- Carpetas o capas fuera de la estructura documentada en `docs/project-structure.md`.
+- Carpetas o capas fuera de la estructura documentada en `docs/architecture/project-structure.md`.
 - Cambios de arquitectura o de servicios, en especial los que puedan generar gastos.
 - Cualquier cosa que comprometa la filosofía de inversión 0.
 

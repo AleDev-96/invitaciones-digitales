@@ -145,13 +145,13 @@ Para una “cuna evolutiva”, por ejemplo, especificar modelo o característica
 
 | Qué | Dónde |
 |---|---|
-| Esta guía | `docs/design/baby-shower/sage-geese.md` |
+| Esta guía | `docs/guias/baby-shower/sage-geese.md` |
 | Colores, tipografías e ilustraciones en código | `src/templates/baby-shower/themes/sage-geese/` |
-| Gráficos finales del estilo | `public/assets/templates/baby-shower/sage-geese/` |
+| Gráficos finales del estilo | `assets/images/templates/baby-shower/sage-geese/` |
 | Estructura y secciones (compartidas por todos los estilos de baby shower) | `src/templates/baby-shower/` |
 | Fotos y regalos de cada evento | Supabase, como contenido de la invitación |
 
-Mantener `docs/design/ASSET_SOURCES.md` actualizado con origen, licencia, permiso comercial y atribución requerida de cada recurso.
+Mantener `docs/guias/ASSET_SOURCES.md` actualizado con origen, licencia, permiso comercial y atribución requerida de cada recurso.
 
 ## 9. Referencias de origen
 

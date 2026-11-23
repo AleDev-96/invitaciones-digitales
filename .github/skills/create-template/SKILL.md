@@ -1,5 +1,5 @@
 ---
-name: add-template
+name: create-template
 description: Agregar un estilo nuevo a una plantilla existente, o una plantilla nueva para otro tipo de evento, reutilizando el motor y los componentes existentes.
 ---
 
@@ -14,21 +14,21 @@ description: Agregar un estilo nuevo a una plantilla existente, o una plantilla 
 | Mismo tipo de evento con otro aspecto (por ejemplo, baby shower de varón) | Un estilo |
 | Tipo de evento nuevo o estructura distinta (cumpleaños, graduación) | Una plantilla con su primer estilo |
 
-Revisar `docs/templates.md` antes de empezar: si la combinación ya existe, no se agrega nada y se sigue `skills/create-invitation/`.
+Revisar `docs/product/templates.md` antes de empezar: si la combinación ya existe, no se agrega nada y se sigue `.github/skills/create-invitation/`.
 
 ## Antes de empezar
 
-- Tener una spec aprobada (`specs/_templates/architecture-spec.md`).
-- Las referencias propias o con permiso van en `docs/design/references/<tipo>/` y no se publican. No subir capturas de diseños de terceros.
+- Tener una spec aprobada (`docs/specs/_templates/architecture-spec.md`).
+- Las referencias propias o con permiso van en `assets/images/references/<tipo>/` y no se publican. No subir capturas de diseños de terceros.
 
 ## Agregar un estilo
 
-1. Escribir la guía en `docs/design/<tipo>/<estilo>.md` con paleta, tipografía e ilustraciones. Usar `docs/design/baby-shower/sage-geese.md` como modelo.
+1. Escribir la guía en `docs/guias/<tipo>/<estilo>.md` con paleta, tipografía e ilustraciones. Usar `docs/guias/baby-shower/sage-geese.md` como modelo.
 2. Crear `src/templates/<tipo>/themes/<estilo>/` con los colores, tipografías e ilustraciones del estilo, sin afectar a los demás.
-3. Guardar los gráficos finales en `public/assets/templates/<tipo>/<estilo>/` y anotar origen y licencia en `docs/design/ASSET_SOURCES.md`.
+3. Guardar los gráficos finales en `assets/images/templates/<tipo>/<estilo>/` y anotar origen y licencia en `docs/guias/ASSET_SOURCES.md`.
 4. Registrar el `theme_key` donde la aplicación elige el estilo.
 5. Revisar con datos de demostración en un ancho de celular y uno de escritorio, y comprobar que los otros estilos de la plantilla no cambiaron.
-6. Agregar el estilo a la tabla de `docs/templates.md`.
+6. Agregar el estilo a la tabla de `docs/product/templates.md`.
 
 Un estilo no cambia la estructura ni la lógica. Si hace falta cambiarlas, es una plantilla nueva.
 
@@ -38,7 +38,7 @@ Un estilo no cambia la estructura ni la lógica. Si hace falta cambiarlas, es un
 2. Componer las secciones con los componentes compartidos (ubicación, cuenta regresiva, regalos, confirmación). Si falta uno, agregarlo como compartido, no dentro de la plantilla.
 3. Registrar el `template_key` donde la aplicación elige la plantilla.
 4. Agregar su primer estilo con los pasos de la sección anterior.
-5. Agregar la plantilla a la tabla de `docs/templates.md` y actualizar `docs/project-structure.md`.
+5. Agregar la plantilla a la tabla de `docs/product/templates.md` y actualizar `docs/architecture/project-structure.md`.
 
 ## No hacer
 

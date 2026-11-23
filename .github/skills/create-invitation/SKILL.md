@@ -5,14 +5,14 @@ description: Dar de alta una invitación nueva usando una plantilla existente, s
 
 # Crear una invitación
 
-Usar cuando hay que publicar un evento nuevo con una plantilla que ya existe. Si la plantilla no existe, seguir primero `skills/add-template/`.
+Usar cuando hay que publicar un evento nuevo con una plantilla que ya existe. Si la plantilla no existe, seguir primero `.github/skills/create-template/`.
 
 **Estado:** borrador. Los pasos concretos (tablas, columnas, comandos) se completan cuando existan el esquema y la aplicación.
 
 ## Antes de empezar
 
-1. Buscar el tipo de evento en `docs/templates.md` para saber qué plantilla, estilos y funcionalidades le corresponden. Si el estilo pedido no existe, seguir primero `skills/add-template/`.
-2. Escribir una spec corta con el molde `specs/_templates/invitation-spec.md` y esperar su aprobación.
+1. Buscar el tipo de evento en `docs/product/templates.md` para saber qué plantilla, estilos y funcionalidades le corresponden. Si el estilo pedido no existe, seguir primero `.github/skills/create-template/`.
+2. Escribir una spec corta con el molde `docs/specs/_templates/invitation-spec.md` y esperar su aprobación.
 
 ## Datos necesarios
 
