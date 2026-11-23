@@ -28,6 +28,7 @@ invitaciones-digitales/
 │           └── baby-shower/
 │               └── sage-geese/       # Gráficos de un estilo
 ├── docs/
+│   ├── CONSTITUTION.md       # Principios innegociables
 │   ├── architecture/         # Arquitectura, modelo de datos, despliegue y esta estructura
 │   ├── flows/                # Flujos de uso (pendiente)
 │   ├── guias/

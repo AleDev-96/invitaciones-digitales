@@ -9,7 +9,7 @@ Este archivo define **qué skills hay y cuándo es obligatorio usarlas**. Las sk
 1. **Antes de empezar una tarea**, revisá la tabla de abajo.
 2. Si la tarea coincide con el **disparador** de una skill, **leé su `SKILL.md` y seguilo**. Si coincide con varias, aplicalas todas.
 3. Al terminar, indicá en tu resumen qué skills aplicaste.
-4. Si una skill choca con [AGENTS.md](AGENTS.md) o con la spec, **gana AGENTS.md o la spec**: avisá del conflicto para corregir la skill.
+4. Si una skill choca con la [constitución](docs/CONSTITUTION.md), con [AGENTS.md](AGENTS.md) o con la spec, **ganan la constitución, AGENTS.md o la spec**: avisá del conflicto para corregir la skill.
 
 ## Skills disponibles
 

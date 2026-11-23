@@ -31,6 +31,7 @@ Una sola aplicación sirve todas las invitaciones. No se copia la aplicación ni
 
 Documentos de referencia:
 
+- [docs/CONSTITUTION.md](docs/CONSTITUTION.md): los 6 principios innegociables. Ganan ante cualquier spec, skill o cambio.
 - [MEMORY.md](MEMORY.md): memoria del proyecto entre sesiones.
 - [README.md](README.md): propósito, alcance, reglas de negocio y seguridad.
 - [docs/product/templates.md](docs/product/templates.md): tipos de evento, plantillas, estilos y funcionalidades.

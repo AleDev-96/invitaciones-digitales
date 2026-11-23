@@ -23,10 +23,11 @@ Las specs iniciales son largas y pueden tomar el tiempo que haga falta. Si dudá
 
 ## Flujo
 
-Spec → Clarificación → Diseño técnico y tareas (solo spec larga) → Armado → Validación → Test → Pull request
+[`CONSTITUTION.md`](../../../docs/CONSTITUTION.md) → Spec → Clarificación → Diseño técnico y tareas (solo spec larga) → Armado → Validación → Test → Pull request
 
 - **Nunca pases de la spec al armado sin la aprobación explícita del responsable.** En una spec larga, el diseño técnico y las tareas se aprueban junto con la spec o en una segunda pasada.
 - **Con la spec aprobada, el armado se delega:** se hacen todas las tareas en orden, sin pedir ok entre tareas, y se frena solo en los casos de "Preguntar antes" de [`AGENTS.md`](../../../AGENTS.md).
+- **Ninguna spec puede contradecir la constitución.** Si un pedido choca con un principio, frená y avisá.
 - **La spec manda:** si algo no está en la spec, no se implementa. Si falta una decisión, frená y preguntá.
 - **Un cambio de requisitos** se hace primero en la spec y después en el código. Se anota en el historial de cambios de la spec.
 - Al cambiar de estado, actualizá el encabezado `**Estado:**` de la spec y el índice de `docs/specs/README.md`. Si hubo decisiones o aprendizajes, también `MEMORY.md`.
