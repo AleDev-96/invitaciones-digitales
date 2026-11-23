@@ -1,16 +1,27 @@
-# Tipos de evento y plantillas
+# Tipos de evento, plantillas y estilos
 
-Índice único para saber qué plantilla, guía de estilo y funcionalidades corresponden a cada tipo de evento. Se actualiza en el mismo cambio que agrega o modifica una plantilla.
+Índice único para saber qué plantilla, estilos y funcionalidades corresponden a cada tipo de evento. Se actualiza en el mismo cambio que agrega o modifica una plantilla o un estilo.
+
+- **Plantilla:** estructura de un tipo de evento (secciones y orden). Una por tipo.
+- **Estilo:** colores, tipografías e ilustraciones. Varios por plantilla.
+
+Una invitación se define con una plantilla (`template_key`) y un estilo (`theme_key`). Varias invitaciones pueden usar la misma combinación.
 
 ## Plantillas
 
-| Tipo de evento | `template_key` | Guía de estilo | Plantilla | Gráficos | Estado |
-|---|---|---|---|---|---|
-| Baby shower | `baby-shower` | [baby-shower-visual-guide.md](design/baby-shower-visual-guide.md) | `src/templates/baby-shower/` | `public/assets/templates/baby-shower/` | Guía lista; plantilla sin implementar |
+| Tipo de evento | `template_key` | Estructura | Estado |
+|---|---|---|---|
+| Baby shower | `baby-shower` | `src/templates/baby-shower/` | Sin implementar |
 
-Estados posibles: guía lista, plantilla en desarrollo, plantilla disponible.
+## Estilos
 
-Si el tipo de evento pedido no figura en la tabla, seguir `skills/add-template/`.
+| `template_key` | `theme_key` | Descripción | Guía de estilo | Código | Gráficos | Estado |
+|---|---|---|---|---|---|---|
+| `baby-shower` | `sage-geese` | Acuarela con gansos, verde salvia, marfil y taupe | [sage-geese.md](design/baby-shower/sage-geese.md) | `src/templates/baby-shower/themes/sage-geese/` | `public/assets/templates/baby-shower/sage-geese/` | Guía lista; sin implementar |
+
+Estados posibles: guía lista, en desarrollo, disponible.
+
+Si la plantilla o el estilo pedido no figura en estas tablas, seguir `skills/add-template/`.
 
 ## Funcionalidades
 

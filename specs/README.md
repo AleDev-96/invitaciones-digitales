@@ -6,7 +6,7 @@ Una spec describe qué se va a construir y cómo se comprueba que quedó bien, a
 
 | Tipo | Cuándo | Molde | Extensión esperada |
 |---|---|---|---|
-| Arquitectura | Decisiones de base, una funcionalidad nueva o una plantilla nueva | [_templates/architecture-spec.md](_templates/architecture-spec.md) | La que haga falta |
+| Arquitectura | Decisiones de base, una funcionalidad nueva, una plantilla nueva o un estilo nuevo | [_templates/architecture-spec.md](_templates/architecture-spec.md) | La que haga falta |
 | Invitación | Una invitación nueva con plantilla y estilo ya existentes | [_templates/invitation-spec.md](_templates/invitation-spec.md) | Una página |
 
 Los cambios menores (un texto, un color, un ajuste de espaciado) no llevan spec.
@@ -38,6 +38,8 @@ Los cambios menores (un texto, un color, un ajuste de espaciado) no llevan spec.
 
 ## Índice
 
-| N.º | Spec | Tipo | Estado |
-|---|---|---|---|
-| | Todavía no hay specs | | |
+| N.º | Spec | Tipo | Estado de la spec | Invitación |
+|---|---|---|---|---|
+| | Todavía no hay specs | | | |
+
+La columna "Invitación" aplica solo a specs de invitación: borrador, publicada o dada de baja.

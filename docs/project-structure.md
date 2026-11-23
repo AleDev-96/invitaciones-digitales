@@ -17,9 +17,10 @@ invitaciones-digitales/
 │   ├── data-model.md
 │   ├── deployment.md
 │   ├── project-structure.md
-│   ├── templates.md          # Tipos de evento, plantillas y funcionalidades
+│   ├── templates.md          # Tipos de evento, plantillas, estilos y funcionalidades
 │   └── design/
-│       ├── baby-shower-visual-guide.md
+│       ├── baby-shower/
+│       │   └── sage-geese.md         # Guía de un estilo
 │       └── references/baby-shower/   # Referencias propias (no se publican)
 ├── specs/                    # Specs y sus moldes
 │   └── _templates/
@@ -28,6 +29,7 @@ invitaciones-digitales/
 │   ├── add-template/
 │   └── review-code/
 ├── public/assets/templates/baby-shower/
+│   └── sage-geese/           # Gráficos de un estilo
 ├── src/
 │   ├── app/                  # App, rutas y configuración
 │   ├── components/
@@ -37,7 +39,8 @@ invitaciones-digitales/
 │   │   ├── rsvp/             # Confirmación y modificación de asistencia
 │   │   └── admin/            # Panel privado
 │   ├── templates/
-│   │   └── baby-shower/
+│   │   └── baby-shower/      # Estructura de la plantilla
+│   │       └── themes/sage-geese/    # Un estilo
 │   ├── lib/
 │   └── styles/
 └── supabase/migrations/      # Cambios versionados de base de datos
@@ -51,7 +54,7 @@ Estos archivos y carpetas todavía no existen. Se crean junto con el código que
 ├── package.json              # Con el scaffold de Vite
 ├── .env.example
 ├── docs/design/ASSET_SOURCES.md      # Con el primer recurso gráfico final
-├── public/assets/templates/baby-shower/
+├── public/assets/templates/baby-shower/sage-geese/
 │   ├── backgrounds/
 │   ├── decorations/
 │   ├── illustrations/
@@ -63,8 +66,8 @@ Estos archivos y carpetas todavía no existen. Se crean junto con el código que
     ├── templates/
     │   ├── baby-shower/
     │   │   ├── BabyShowerTemplate.tsx
-    │   │   ├── theme.ts
-    │   │   └── sections/
+    │   │   ├── sections/
+    │   │   └── themes/sage-geese/theme.ts
     │   └── shared/
     ├── lib/supabase/         # Cliente y utilidades de Supabase
     ├── data/demo/            # Datos ficticios para desarrollo
@@ -79,10 +82,11 @@ Estos archivos y carpetas todavía no existen. Se crean junto con el código que
 - `components/ui/`: componentes visuales genéricos.
 - `components/shared/`: componentes compartidos entre plantillas.
 - `features/`: lógica por dominio (invitaciones, regalos, RSVP y administración).
-- `templates/`: composición visual específica de cada evento.
+- `templates/<tipo>/`: estructura de un tipo de evento (secciones y orden).
+- `templates/<tipo>/themes/<estilo>/`: colores, tipografías e ilustraciones de un estilo.
 - `lib/supabase/`: conexión con Supabase.
 - `data/demo/`: datos falsos para previsualización y pruebas.
-- `public/assets/templates/`: gráficos fijos que forman parte del diseño reutilizable.
+- `public/assets/templates/<tipo>/<estilo>/`: gráficos fijos de un estilo.
 - `docs/design/references/`: inspiración visual; no se publica en la web.
 - `supabase/migrations/`: historial de cambios del esquema de datos.
 - `skills/`: procedimientos paso a paso para tareas repetidas.
@@ -91,7 +95,7 @@ Estos archivos y carpetas todavía no existen. Se crean junto con el código que
 ## Flujo esperado para una nueva invitación
 
 1. Crear el registro del evento en Supabase.
-2. Asignar un `template_key`, por ejemplo `baby-shower`.
+2. Asignar un `template_key` y un `theme_key`, por ejemplo `baby-shower` y `sage-geese`.
 3. Guardar los datos, tema, regalos, fecha y ubicación de ese evento.
 4. Activar la invitación y compartir su URL única, por ejemplo `/baby-shower/sofia`.
 5. La aplicación busca el evento por slug y renderiza la plantilla correspondiente.
@@ -101,7 +105,7 @@ Las reservas y las respuestas RSVP deben quedar asociadas al `invitation_id` cor
 ## Separación de recursos
 
 1. **Referencias:** material de inspiración propio o con permiso en `docs/design/references/`. No subir capturas de diseños de terceros: el repositorio es público.
-2. **Decoración fija:** recursos finales y reutilizables en `public/assets/templates/`.
+2. **Decoración fija:** recursos finales y reutilizables en `public/assets/templates/<tipo>/<estilo>/`.
 3. **Contenido del evento:** fotos y productos particulares guardados como URLs/datos o en Supabase Storage.
 
 No publicar las referencias como recursos finales. Optimizar las imágenes finales para dispositivos móviles y registrar sus licencias.

@@ -6,7 +6,7 @@
 
 | Tabla | Contenido |
 |---|---|
-| `invitations` | Tipo de evento, `template_key`, slug, estado, fecha, ubicación y configuración general |
+| `invitations` | Tipo de evento, `template_key`, `theme_key`, slug, estado, fecha, ubicación y configuración general |
 | `gifts` | Regalos de una invitación: nombre, descripción, imágenes, enlace opcional |
 | `gift_reservations` | Qué regalo reservó quién, con los datos mínimos para gestionar la reserva |
 | `rsvps` | Respuesta de asistencia, cantidad de asistentes y comentario |

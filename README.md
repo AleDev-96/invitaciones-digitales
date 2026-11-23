@@ -278,19 +278,19 @@ Este README describe el propósito, el alcance y las decisiones generales del pr
 
 - [AGENTS.md](AGENTS.md): instrucciones para agentes de IA, flujo de trabajo, reglas y definición de terminado.
 - [specs/](specs/README.md): specs de arquitectura y de cada invitación.
-- [docs/templates.md](docs/templates.md): tipos de evento, plantillas, guías de estilo y funcionalidades.
+- [docs/templates.md](docs/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
 - [skills/](skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
 - [docs/architecture.md](docs/architecture.md): arquitectura, rutas y decisiones abiertas.
 - [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.
 - [docs/deployment.md](docs/deployment.md): variables de entorno y publicación.
 - [docs/project-structure.md](docs/project-structure.md): estructura de carpetas y qué va en cada una.
-- [docs/design/baby-shower-visual-guide.md](docs/design/baby-shower-visual-guide.md): guía visual de la plantilla baby shower.
+- [docs/design/baby-shower/sage-geese.md](docs/design/baby-shower/sage-geese.md): guía del primer estilo de baby shower.
 
 ---
 
 ## Identidad visual y referencias
 
-La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/design/baby-shower-visual-guide.md`. Las capturas de inspiración originales no se guardan en el repositorio; la guía las describe.
+La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/design/baby-shower/sage-geese.md`. Las capturas de inspiración originales no se guardan en el repositorio; la guía las describe.
 
 ## Estado del proyecto
 
