@@ -157,7 +157,7 @@ Las operaciones de reservar, liberar y modificar regalos o confirmaciones deben 
 
 ```bash
 git clone <URL_DEL_REPOSITORIO>
-cd tomolitech-invitaciones
+cd invitaciones-digitales
 npm install
 ```
 
@@ -285,6 +285,10 @@ Los archivos anteriores se incorporarán gradualmente. No asumir que existen has
 
 ---
 
+## Identidad visual y referencias
+
+La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual y las capturas de inspiración están en `docs/design/baby-shower-visual-guide.md` y `docs/design/references/baby-shower/`. Las capturas son referencias, no recursos para publicar.
+
 ## Estado del proyecto
 
 **Etapa:** definición e inicio del MVP.
@@ -295,8 +299,10 @@ Los archivos anteriores se incorporarán gradualmente. No asumir que existen has
 
 ---
 
-## Marca y propiedad
+## Nombre y organización del proyecto
 
-Proyecto desarrollado por **Tomolitech**.
+**Nombre del proyecto:** Invitaciones Digitales.
 
-El código fuente, las plantillas y los componentes deben mantenerse organizados para facilitar su reutilización y evolución dentro del proyecto.
+Es un proyecto independiente. No utilizar la marca Tomolitech en la interfaz, los textos públicos ni la identidad visual, salvo que se solicite expresamente en el futuro.
+
+**Repositorio recomendado:** `invitaciones-digitales`.
