@@ -14,7 +14,7 @@ La idea central es mantener **un solo repositorio y una sola aplicación reutili
 - Publicar una lista de regalos con imágenes y descripciones de referencia.
 - Permitir que los invitados confirmen, rechacen o modifiquen su asistencia.
 - Permitir reservar un regalo y cambiar la elección posteriormente.
-- Contar con un panel privado para consultar confirmaciones y administrar regalos.
+- Poder consultar confirmaciones y reservas de regalos de forma privada, desde la pantalla de Supabase.
 - Reutilizar el sistema para futuros eventos y clientes.
 - Mantener los costos iniciales de infraestructura lo más bajos posible.
 
@@ -59,18 +59,18 @@ El formulario deberá permitir registrar, como mínimo:
 
 El invitado debe poder volver a su confirmación y modificarla mediante un mecanismo seguro, por ejemplo, un enlace individual de gestión o un token de acceso. No debe poder modificar la respuesta de otra persona.
 
-### Panel privado
+### Consulta y administración
 
-El panel de administración deberá permitir:
+La aplicación no tiene panel de administración. Quien administra usa la pantalla de Supabase para:
 
 - Consultar el total de confirmaciones y la cantidad de asistentes confirmados.
 - Ver confirmados, rechazados y pendientes.
 - Consultar los datos de cada respuesta.
 - Ver qué regalos están disponibles y cuáles fueron reservados.
 - Liberar o corregir una reserva cuando sea necesario.
-- Editar los datos de la invitación.
+- Cargar y editar los datos de la invitación.
 
-El panel y sus datos no deben quedar expuestos públicamente.
+Estos datos no deben quedar expuestos públicamente.
 
 ---
 
@@ -80,9 +80,9 @@ La propuesta inicial prioriza una aplicación sencilla de desplegar como sitio e
 
 | Parte | Tecnología prevista | Responsabilidad |
 |---|---|---|
-| Frontend | React + TypeScript + Vite | Interfaz pública y panel de administración |
+| Frontend | React + TypeScript + Vite | Interfaz pública de las invitaciones |
 | Estilos | Tailwind CSS | Diseño responsive y componentes visuales |
-| Backend y base de datos | Supabase | Persistencia, autenticación y operaciones seguras |
+| Backend y base de datos | Supabase | Persistencia y operaciones seguras |
 | Hosting | Cloudflare Pages | Publicación del frontend |
 | Código fuente | GitHub | Versionado y colaboración con agentes de IA |
 
@@ -119,7 +119,7 @@ Estas reglas deben respetarse en la interfaz y, especialmente, en el backend:
 4. La reserva y su liberación deben validarse en el backend o en la base de datos, no solamente en el navegador.
 5. Si un invitado cambia de regalo, la reserva anterior debe liberarse y la nueva debe confirmarse de forma segura.
 6. Un invitado solo puede consultar o modificar su propia respuesta mediante un mecanismo de autorización válido.
-7. El panel administrativo requiere autenticación y permisos específicos.
+7. Los datos de administración solo se consultan y modifican desde la pantalla de Supabase, con la cuenta de quien administra.
 8. Los contadores deben calcularse a partir de los registros guardados, no de valores mantenidos únicamente en el frontend.
 9. Las operaciones deben contemplar errores de red, doble clic y solicitudes simultáneas.
 10. No se deben publicar datos personales de invitados en la página pública.
@@ -135,7 +135,6 @@ Aunque el primer uso sea un evento familiar, el proyecto debe aplicar buenas pr�
 - No confiar en ocultar botones o pantallas como mecanismo de seguridad.
 - Nunca incluir la clave `service_role` de Supabase en el frontend ni en variables `VITE_*`.
 - Las claves públicas utilizadas en el navegador solo son aceptables junto con políticas RLS correctamente configuradas.
-- Proteger el panel administrativo con autenticación.
 - Evitar que los invitados puedan listar respuestas o datos privados de otras personas.
 - No guardar más información personal de la necesaria.
 - No incluir credenciales, tokens reales ni datos privados en el repositorio.
@@ -227,7 +226,6 @@ El esquema definitivo debe diseñarse y documentarse en migraciones SQL. Como pu
 - **gifts:** regalos asociados a una invitación, con descripción, imágenes, enlace y disponibilidad.
 - **gift_reservations:** relación entre un regalo y quien lo reservó, con los datos mínimos necesarios para gestionar la reserva.
 - **rsvps:** respuestas de asistencia y cantidad de asistentes.
-- **admin_users / perfiles:** usuarios autorizados a administrar invitaciones, según el diseño de autenticación elegido.
 
 Todas las entidades dependientes de un evento deben referenciar `invitation_id`. El esquema debe impedir reservas duplicadas y definir con claridad qué información puede leer o modificar cada rol.
 
@@ -261,8 +259,8 @@ El MVP se considerará listo para el evento cuando:
 - [ ] El invitado pueda cambiar o cancelar su elección de regalo.
 - [ ] Un invitado pueda confirmar o rechazar la asistencia.
 - [ ] El invitado pueda modificar su respuesta mediante un acceso seguro.
-- [ ] El panel privado muestre los totales y el detalle de las respuestas.
-- [ ] El panel permita consultar y administrar las reservas de regalos.
+- [ ] Quien administra pueda consultar, desde la pantalla de Supabase, los totales y el detalle de las respuestas.
+- [ ] Quien administra pueda consultar y corregir, desde la pantalla de Supabase, las reservas de regalos.
 - [ ] Los datos privados no sean accesibles desde la invitación pública.
 - [ ] Las políticas RLS estén activas y probadas.
 - [ ] La versión de producción funcione desde un enlace público.
@@ -275,24 +273,29 @@ El MVP se considerará listo para el evento cuando:
 Este README describe el propósito, el alcance y las decisiones generales del producto. El detalle está en:
 
 - [AGENTS.md](AGENTS.md): instrucciones para agentes de IA, flujo de trabajo, reglas y definición de terminado.
-- [skills/](skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
-- [docs/architecture.md](docs/architecture.md): arquitectura, rutas y decisiones abiertas.
-- [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.
-- [docs/deployment.md](docs/deployment.md): variables de entorno y publicación.
-- [docs/project-structure.md](docs/project-structure.md): estructura de carpetas y qué va en cada una.
-- [docs/design/baby-shower-visual-guide.md](docs/design/baby-shower-visual-guide.md): guía visual de la plantilla baby shower.
+- [docs/CONSTITUTION.md](docs/CONSTITUTION.md): principios innegociables del proyecto.
+- [MEMORY.md](MEMORY.md): memoria del proyecto entre sesiones (estado, aprendizajes, decisiones y próximos pasos).
+- [docs/specs/](docs/specs/README.md): specs de arquitectura y de cada invitación.
+- [docs/product/templates.md](docs/product/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
+- [SKILLS.md](SKILLS.md): qué skills hay y cuándo usarlas.
+- [.github/skills/](.github/skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
+- [docs/architecture/architecture.md](docs/architecture/architecture.md): arquitectura, rutas y decisiones abiertas.
+- [docs/architecture/data-model.md](docs/architecture/data-model.md): tablas, restricciones y acceso por rol.
+- [docs/architecture/deployment.md](docs/architecture/deployment.md): variables de entorno y publicación.
+- [docs/architecture/project-structure.md](docs/architecture/project-structure.md): estructura de carpetas y qué va en cada una.
+- [docs/guias/baby-shower/sage-geese.md](docs/guias/baby-shower/sage-geese.md): guía del primer estilo de baby shower.
 
 ---
 
 ## Identidad visual y referencias
 
-La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/design/baby-shower-visual-guide.md`. Las capturas de inspiración originales no se guardan en el repositorio; la guía las describe.
+La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/guias/baby-shower/sage-geese.md`. Las capturas de inspiración originales no se guardan en el repositorio; la guía las describe.
 
 ## Estado del proyecto
 
 **Etapa:** definición e inicio del MVP.
 
-**Primer entregable:** invitación digital funcional para baby shower, con lista de regalos, confirmación de asistencia y panel privado.
+**Primer entregable:** invitación digital funcional para baby shower, con lista de regalos, confirmación de asistencia y consulta privada de respuestas desde la pantalla de Supabase.
 
 **Principio de trabajo:** construir primero una solución pequeña, clara y segura; luego generalizarla para otros tipos de eventos sin sobredimensionar el sistema.
 

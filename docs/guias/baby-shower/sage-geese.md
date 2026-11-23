@@ -1,6 +1,6 @@
-# Guía visual — Baby Shower
+# Guía de estilo — Baby shower, estilo `sage-geese`
 
-Esta guía define la dirección visual de la primera plantilla de **Invitaciones Digitales**. Se basa en cuatro capturas de una invitación de terceros usadas como inspiración; las capturas no se guardan en el repositorio (ver sección 9). Los colores son aproximados y deben ajustarse al verlos aplicados en el navegador.
+Esta guía define el estilo `sage-geese` (gansos, verde salvia) de la plantilla `baby-shower`. Otros estilos de baby shower tienen su propia guía en esta misma carpeta. Se basa en cuatro capturas de una invitación de terceros usadas como inspiración; las capturas no se guardan en el repositorio (ver sección 9). Los colores son aproximados y deben ajustarse al verlos aplicados en el navegador.
 
 ## 1. Dirección de arte
 
@@ -51,7 +51,7 @@ Los valores son una **propuesta de aproximación**, no una extracción exacta de
 ### Tokens CSS iniciales
 
 ```css
-:root {
+[data-theme="sage-geese"] {
   --color-background: #FAFAF5;
   --color-paper: #FFFFFF;
   --color-gingham-light: #F0F2E9;
@@ -66,7 +66,7 @@ Los valores son una **propuesta de aproximación**, no una extracción exacta de
 }
 ```
 
-Guardar estos tokens en `src/styles/tokens.css` o en el tema de la plantilla. Evitar repetir códigos HEX dentro de componentes.
+Guardar estos tokens en el tema del estilo (`src/templates/baby-shower/themes/sage-geese/`), no como variables globales, para que no afecten a otros estilos. El selector exacto se define en la spec de arquitectura. Evitar repetir códigos HEX dentro de componentes.
 
 ## 3. Tipografía
 
@@ -100,7 +100,7 @@ No escribir párrafos completos en tipografía manuscrita. Fechas, horarios, dir
 7. **Confirmación de asistencia:** formulario breve para confirmar, rechazar o actualizar la respuesta.
 8. **Cierre:** agradecimiento e ilustración pequeña.
 
-Esta secuencia corresponde al baby shower. No es obligatorio imponerla a futuras plantillas.
+Esta secuencia es la estructura de la plantilla `baby-shower` y la comparten todos sus estilos. No es obligatorio imponerla a otras plantillas.
 
 ## 6. Imágenes e ilustraciones
 
@@ -143,45 +143,15 @@ Para una “cuna evolutiva”, por ejemplo, especificar modelo o característica
 
 ## 8. Organización de archivos
 
-Separar las **referencias visuales**, los **recursos finales de la plantilla** y las **imágenes de contenido de cada invitación**.
+| Qué | Dónde |
+|---|---|
+| Esta guía | `docs/guias/baby-shower/sage-geese.md` |
+| Colores, tipografías e ilustraciones en código | `src/templates/baby-shower/themes/sage-geese/` |
+| Gráficos finales del estilo | `assets/images/templates/baby-shower/sage-geese/` |
+| Estructura y secciones (compartidas por todos los estilos de baby shower) | `src/templates/baby-shower/` |
+| Fotos y regalos de cada evento | Supabase, como contenido de la invitación |
 
-```text
-docs/
-└── design/
-    ├── baby-shower-visual-guide.md
-    ├── ASSET_SOURCES.md
-    └── references/
-        └── baby-shower/          # Referencias propias o con permiso; hoy vacía
-
-public/
-└── assets/
-    └── templates/
-        └── baby-shower/
-            ├── backgrounds/
-            ├── decorations/
-            ├── illustrations/
-            └── fonts/
-
-src/
-├── templates/
-│   └── baby-shower/
-│       ├── BabyShowerTemplate.tsx
-│       ├── theme.ts
-│       └── sections/
-└── styles/
-    ├── tokens.css
-    └── global.css
-```
-
-### Qué va en cada lugar
-
-- `docs/design/references/`: referencias y moodboards propios o con permiso para compartirlos; solo orientan el diseño y no se cargan en la web.
-- `public/assets/templates/`: recursos finales, originales o con licencia, reutilizables por la plantilla.
-- `src/templates/`: composición y secciones visuales de la plantilla.
-- `src/styles/tokens.css`: colores y variables globales.
-- Fotos y regalos específicos de cada evento: contenido de la invitación, almacenado como datos/URLs o en Supabase Storage.
-
-Mantener `docs/design/ASSET_SOURCES.md` actualizado con origen, licencia, permiso comercial y atribución requerida de cada recurso.
+Mantener `docs/guias/ASSET_SOURCES.md` actualizado con origen, licencia, permiso comercial y atribución requerida de cada recurso.
 
 ## 9. Referencias de origen
 
@@ -203,7 +173,7 @@ Diferencias respecto de las capturas:
 
 ## 10. Instrucciones para agentes de IA
 
-Antes de diseñar o modificar la plantilla baby shower:
+Antes de diseñar o modificar este estilo:
 1. Leer esta guía completa.
 2. Mantener la paleta y la dirección de arte descritas.
 3. No introducir una estética distinta o colores fuertes sin justificación.

@@ -6,11 +6,10 @@
 
 | Tabla | Contenido |
 |---|---|
-| `invitations` | Tipo de evento, `template_key`, slug, estado, fecha, ubicación y configuración general |
+| `invitations` | Tipo de evento, `template_key`, `theme_key`, slug, estado, fecha, ubicación y configuración general |
 | `gifts` | Regalos de una invitación: nombre, descripción, imágenes, enlace opcional |
 | `gift_reservations` | Qué regalo reservó quién, con los datos mínimos para gestionar la reserva |
 | `rsvps` | Respuesta de asistencia, cantidad de asistentes y comentario |
-| `admin_users` / perfiles | Usuarios autorizados a administrar invitaciones |
 
 ## Relaciones
 
@@ -26,7 +25,7 @@ Toda tabla dependiente de un evento referencia `invitation_id`.
 - `invitations.slug` es único.
 - Un regalo tiene como máximo una reserva activa. Se garantiza con una restricción de unicidad en la base, no con una consulta previa desde el navegador.
 - Cambiar de regalo libera la reserva anterior y crea la nueva en una sola transacción.
-- Los totales del panel se calculan con consultas sobre los registros; no se guardan contadores.
+- Los totales se calculan con consultas sobre los registros; no se guardan contadores.
 
 ## Acceso por rol
 
@@ -34,7 +33,7 @@ Toda tabla dependiente de un evento referencia `invitation_id`.
 |---|---|---|
 | Público (sin sesión) | Leer una invitación activa y sus regalos con estado disponible/reservado | Listar respuestas, ver quién reservó, leer invitaciones inactivas |
 | Invitado (con token) | Crear, leer y modificar su propia respuesta y su propia reserva | Ver o tocar datos de otro invitado |
-| Administrador (con sesión) | Leer todo lo de sus invitaciones, liberar o corregir reservas | Acceder a invitaciones que no administra |
+| Quien administra (pantalla de Supabase) | Leer y corregir todos los datos | No aplica: no usa la aplicación |
 
 RLS activo en todas las tablas. Las políticas se prueban con un usuario sin sesión antes de publicar.
 
