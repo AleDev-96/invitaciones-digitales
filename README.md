@@ -286,7 +286,7 @@ Este README describe el propósito, el alcance y las decisiones generales del pr
 
 ## Identidad visual y referencias
 
-La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/design/baby-shower-visual-guide.md`. Las capturas de inspiración van en `docs/design/references/baby-shower/` (todavía no están cargadas); son referencias, no recursos para publicar.
+La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/design/baby-shower-visual-guide.md`. Las capturas de inspiración originales no se guardan en el repositorio; la guía las describe.
 
 ## Estado del proyecto
 

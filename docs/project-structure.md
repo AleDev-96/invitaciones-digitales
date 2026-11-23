@@ -19,7 +19,7 @@ invitaciones-digitales/
 │   ├── project-structure.md
 │   └── design/
 │       ├── baby-shower-visual-guide.md
-│       └── references/baby-shower/   # Capturas de inspiración (no se publican)
+│       └── references/baby-shower/   # Referencias propias (no se publican)
 ├── skills/
 │   ├── create-invitation/
 │   ├── add-template/
@@ -96,8 +96,8 @@ Las reservas y las respuestas RSVP deben quedar asociadas al `invitation_id` cor
 
 ## Separación de recursos
 
-1. **Referencias:** capturas de inspiración en `docs/design/references/`.
+1. **Referencias:** material de inspiración propio o con permiso en `docs/design/references/`. No subir capturas de diseños de terceros: el repositorio es público.
 2. **Decoración fija:** recursos finales y reutilizables en `public/assets/templates/`.
 3. **Contenido del evento:** fotos y productos particulares guardados como URLs/datos o en Supabase Storage.
 
-No publicar las capturas de referencia como recursos finales. Optimizar las imágenes finales para dispositivos móviles y registrar sus licencias.
+No publicar las referencias como recursos finales. Optimizar las imágenes finales para dispositivos móviles y registrar sus licencias.

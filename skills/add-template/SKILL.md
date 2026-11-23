@@ -12,7 +12,7 @@ Usar cuando se suma un tipo de evento o un diseño nuevo (cumpleaños, bautismo,
 ## Antes de empezar
 
 - Tener una guía visual en `docs/design/<plantilla>-visual-guide.md` con paleta, tipografía y orden de secciones.
-- Las capturas de inspiración van en `docs/design/references/<plantilla>/` y no se publican.
+- Las referencias propias o con permiso van en `docs/design/references/<plantilla>/` y no se publican. No subir capturas de diseños de terceros.
 
 ## Pasos
 

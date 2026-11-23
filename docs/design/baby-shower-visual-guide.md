@@ -1,6 +1,6 @@
 # Guía visual — Baby Shower
 
-Esta guía define la dirección visual de la primera plantilla de **Invitaciones Digitales**. Se basa en cuatro capturas compartidas como inspiración. Los colores son aproximados y deben ajustarse al verlos aplicados en el navegador.
+Esta guía define la dirección visual de la primera plantilla de **Invitaciones Digitales**. Se basa en cuatro capturas de una invitación de terceros usadas como inspiración; las capturas no se guardan en el repositorio (ver sección 9). Los colores son aproximados y deben ajustarse al verlos aplicados en el navegador.
 
 ## 1. Dirección de arte
 
@@ -13,7 +13,7 @@ La experiencia debe sentirse suave, luminosa, tierna y elegante; artesanal, con 
 - Fondo marfil/blanco cálido.
 - Borde lateral o marco con patrón de cuadros (gingham) verde muy claro.
 - Sobre cerrado con lazo de tela a cuadros en la portada.
-- Ilustraciones acuareladas de patitos, ocas, pollitos y animalitos de granja.
+- Ilustraciones acuareladas de patitos, gansos, pollitos y animalitos de granja. Los gansos van **sin sombreros**.
 - Globo aerostático, nubes, regalos, moños y tendedero de ropa de bebé.
 - Marcos ovalados u orgánicos con follaje verde.
 - Separadores finos y discontinuos.
@@ -108,7 +108,7 @@ Esta secuencia corresponde al baby shower. No es obligatorio imponerla a futuras
 
 - Acuarela suave, con textura de papel y bordes orgánicos.
 - Gama apagada: verde salvia, oliva, crema, beige, marrón claro y pequeños acentos azul grisáceo.
-- Animalitos tiernos (patitos, ocas, pollitos), globo aerostático, nubes, ropita de bebé, regalos y lazos.
+- Animalitos tiernos (patitos, gansos sin sombreros, pollitos), globo aerostático, nubes, ropita de bebé, regalos y lazos.
 - Preferir PNG o WebP transparente para ilustraciones superpuestas.
 - Para texturas y fondos, usar WebP optimizado.
 
@@ -151,11 +151,7 @@ docs/
     ├── baby-shower-visual-guide.md
     ├── ASSET_SOURCES.md
     └── references/
-        └── baby-shower/
-            ├── 01-portada-sobre.png
-            ├── 02-presentacion.png
-            ├── 03-fecha-ubicacion-regalos.png
-            └── 04-regalos-confirmacion.png
+        └── baby-shower/          # Referencias propias o con permiso; hoy vacía
 
 public/
 └── assets/
@@ -179,7 +175,7 @@ src/
 
 ### Qué va en cada lugar
 
-- `docs/design/references/`: capturas y moodboards; solo orientan el diseño y no se cargan en la web.
+- `docs/design/references/`: referencias y moodboards propios o con permiso para compartirlos; solo orientan el diseño y no se cargan en la web.
 - `public/assets/templates/`: recursos finales, originales o con licencia, reutilizables por la plantilla.
 - `src/templates/`: composición y secciones visuales de la plantilla.
 - `src/styles/tokens.css`: colores y variables globales.
@@ -187,24 +183,31 @@ src/
 
 Mantener `docs/design/ASSET_SOURCES.md` actualizado con origen, licencia, permiso comercial y atribución requerida de cada recurso.
 
-## 9. Referencias recibidas
+## 9. Referencias de origen
 
-Las capturas van en `docs/design/references/baby-shower/` (todavía no están cargadas en el repositorio):
+La guía se armó a partir de cuatro capturas de una invitación de terceros, de baja resolución y con marca de agua. **No se guardan en el repositorio** porque es público y el diseño no es propio. Esta guía reemplaza a las capturas como fuente de verdad.
 
-1. `01-portada-sobre.png`: portada con sobre y lazo.
-2. `02-presentacion.png`: marco ovalado, nombre e ilustración de animalitos.
-3. `03-fecha-ubicacion-regalos.png`: cuenta regresiva, fecha, mapa y regalos.
-4. `04-regalos-confirmacion.png`: detalle de regalos y confirmación.
+Lo que mostraban:
 
-Tienen resolución reducida y marca de agua. **No deben utilizarse como fondos ni publicarse como parte de la invitación.** Usarlas solo para reconstruir el estilo con recursos originales o con licencia adecuada.
+1. **Portada:** texto "Te invito a celebrar mi Baby Shower" (serif + manuscrita), sobre verde oliva cerrado con moño gingham, flecha punteada y la indicación de tocar el moño para ver más.
+2. **Presentación:** marco ovalado con follaje verde y moño arriba; "Estás invitado a mi Baby Shower", nombre del bebé en manuscrita azul grisáceo, mensaje breve y nombres de los papás; debajo, una familia de gansos con globos.
+3. **Fecha y ubicación:** cuenta regresiva en cuatro columnas (días, horas, minutos, segundos), día de la semana en una etiqueta verde, fecha en formato mes / día grande / año, hora debajo; título "¿Cómo llegar?" entre líneas discontinuas, botón taupe "Ver mapa", dirección y estacionamiento en viñetas, con ilustraciones chicas a los costados.
+4. **Regalos y cierre:** globo aerostático con nubes, botón taupe hacia la lista de regalos, texto aclarando que es opcional, caja de regalo ilustrada, agradecimiento y título "Confirmar asistencia".
+
+En todas, borde lateral gingham verde muy claro sobre fondo marfil.
+
+Diferencias respecto de las capturas:
+
+- Los gansos van sin sombreros.
+- La lista de regalos es propia de la aplicación (con reserva), no un botón hacia una tienda externa.
 
 ## 10. Instrucciones para agentes de IA
 
 Antes de diseñar o modificar la plantilla baby shower:
-1. Leer esta guía y revisar las cuatro capturas.
+1. Leer esta guía completa.
 2. Mantener la paleta y la dirección de arte descritas.
 3. No introducir una estética distinta o colores fuertes sin justificación.
-4. No usar las capturas completas como imágenes del sitio.
+4. No copiar ilustraciones ni recursos de la invitación de origen; reconstruir el estilo con recursos originales o con licencia.
 5. Si faltan ilustraciones finales, usar placeholders identificados; no descargar recursos sin verificar licencia.
 6. Priorizar móvil y revisar al menos un ancho móvil y uno desktop.
 7. Mantener textos y datos separados de la presentación visual.

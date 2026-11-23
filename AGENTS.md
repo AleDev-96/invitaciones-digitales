@@ -27,7 +27,7 @@ El repositorio contiene documentación y la estructura de carpetas. Todavía no 
 - Reservas y respuestas se validan en la base de datos. Ocultar un botón no es seguridad.
 - Todo cambio de esquema va en una migración nueva dentro de `supabase/migrations/` y actualiza `docs/data-model.md`. No editar migraciones ya aplicadas.
 - No subir credenciales, tokens reales ni datos personales. La clave `service_role` nunca va en el frontend.
-- No usar las capturas de `docs/design/references/` como imágenes del sitio. No descargar recursos gráficos sin verificar su licencia.
+- No subir al repositorio capturas de diseños de terceros ni usar el material de `docs/design/references/` como imágenes del sitio. No descargar recursos gráficos sin verificar su licencia.
 - No usar la marca Tomolitech en la interfaz ni en textos públicos.
 - No implementar lo listado como fuera de alcance en el README sin pedido expreso.
 - Una decisión abierta de `docs/architecture.md` se consulta con el responsable del proyecto antes de implementarla.
