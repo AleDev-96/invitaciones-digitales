@@ -47,8 +47,7 @@ invitaciones-digitales/
 │   ├── features/
 │   │   ├── invitations/      # Datos y consulta de invitaciones
 │   │   ├── gifts/            # Regalos, reservas, liberaciones
-│   │   ├── rsvp/             # Confirmación y modificación de asistencia
-│   │   └── admin/            # Sin uso: no hay panel de administración
+│   │   └── rsvp/             # Confirmación y modificación de asistencia
 │   ├── infra/                # Conexión con Supabase y otros servicios externos
 │   ├── services/             # Operaciones que combinan dominio e infraestructura
 │   └── templates/
