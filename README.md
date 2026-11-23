@@ -153,6 +153,8 @@ Las operaciones de reservar, liberar y modificar regalos o confirmaciones deben 
 - Una cuenta de GitHub.
 - Una cuenta de Supabase para conectar la base de datos.
 
+> Todavía no existe la aplicación ni `package.json`. Los comandos siguientes aplican a partir del scaffold de Vite.
+
 ### Instalación
 
 ```bash
@@ -268,26 +270,23 @@ El MVP se considerará listo para el evento cuando:
 
 ---
 
-## Documentación para agentes de IA
+## Documentación
 
-Este README describe el propósito, el alcance y las decisiones generales del producto. Se complementará con archivos específicos para orientar el trabajo de agentes y herramientas de IA.
+Este README describe el propósito, el alcance y las decisiones generales del producto. El detalle está en:
 
-Estructura documental prevista:
-
-- `AGENTS.md`: instrucciones generales para agentes, flujo de trabajo, convenciones, límites y definición de terminado.
-- `SKILLS.md` o una carpeta de skills: procedimientos reutilizables para tareas concretas, si el flujo de trabajo elegido lo requiere.
-- `docs/architecture.md`: arquitectura y decisiones técnicas.
-- `docs/data-model.md`: esquema de base de datos, relaciones y políticas de acceso.
-- `docs/deployment.md`: pasos de configuración y despliegue.
-- `docs/product/`: requisitos y comportamiento esperado de cada funcionalidad.
-
-Los archivos anteriores se incorporarán gradualmente. No asumir que existen hasta que hayan sido creados y versionados.
+- [AGENTS.md](AGENTS.md): instrucciones para agentes de IA, flujo de trabajo, reglas y definición de terminado.
+- [skills/](skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
+- [docs/architecture.md](docs/architecture.md): arquitectura, rutas y decisiones abiertas.
+- [docs/data-model.md](docs/data-model.md): tablas, restricciones y acceso por rol.
+- [docs/deployment.md](docs/deployment.md): variables de entorno y publicación.
+- [docs/project-structure.md](docs/project-structure.md): estructura de carpetas y qué va en cada una.
+- [docs/design/baby-shower-visual-guide.md](docs/design/baby-shower-visual-guide.md): guía visual de la plantilla baby shower.
 
 ---
 
 ## Identidad visual y referencias
 
-La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual y las capturas de inspiración están en `docs/design/baby-shower-visual-guide.md` y `docs/design/references/baby-shower/`. Las capturas son referencias, no recursos para publicar.
+La primera plantilla tendrá una identidad visual de baby shower estilo acuarela, con base marfil, verde salvia y detalles beige/taupe. La guía visual está en `docs/design/baby-shower-visual-guide.md`. Las capturas de inspiración originales no se guardan en el repositorio; la guía las describe.
 
 ## Estado del proyecto
 
@@ -304,5 +303,3 @@ La primera plantilla tendrá una identidad visual de baby shower estilo acuarela
 **Nombre del proyecto:** Invitaciones Digitales.
 
 Es un proyecto independiente. No utilizar la marca Tomolitech en la interfaz, los textos públicos ni la identidad visual, salvo que se solicite expresamente en el futuro.
-
-**Repositorio recomendado:** `invitaciones-digitales`.
