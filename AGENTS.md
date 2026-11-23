@@ -83,7 +83,7 @@ Documentos de referencia:
 - La aplicación no genera archivos PDF. El recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.
 - Al terminar el evento, la invitación se despublica y los datos personales de los invitados se borran. Antes de borrarlos, se entrega a quien encargó la invitación la lista de confirmados y regalos.
 - En el repositorio quedan plantillas y estilos, nunca datos de personas ni credenciales.
-- No hay panel de administración propio por ahora: las confirmaciones y reservas se consultan desde la pantalla de Supabase.
+- No hay panel de administración: las confirmaciones y reservas se consultan desde la pantalla de Supabase.
 - No usar la marca Tomolitech en la interfaz ni en textos públicos.
 
 ## Forma de trabajar

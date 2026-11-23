@@ -13,16 +13,16 @@ Invitado (celular, link de WhatsApp)
 Cloudflare Pages ── sirve la aplicación React (archivos estáticos)
         │
         ▼
-Supabase ── base de datos Postgres, autenticación del panel, funciones y políticas RLS
+Supabase ── base de datos Postgres, funciones y políticas RLS
 ```
 
 ## Tecnologías
 
 | Parte | Tecnología | Responsabilidad |
 |---|---|---|
-| Frontend | React + TypeScript + Vite | Invitación pública y panel de administración |
+| Frontend | React + TypeScript + Vite | Invitación pública |
 | Estilos | Tailwind CSS | Diseño responsive y componentes visuales |
-| Backend y base de datos | Supabase | Persistencia, autenticación y operaciones seguras |
+| Backend y base de datos | Supabase | Persistencia y operaciones seguras |
 | Hosting | Cloudflare Pages | Publicación del frontend |
 | Código fuente | GitHub | Versionado y colaboración con agentes de IA |
 
@@ -31,7 +31,7 @@ Cualquier cambio de tecnología se justifica con una necesidad concreta y se doc
 ## Capas
 
 1. **Motor de invitaciones** (`src/app/`, `src/features/invitations/`): rutas, carga de datos por slug y elección de plantilla.
-2. **Funcionalidades** (`src/features/`): regalos, confirmación de asistencia y administración. Las reglas de negocio puras van en `src/domain/`, la conexión con Supabase en `src/infra/` y las operaciones que combinan ambas en `src/services/`.
+2. **Funcionalidades** (`src/features/`): regalos y confirmación de asistencia. Las reglas de negocio puras van en `src/domain/`, la conexión con Supabase en `src/infra/` y las operaciones que combinan ambas en `src/services/`.
 3. **Componentes compartidos** (`src/components/`): ubicación, cuenta regresiva, lista de regalos, formulario RSVP, botones.
 4. **Plantillas y estilos** (`src/templates/`): estructura de cada tipo de evento y sus estilos. Una plantilla recibe los datos de la invitación y no consulta Supabase por su cuenta.
 5. **Datos de cada invitación** (Supabase): nombres, textos, fechas, imágenes, regalos y configuración.
@@ -45,7 +45,6 @@ Los gráficos viven en `assets/images/`, fuera de `src/`. Una imagen se publica 
 ## Rutas
 
 - Invitación pública: `/<tipo>/<slug>`, por ejemplo `/baby-shower/sofia`.
-- Panel privado: `/admin`.
 
 La aplicación busca la invitación por slug y renderiza la plantilla indicada en su `template_key` con el estilo indicado en su `theme_key`.
 
@@ -55,13 +54,12 @@ La aplicación busca la invitación por slug y renderiza la plantilla indicada e
 - Un invitado solo puede leer o modificar su propia respuesta.
 - La página pública no expone datos personales de invitados.
 - La clave `service_role` de Supabase nunca llega al frontend.
-- El panel requiere autenticación.
 
 El detalle de reglas de negocio y seguridad está en el [README](../../README.md).
 
 ## Decisiones tomadas
 
-- **Panel de administración:** por ahora no se desarrolla. Confirmaciones y reservas se consultan desde la pantalla de Supabase. La ruta `/admin` y `src/features/admin/` quedan reservadas.
+- **Sin panel de administración:** confirmaciones y reservas se consultan desde la pantalla de Supabase.
 - **Plantilla y estilo:** una plantilla define la estructura de un tipo de evento y puede tener varios estilos (colores, tipografías, ilustraciones). Cada invitación indica `template_key` y `theme_key`. Varias invitaciones pueden compartir la misma combinación y estar publicadas a la vez.
 - **Funcionalidades opcionales:** cada invitación activa o desactiva las suyas con datos. El catálogo está en [templates.md](../product/templates.md).
 - **Sin generación de PDF:** el recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.

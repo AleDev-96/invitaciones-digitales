@@ -19,7 +19,7 @@ El detalle está en `docs/architecture/architecture.md`.
 - Cada invitación usa una plantilla (`template_key`, la estructura) y un estilo (`theme_key`, el aspecto). Una plantilla puede tener varios estilos.
 - Varias invitaciones pueden estar publicadas a la vez y compartir plantilla y estilo; sus datos no se mezclan.
 - Las funcionalidades son opcionales por invitación y solo se agrega una nueva cuando una invitación la necesita.
-- Sin panel de administración propio por ahora: se consulta desde la pantalla de Supabase.
+- Sin panel de administración: confirmaciones y reservas se consultan desde la pantalla de Supabase.
 - La aplicación no genera PDF: se usa la función de imprimir del navegador.
 - Al terminar el evento se despublica la invitación y se borran los datos de invitados, previa entrega de la lista a quien la encargó.
 - Las capturas de diseños de terceros no se suben al repositorio; la guía de estilo las describe con texto.

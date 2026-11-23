@@ -14,7 +14,7 @@ La idea central es mantener **un solo repositorio y una sola aplicación reutili
 - Publicar una lista de regalos con imágenes y descripciones de referencia.
 - Permitir que los invitados confirmen, rechacen o modifiquen su asistencia.
 - Permitir reservar un regalo y cambiar la elección posteriormente.
-- Poder consultar confirmaciones y reservas de regalos de forma privada (por ahora desde la pantalla de Supabase; el panel propio queda aplazado).
+- Poder consultar confirmaciones y reservas de regalos de forma privada, desde la pantalla de Supabase.
 - Reutilizar el sistema para futuros eventos y clientes.
 - Mantener los costos iniciales de infraestructura lo más bajos posible.
 
@@ -59,20 +59,18 @@ El formulario deberá permitir registrar, como mínimo:
 
 El invitado debe poder volver a su confirmación y modificarla mediante un mecanismo seguro, por ejemplo, un enlace individual de gestión o un token de acceso. No debe poder modificar la respuesta de otra persona.
 
-### Panel privado (aplazado)
+### Consulta y administración
 
-Cuando se desarrolle, el panel de administración deberá permitir:
+La aplicación no tiene panel de administración. Quien administra usa la pantalla de Supabase para:
 
 - Consultar el total de confirmaciones y la cantidad de asistentes confirmados.
 - Ver confirmados, rechazados y pendientes.
 - Consultar los datos de cada respuesta.
 - Ver qué regalos están disponibles y cuáles fueron reservados.
 - Liberar o corregir una reserva cuando sea necesario.
-- Editar los datos de la invitación.
+- Cargar y editar los datos de la invitación.
 
-El panel y sus datos no deben quedar expuestos públicamente.
-
-> **Decisión vigente:** por ahora no se desarrolla un panel propio. Las confirmaciones y reservas se consultan desde la pantalla de Supabase; el panel se retoma cuando haya necesidad concreta.
+Estos datos no deben quedar expuestos públicamente.
 
 ---
 
@@ -82,9 +80,9 @@ La propuesta inicial prioriza una aplicación sencilla de desplegar como sitio e
 
 | Parte | Tecnología prevista | Responsabilidad |
 |---|---|---|
-| Frontend | React + TypeScript + Vite | Interfaz pública (y panel de administración, cuando se desarrolle) |
+| Frontend | React + TypeScript + Vite | Interfaz pública de las invitaciones |
 | Estilos | Tailwind CSS | Diseño responsive y componentes visuales |
-| Backend y base de datos | Supabase | Persistencia, autenticación y operaciones seguras |
+| Backend y base de datos | Supabase | Persistencia y operaciones seguras |
 | Hosting | Cloudflare Pages | Publicación del frontend |
 | Código fuente | GitHub | Versionado y colaboración con agentes de IA |
 
@@ -121,7 +119,7 @@ Estas reglas deben respetarse en la interfaz y, especialmente, en el backend:
 4. La reserva y su liberación deben validarse en el backend o en la base de datos, no solamente en el navegador.
 5. Si un invitado cambia de regalo, la reserva anterior debe liberarse y la nueva debe confirmarse de forma segura.
 6. Un invitado solo puede consultar o modificar su propia respuesta mediante un mecanismo de autorización válido.
-7. El panel administrativo requiere autenticación y permisos específicos.
+7. Los datos de administración solo se consultan y modifican desde la pantalla de Supabase, con la cuenta de quien administra.
 8. Los contadores deben calcularse a partir de los registros guardados, no de valores mantenidos únicamente en el frontend.
 9. Las operaciones deben contemplar errores de red, doble clic y solicitudes simultáneas.
 10. No se deben publicar datos personales de invitados en la página pública.
@@ -137,7 +135,6 @@ Aunque el primer uso sea un evento familiar, el proyecto debe aplicar buenas pr�
 - No confiar en ocultar botones o pantallas como mecanismo de seguridad.
 - Nunca incluir la clave `service_role` de Supabase en el frontend ni en variables `VITE_*`.
 - Las claves públicas utilizadas en el navegador solo son aceptables junto con políticas RLS correctamente configuradas.
-- Proteger el panel administrativo con autenticación.
 - Evitar que los invitados puedan listar respuestas o datos privados de otras personas.
 - No guardar más información personal de la necesaria.
 - No incluir credenciales, tokens reales ni datos privados en el repositorio.
@@ -229,7 +226,6 @@ El esquema definitivo debe diseñarse y documentarse en migraciones SQL. Como pu
 - **gifts:** regalos asociados a una invitación, con descripción, imágenes, enlace y disponibilidad.
 - **gift_reservations:** relación entre un regalo y quien lo reservó, con los datos mínimos necesarios para gestionar la reserva.
 - **rsvps:** respuestas de asistencia y cantidad de asistentes.
-- **admin_users / perfiles:** usuarios autorizados a administrar invitaciones, según el diseño de autenticación elegido.
 
 Todas las entidades dependientes de un evento deben referenciar `invitation_id`. El esquema debe impedir reservas duplicadas y definir con claridad qué información puede leer o modificar cada rol.
 
@@ -299,7 +295,7 @@ La primera plantilla tendrá una identidad visual de baby shower estilo acuarela
 
 **Etapa:** definición e inicio del MVP.
 
-**Primer entregable:** invitación digital funcional para baby shower, con lista de regalos, confirmación de asistencia y consulta privada de respuestas desde la pantalla de Supabase. El panel propio queda fuera del MVP.
+**Primer entregable:** invitación digital funcional para baby shower, con lista de regalos, confirmación de asistencia y consulta privada de respuestas desde la pantalla de Supabase.
 
 **Principio de trabajo:** construir primero una solución pequeña, clara y segura; luego generalizarla para otros tipos de eventos sin sobredimensionar el sistema.
 
