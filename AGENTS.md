@@ -39,7 +39,7 @@ Documentos de referencia:
 - [docs/architecture/deployment.md](docs/architecture/deployment.md): variables de entorno y publicación.
 - [docs/architecture/project-structure.md](docs/architecture/project-structure.md): qué va en cada carpeta.
 - [docs/specs/README.md](docs/specs/README.md): cómo se escriben y aprueban las specs.
-- [.github/skills/](.github/skills/): pasos para tareas repetidas.
+- [SKILLS.md](SKILLS.md): qué skills hay y cuándo es obligatorio usarlas. Las skills viven en [.github/skills/](.github/skills/).
 
 ## Convenciones
 

@@ -280,6 +280,7 @@ Este README describe el propósito, el alcance y las decisiones generales del pr
 - [MEMORY.md](MEMORY.md): memoria del proyecto entre sesiones (estado, aprendizajes, decisiones y próximos pasos).
 - [docs/specs/](docs/specs/README.md): specs de arquitectura y de cada invitación.
 - [docs/product/templates.md](docs/product/templates.md): tipos de evento, plantillas, estilos y funcionalidades.
+- [SKILLS.md](SKILLS.md): qué skills hay y cuándo usarlas.
 - [.github/skills/](.github/skills/): procedimientos para tareas repetidas (crear una invitación, agregar una plantilla, revisar código).
 - [docs/architecture/architecture.md](docs/architecture/architecture.md): arquitectura, rutas y decisiones abiertas.
 - [docs/architecture/data-model.md](docs/architecture/data-model.md): tablas, restricciones y acceso por rol.

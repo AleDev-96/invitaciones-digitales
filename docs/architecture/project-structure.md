@@ -61,6 +61,7 @@ invitaciones-digitales/
 │   └── support/              # Utilidades de prueba
 ├── AGENTS.md                 # Instrucciones para agentes de IA
 ├── MEMORY.md                 # Memoria del proyecto entre sesiones
+├── SKILLS.md                 # Qué skills hay y cuándo usarlas
 └── README.md
 ```
 
