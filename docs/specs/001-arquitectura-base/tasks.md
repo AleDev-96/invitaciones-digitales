@@ -7,7 +7,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 
 En orden de dependencia. Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
-- [ ] **T1. Crear el proyecto con Vite, React, TypeScript, Tailwind, lint, formato y Vitest.** —
+- [x] **T1. Crear el proyecto con Vite, React, TypeScript, Tailwind, lint, formato y Vitest.** —
   - Hecho cuando: `npm run build`, `npm run lint`, `npm run typecheck` y `npm test` terminan sin errores, y `AGENTS.md` lista esos comandos.
 - [ ] **T2. Reglas de dominio de la invitación.** RF-3, RF-4, RF-8
   - Hecho cuando: hay pruebas que cubren slugs válidos, inválidos y reservados, y la visibilidad de cada estado.

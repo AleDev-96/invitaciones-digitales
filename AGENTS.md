@@ -162,7 +162,16 @@ En este proyecto predominan el estilo y la funcionalidad, así que todo cambio v
 - Durante el trabajo: vista previa en el navegador (`npm run dev`), compartida con el responsable del proyecto.
 - En cada rama publicada: enlace de vista previa de Cloudflare Pages, que se puede abrir desde un celular.
 - Revisar siempre un ancho de celular y uno de escritorio.
-- `npm run build` termina sin errores.
+- Antes de cada commit terminan sin errores (Node 22 o superior):
+
+  | Comando | Qué comprueba |
+  |---|---|
+  | `npm run typecheck` | Tipos de TypeScript |
+  | `npm run lint` | Reglas de código (ESLint) |
+  | `npm run format:check` | Formato (Prettier); `npm run format` lo corrige |
+  | `npm test` | Pruebas de Vitest en `tests/` |
+  | `npm run build` | Compilación de producción en `dist/` |
+
 - Los cambios de datos o permisos se prueban también sin sesión iniciada.
 
 Los comandos y el enlace de vista previa aplican a partir de que exista la aplicación y su despliegue.
