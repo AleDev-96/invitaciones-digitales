@@ -4,7 +4,7 @@ import { Section, SectionTitle } from './SectionTitle';
 
 type Props = { title: string; art?: ComponentType<{ className?: string }> };
 
-// Lugar reservado hasta las specs 003 (confirmación) y 004 (regalos).
+// Lugar reservado hasta la spec 004 (regalos).
 export function ComingSoon({ title, art: Art }: Props) {
   return (
     <Section label={title}>
