@@ -29,7 +29,7 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
     <div className="baby-shower-frame min-h-dvh px-3 sm:px-8">
       {!opened && <Cover onOpened={handleOpened} />}
       <main
-        aria-hidden={!opened}
+        inert={!opened}
         className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) font-(family-name:--font-body) text-(--color-ink)"
       >
         <Presentation content={content} art={theme.presentationArt} />
