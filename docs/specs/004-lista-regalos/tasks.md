@@ -15,7 +15,7 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: hay tests de lista leída, reserva guardada, agotado, tope alcanzado, cerrada, sin respuesta y error de red.
 - [x] **T4. Estado de la lista y ruta `/<slug>/regalos`.** RF-2, RF-5, RF-6, RF-7, RF-11, RF-12, RF-14 a RF-19
   - Hecho cuando: `/demo/regalos` carga la lista y `/demo-borrador/regalos` muestra lo mismo que `/demo-borrador`.
-- [ ] **T5. Sección "Regalos" y pantalla de la lista en `baby-shower`.** RF-1 a RF-4, RF-6 a RF-15, RF-19, RF-20
+- [x] **T5. Sección "Regalos" y pantalla de la lista en `baby-shower`.** RF-1 a RF-4, RF-6 a RF-15, RF-19, RF-20
   - Hecho cuando: en `/demo` se abre la lista, se elige, se quita y se vuelve, con los avisos de cada caso.
 - [ ] **T6. Texto de la sección y regalos de la `demo`.** RF-1 a RF-4
   - Hecho cuando: `seed.sql` trae el texto y regalos de 1 y de varias veces, con y sin descripción; hay tests de la lectura de `content`.

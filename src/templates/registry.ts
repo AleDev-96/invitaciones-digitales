@@ -1,6 +1,7 @@
 import { createElement, type ComponentType, type ReactElement } from 'react';
 import type { Invitation } from '../domain/invitation';
 import { BabyShowerTemplate } from './baby-shower/BabyShowerTemplate';
+import { GiftList } from './baby-shower/GiftList';
 
 export type TemplateProps = { invitation: Invitation };
 
@@ -13,6 +14,7 @@ type TemplateEntry = {
 export const templates: Record<string, TemplateEntry> = {
   'baby-shower': {
     component: BabyShowerTemplate,
+    giftsPage: GiftList,
     themes: ['sage-geese'],
   },
 };

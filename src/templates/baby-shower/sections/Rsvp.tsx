@@ -37,7 +37,7 @@ export function Rsvp({ slug, open, texts }: Props) {
   }
 
   return (
-    <Section label={text.title}>
+    <Section id="confirmar" label={text.title}>
       <SectionTitle>{text.title}</SectionTitle>
       <div aria-live="polite">
         {phase.kind === 'answered' && (
