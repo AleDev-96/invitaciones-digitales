@@ -13,8 +13,19 @@ insert into public.invitations (
       "message": "Estamos muy felices de compartir con vos la espera de nuestro bebé.",
       "closing": "¡Gracias por acompañarnos en este momento tan especial!",
       "location": {"address": "Av. Siempre Viva 742, Ciudad de Ejemplo",
-        "notes": ["Hay estacionamiento en la esquina", "Tocar timbre en la casa del fondo"]}}',
+        "notes": ["Hay estacionamiento en la esquina", "Tocar timbre en la casa del fondo"]},
+      "rsvp": {"closedMessage": "Las confirmaciones cerraron. ¡Nos vemos en la fiesta!",
+        "contactMessage": "Si necesitás cambiar tu respuesta, escribile a Ana."}}',
     '{countdown,map,gifts,rsvp}'
+  ),
+  (
+    'demo-cerrada', 'baby-shower', 'sage-geese', 'published',
+    '2027-06-12 16:00:00-03', 'America/Argentina/Buenos_Aires', '2027-12-31',
+    'Confirmaciones cerradas', '', null,
+    '{"babyName": "Bebé Demo", "hosts": "Ana y Juan",
+      "rsvp": {"closedMessage": "Las confirmaciones cerraron el 1 de enero.",
+        "contactMessage": "Si necesitás cambiar algo, escribile a Ana."}}',
+    '{rsvp}'
   ),
   (
     'demo-borrador', 'baby-shower', 'sage-geese', 'draft',
@@ -32,3 +43,5 @@ insert into public.invitations (
     'Plantilla inexistente', '', null, '{}', '{}'
   )
 on conflict (slug) do nothing;
+
+update public.invitations set rsvp_closes_at = '2026-01-01 00:00:00-03' where slug = 'demo-cerrada';

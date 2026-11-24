@@ -46,7 +46,7 @@ Las funcionalidades son opcionales por invitación. Una funcionalidad nueva entr
 | Cuenta regresiva | `countdown` | Tiempo faltante para el evento | Disponible |
 | Ubicación | `map` | Dirección y botón que abre Google Maps | Disponible |
 | Regalos sugeridos | `gifts` | Lista de regalos con reserva | Sin implementar |
-| Confirmación de asistencia | `rsvp` | Confirmar, rechazar o modificar la asistencia | Sin implementar |
+| Confirmación de asistencia | `rsvp` | Responder "Sí, asistiré" o "No podré ir" con el nombre; mensajes de cierre y contacto en `content.rsvp` | Disponible |
 
 ## Funcionalidades habituales por tipo de evento
 

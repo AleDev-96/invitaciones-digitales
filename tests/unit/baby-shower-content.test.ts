@@ -25,6 +25,7 @@ describe('readBabyShowerContent', () => {
         mapsUrl: 'https://maps.app.goo.gl/abc',
         notes: ['Hay estacionamiento'],
       },
+      rsvp: { closedMessage: null, contactMessage: null },
     });
   });
 
@@ -35,6 +36,7 @@ describe('readBabyShowerContent', () => {
       message: null,
       closing: null,
       location: { address: null, mapsUrl: null, notes: [] },
+      rsvp: { closedMessage: null, contactMessage: null },
     });
   });
 
@@ -50,6 +52,16 @@ describe('readBabyShowerContent', () => {
     expect(content.message).toBeNull();
     expect(content.location.address).toBeNull();
     expect(content.location.notes).toEqual(['Traer abrigo']);
+  });
+
+  it('reads the rsvp messages', () => {
+    const content = readBabyShowerContent({
+      rsvp: { closedMessage: ' Cerramos el 4. ', contactMessage: 'Escribile a Ana.' },
+    });
+    expect(content.rsvp).toEqual({
+      closedMessage: 'Cerramos el 4.',
+      contactMessage: 'Escribile a Ana.',
+    });
   });
 
   it('ignores a location that is not an object', () => {

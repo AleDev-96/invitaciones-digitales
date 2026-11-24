@@ -11,6 +11,7 @@ import { CountdownSection } from './sections/CountdownSection';
 import { EventDate } from './sections/EventDate';
 import { Location } from './sections/Location';
 import { Presentation } from './sections/Presentation';
+import { Rsvp } from './sections/Rsvp';
 import { babyShowerTheme } from './themes';
 
 export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
@@ -39,7 +40,9 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
         {has('gifts') && (
           <ComingSoon title={messages.babyShower.gifts.title} art={theme.giftsArt} />
         )}
-        {has('rsvp') && <ComingSoon title={messages.babyShower.rsvp.title} />}
+        {has('rsvp') && (
+          <Rsvp slug={invitation.slug} open={invitation.rsvpOpen} texts={content.rsvp} />
+        )}
         <Closing closing={content.closing} art={theme.closingArt} />
       </main>
     </div>

@@ -71,7 +71,7 @@ El detalle de reglas de negocio y seguridad está en el [README](../../README.md
 
 El detalle y las alternativas descartadas están en el [plan de la spec 001](../specs/001-arquitectura-base/plan.md).
 
-- **Link general:** uno para todos los invitados. La identificación de cada invitado al confirmar se define en la spec 003.
+- **Link general:** uno para todos los invitados. Cada navegador que responde guarda un código propio (spec 003).
 - **Acceso público por funciones:** la tabla `invitations` no se lee ni se escribe directo; la página usa `get_invitation(slug)` y la vista previa `get_invitation_preview(slug)`. Las operaciones de invitados de las specs 003 y 004 siguen el mismo criterio.
 - **Estilos aislados:** cada estilo declara sus variables CSS bajo `[data-theme="<theme_key>"]`; la página de invitación pone ese atributo en su contenedor y Tailwind lee las variables (`bg-(--color-background)`).
 - **Registro de plantillas:** `src/templates/registry.ts` indica qué estilos tiene cada plantilla. Una combinación no registrada muestra el mensaje de error, no otra plantilla.
@@ -79,3 +79,11 @@ El detalle y las alternativas descartadas están en el [plan de la spec 001](../
 - **Pausa de Supabase:** `.github/workflows/keepalive.yml` consulta la base cada 2 días hasta la fecha `KEEPALIVE_UNTIL`.
 - **Baja:** 7 días después del evento (`takedown_on`). Desde ese día la invitación muestra "Esta invitación ya no está disponible", aunque siga publicada. El borrado de datos de invitados se hace a mano.
 - **Pruebas:** Vitest en `tests/unit/`.
+
+## Decisiones de la spec 003
+
+El detalle está en el [plan de la spec 003](../specs/003-confirmacion-asistencia/plan.md).
+
+- **Una respuesta por persona:** nombre y "Sí, asistiré" o "No podré ir". No se puede cambiar desde la invitación.
+- **Código del navegador:** al responder, el navegador genera un código (`crypto.randomUUID()`) y lo guarda en `localStorage` junto con la respuesta. La base guarda solo su huella. Repetir el envío con el mismo código no crea otra respuesta, y la spec 004 lo usa para reconocer al invitado.
+- **Cierre:** lo calcula la base (`rsvp_open` en `get_invitation`) con `rsvp_closes_at`, la hora del evento o `rsvp_closed`, y `submit_rsvp` rechaza lo que llegue tarde.

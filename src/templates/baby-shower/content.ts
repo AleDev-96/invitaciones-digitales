@@ -10,10 +10,15 @@ export type BabyShowerContent = {
     mapsUrl: string | null;
     notes: string[];
   };
+  rsvp: {
+    closedMessage: string | null;
+    contactMessage: string | null;
+  };
 };
 
 export function readBabyShowerContent(content: Content): BabyShowerContent {
   const location = readSection(content, 'location');
+  const rsvp = readSection(content, 'rsvp');
   return {
     babyName: readText(content, 'babyName'),
     hosts: readText(content, 'hosts'),
@@ -23,6 +28,10 @@ export function readBabyShowerContent(content: Content): BabyShowerContent {
       address: readText(location, 'address'),
       mapsUrl: readText(location, 'mapsUrl'),
       notes: readTextList(location, 'notes'),
+    },
+    rsvp: {
+      closedMessage: readText(rsvp, 'closedMessage'),
+      contactMessage: readText(rsvp, 'contactMessage'),
     },
   };
 }

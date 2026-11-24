@@ -49,7 +49,7 @@ invitaciones-digitales/
 │   ├── features/
 │   │   ├── invitations/      # Datos y consulta de invitaciones
 │   │   ├── gifts/            # Regalos, reservas, liberaciones
-│   │   └── rsvp/             # Confirmación y modificación de asistencia
+│   │   └── rsvp/             # Confirmación de asistencia
 │   ├── infra/                # Conexión con Supabase y otros servicios externos
 │   ├── services/             # Operaciones que combinan dominio e infraestructura
 │   └── templates/
@@ -64,7 +64,7 @@ invitaciones-digitales/
 │   ├── e2e/                  # Pruebas de punta a punta
 │   ├── unit/                 # Pruebas unitarias
 │   ├── fixtures/             # Datos de prueba
-│   └── support/              # Utilidades de prueba
+│   └── support/              # Utilidades de prueba (comprobaciones SQL)
 ├── AGENTS.md                 # Instrucciones para agentes de IA
 ├── MEMORY.md                 # Memoria del proyecto entre sesiones
 ├── SKILLS.md                 # Qué skills hay y cuándo usarlas
