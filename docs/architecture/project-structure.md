@@ -38,7 +38,8 @@ invitaciones-digitales/
 │   ├── product/
 │   │   └── templates.md      # Tipos de evento, plantillas, estilos y funcionalidades
 │   └── specs/                # Specs y sus moldes
-│       └── _templates/
+│       ├── _templates/
+│       └── NNN-nombre-corto/ # Una carpeta por spec: spec.md, plan.md, tasks.md
 ├── src/
 │   ├── app/                  # Arranque, rutas, configuración y estilos globales
 │   ├── components/           # Componentes visuales compartidos

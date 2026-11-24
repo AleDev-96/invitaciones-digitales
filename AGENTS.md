@@ -112,7 +112,7 @@ Una rama por trabajo; no trabajar directo sobre `main`. Borrar el `.gitkeep` de 
 | Estilo en código | `src/templates/<tipo>/themes/<estilo>/` | Estilo |
 | Guía de estilo | `docs/guias/<tipo>/<estilo>.md` | Estilo |
 | Gráficos fijos | `assets/images/templates/<tipo>/<estilo>/` | Estilo |
-| Pedido de la invitación | `docs/specs/NNN-nombre-corto.md` | Invitación |
+| Pedido de la invitación | `docs/specs/NNN-nombre-corto/spec.md` | Invitación |
 | Textos, fechas, regalos y fotos del evento | Supabase, asociados al `invitation_id` | Invitación |
 
 En el repositorio hay carpetas por tipo de evento y por estilo, no por cliente. Los datos de cada invitación viven en Supabase y no se versionan.

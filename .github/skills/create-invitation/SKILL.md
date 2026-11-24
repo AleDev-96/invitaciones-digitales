@@ -14,7 +14,7 @@ Cuando hay que publicar un evento nuevo con una plantilla y un estilo que ya fig
 ## Pasos
 
 1. Buscar el tipo de evento en `docs/product/templates.md` para saber qué plantilla, estilos y funcionalidades le corresponden.
-2. Escribir una spec corta con el molde `docs/specs/_templates/invitation-spec.md` y esperar su aprobación.
+2. Escribir una spec corta con el molde `docs/specs/_templates/invitation.md`, guardada como `docs/specs/NNN-nombre-corto/spec.md`, y esperar su aprobación.
 3. Reunir los datos del evento:
    - Plantilla (`template_key`), estilo (`theme_key`) y funcionalidades activas.
    - Slug para la URL.

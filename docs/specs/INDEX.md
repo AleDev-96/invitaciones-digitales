@@ -8,7 +8,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 
 | N.º | Spec | Tipo | Depende de | Estado |
 |---|---|---|---|---|
-| 001 | [Arquitectura base](001-arquitectura-base.md) | Larga | — | Aprobada |
+| 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | — | Aprobada |
 | 002 | Plantilla `baby-shower` y estilo `sage-geese` | Larga | 001 | Sin redactar |
 | 003 | Confirmación de asistencia | Larga | 001, 002 | Sin redactar |
 | 004 | Lista de regalos con reserva | Larga | 001, 002, 003 | Sin redactar |
@@ -75,7 +75,7 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Se carga solo el número de invitados esperados, no la lista de personas.
 - El control de confirmaciones falsas lo hacen los dueños desde su pantalla.
 - El invitado escribe su nombre en texto libre; se aceptan nombres repetidos.
-- Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base.md).
+- Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base/spec.md).
 
 ## Pendientes de definir
 

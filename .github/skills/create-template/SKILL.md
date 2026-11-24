@@ -20,7 +20,7 @@ Revisar `docs/product/templates.md` antes de empezar: si la combinación ya exis
 
 ### Antes de empezar
 
-1. Tener una spec aprobada (molde `docs/specs/_templates/architecture-spec.md`).
+1. Tener una spec aprobada (moldes en `docs/specs/_templates/`).
 2. Registrar la plantilla o el estilo en las tablas de `docs/product/templates.md`, con estado "en desarrollo", antes de escribir código.
 3. Guardar las referencias propias o con permiso en `assets/images/references/<tipo>/`. No se publican.
 
