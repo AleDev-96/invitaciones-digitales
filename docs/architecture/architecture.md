@@ -47,6 +47,7 @@ Los gráficos viven en `assets/images/`, fuera de `src/`. Una imagen se publica 
 
 - Página raíz `/`: neutra, no lista invitaciones.
 - Invitación pública: `/<slug>`, por ejemplo `/oliver`. El slug es único en toda la aplicación: minúsculas sin acentos, números y guiones, de 3 a 40 caracteres, y no puede ser una palabra reservada (`src/domain/invitation.ts`).
+- Lista de regalos: `/<slug>/regalos`. Muestra lo mismo que `/<slug>` si la invitación no existe, es un borrador o está dada de baja. Cada plantilla con regalos registra su pantalla (`giftsPage`) en `src/templates/registry.ts`.
 
 La aplicación busca la invitación por slug y renderiza la plantilla indicada en su `template_key` con el estilo indicado en su `theme_key`.
 

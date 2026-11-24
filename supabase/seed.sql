@@ -15,7 +15,8 @@ insert into public.invitations (
       "location": {"address": "Av. Siempre Viva 742, Ciudad de Ejemplo",
         "notes": ["Hay estacionamiento en la esquina", "Tocar timbre en la casa del fondo"]},
       "rsvp": {"closedMessage": "Las confirmaciones cerraron. ¡Nos vemos en la fiesta!",
-        "contactMessage": "Si necesitás cambiar tu respuesta, escribile a Ana."}}',
+        "contactMessage": "Si necesitás cambiar tu respuesta, escribile a Ana."},
+      "gifts": {"intro": "Tu presencia es nuestro mejor regalo. Si querés sumar algo, te dejamos algunas ideas."}}',
     '{countdown,map,gifts,rsvp}'
   ),
   (
@@ -45,3 +46,17 @@ insert into public.invitations (
 on conflict (slug) do nothing;
 
 update public.invitations set rsvp_closes_at = '2026-01-01 00:00:00-03' where slug = 'demo-cerrada';
+
+insert into public.gifts (invitation_id, position, name, description, max_reservations)
+select i.id, g.position, g.name, g.description, g.max_reservations
+from public.invitations i,
+  (values
+    (1, 'Manta de algodón', null, 1),
+    (2, 'Set de baño', 'Toallón con capucha y esponja', 1),
+    (3, 'Pañales', 'Talle RN', 4),
+    (4, 'Pañales', 'Talle P', 5),
+    (5, 'Ropa', 'De 3 a 6 meses', 3),
+    (6, 'Lámpara de noche', 'Con luz cálida', 1)
+  ) as g(position, name, description, max_reservations)
+where i.slug = 'demo'
+  and not exists (select 1 from public.gifts where invitation_id = i.id);

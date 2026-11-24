@@ -14,7 +14,7 @@ Proyecto para generar invitaciones digitales: cada invitación es una página we
 
 ## Estado actual
 
-Está construida la base de la [spec 001](docs/specs/001-arquitectura-base/spec.md): rutas `/` y `/<slug>`, tabla `invitations`, registro de plantillas y estilos, vista previa del link y tarea keepalive. También están la plantilla `baby-shower` con el estilo `sage-geese` (spec 002) y la confirmación de asistencia (spec 003, tabla `rsvps`). Los regalos y la pantalla de dueños llegan con las specs 004 y 005 ([índice](docs/specs/INDEX.md)). No asumir que un archivo existe sin comprobarlo.
+Está construida la base de la [spec 001](docs/specs/001-arquitectura-base/spec.md): rutas `/` y `/<slug>`, tabla `invitations`, registro de plantillas y estilos, vista previa del link y tarea keepalive. También están la plantilla `baby-shower` con el estilo `sage-geese` (spec 002) la confirmación de asistencia (spec 003, tabla `rsvps`) y la lista de regalos (spec 004, ruta `/<slug>/regalos`, tablas `gifts` y `gift_reservations`). La pantalla de dueños llega con la spec 005 ([índice](docs/specs/INDEX.md)). No asumir que un archivo existe sin comprobarlo.
 
 ## Stack y estructura
 

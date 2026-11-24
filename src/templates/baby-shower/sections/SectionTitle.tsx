@@ -12,9 +12,11 @@ export function SectionTitle({ children }: { children: string }) {
   );
 }
 
-export function Section({ children, label }: { children: ReactNode; label: string }) {
+type SectionProps = { children: ReactNode; label: string; id?: string };
+
+export function Section({ children, label, id }: SectionProps) {
   return (
-    <section aria-label={label} className="px-6 py-10 text-center">
+    <section id={id} aria-label={label} className="scroll-mt-4 px-6 py-10 text-center">
       {children}
     </section>
   );
