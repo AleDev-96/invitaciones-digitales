@@ -33,17 +33,17 @@ Campos de `content` que usa la plantilla (todos opcionales salvo `babyName`):
 
 | Parte | Ubicación | RF |
 |---|---|---|
-| Lectura segura de `content` | `src/domain/` | RF-6, RF-7 |
-| Cálculo de cuenta regresiva | `src/domain/` | RF-9, RF-10 |
-| Armado del link de Maps | `src/domain/` | RF-12 |
-| Portada y sobre | `src/templates/baby-shower/` | RF-1 a RF-3b |
-| Secciones y su orden | `src/templates/baby-shower/` | RF-4, RF-5, RF-11, RF-13, RF-14 |
-| Cuenta regresiva y ubicación compartibles | `src/components/` | RF-9, RF-10, RF-12 |
-| Paleta, tipografías y gingham | `src/templates/baby-shower/themes/sage-geese/` | RF-8 |
+| Lectura segura de `content` | `src/domain/` | RF-8, RF-9 |
+| Cálculo de cuenta regresiva | `src/domain/` | RF-11, RF-12 |
+| Armado del link de Maps | `src/domain/` | RF-14 |
+| Portada y sobre | `src/templates/baby-shower/` | RF-1 a RF-5 |
+| Secciones y su orden | `src/templates/baby-shower/` | RF-6, RF-7, RF-13, RF-15, RF-16 |
+| Cuenta regresiva y ubicación compartibles | `src/components/` | RF-11, RF-12, RF-14 |
+| Paleta, tipografías y gingham | `src/templates/baby-shower/themes/sage-geese/` | RF-10 |
 | Sobre ya abierto | Marca por slug en `localStorage` del navegador; sin datos personales | Guardarlo en la base: pediría identificar al visitante |
-| Ilustraciones provisorias | `src/templates/baby-shower/themes/sage-geese/` | RF-1, RF-4 |
+| Ilustraciones provisorias | `src/templates/baby-shower/themes/sage-geese/` | RF-1, RF-6 |
 | Registro de recursos | `docs/guias/ASSET_SOURCES.md` | Reglas |
-| Datos de la `demo` | `supabase/seed.sql` | RF-5, RF-6 |
+| Datos de la `demo` | `supabase/seed.sql` | RF-7, RF-8 |
 
 No hay tablas nuevas ni cambios de permisos. Dependencias nuevas, aprobadas por el responsable: los tres paquetes de `@fontsource`. Los tests unitarios cubren la cuenta regresiva, el link de Maps y la lectura de `content`.
 

@@ -35,34 +35,34 @@ Portada:
 - RF-1: CUANDO alguien abre una invitación publicada por primera vez en ese navegador, EL SISTEMA muestra primero la portada con el sobre cerrado y el texto "¡Tenés una invitación!".
 - RF-2: CUANDO el invitado toca el sobre, EL SISTEMA lo abre con una animación de 1,5 segundos como máximo y muestra la presentación.
 - RF-3: MIENTRAS el dispositivo tenga activada la preferencia de reducir movimiento, EL SISTEMA pasa a la presentación sin animación.
-- RF-3a: CUANDO alguien vuelve a abrir una invitación cuyo sobre ya abrió en ese navegador, EL SISTEMA muestra directamente la presentación, sin la portada.
-- RF-3b: SI el navegador no permite guardar que el sobre ya se abrió (por ejemplo, en modo incógnito), ENTONCES EL SISTEMA muestra la portada en cada visita.
+- RF-4: CUANDO alguien vuelve a abrir una invitación cuyo sobre ya abrió en ese navegador, EL SISTEMA muestra directamente la presentación, sin la portada.
+- RF-5: SI el navegador no permite guardar que el sobre ya se abrió (por ejemplo, en modo incógnito), ENTONCES EL SISTEMA muestra la portada en cada visita.
 
 Página:
 
-- RF-4: EL SISTEMA muestra las secciones en este orden: presentación, cuenta regresiva, fecha y hora, cómo llegar, regalos, confirmación de asistencia y cierre, en una sola columna que se recorre deslizando hacia abajo.
-- RF-5: EL SISTEMA muestra solo las secciones de funcionalidades activas en la invitación (`countdown`, `map`, `gifts`, `rsvp`). Presentación, fecha y hora y cierre se muestran siempre.
-- RF-6: EL SISTEMA toma de los datos de la invitación todos los textos del evento: nombre del bebé, quienes invitan, mensaje, dirección, indicaciones y agradecimiento.
-- RF-7: SI falta un texto opcional en los datos, ENTONCES EL SISTEMA omite esa línea sin dejar huecos ni mostrar textos de relleno.
-- RF-8: EL SISTEMA no genera desplazamiento horizontal en anchos de 360 a 430 px, y en escritorio mantiene la columna centrada con el marco gingham a los costados.
+- RF-6: EL SISTEMA muestra las secciones en este orden: presentación, cuenta regresiva, fecha y hora, cómo llegar, regalos, confirmación de asistencia y cierre, en una sola columna que se recorre deslizando hacia abajo.
+- RF-7: EL SISTEMA muestra solo las secciones de funcionalidades activas en la invitación (`countdown`, `map`, `gifts`, `rsvp`). Presentación, fecha y hora y cierre se muestran siempre.
+- RF-8: EL SISTEMA toma de los datos de la invitación todos los textos del evento: nombre del bebé, quienes invitan, mensaje, dirección, indicaciones y agradecimiento.
+- RF-9: SI falta un texto opcional en los datos, ENTONCES EL SISTEMA omite esa línea sin dejar huecos ni mostrar textos de relleno.
+- RF-10: EL SISTEMA no genera desplazamiento horizontal en anchos de 360 a 430 px, y en escritorio mantiene la columna centrada con el marco gingham a los costados.
 
 Cuenta regresiva:
 
-- RF-9: MIENTRAS falte tiempo para el evento, EL SISTEMA muestra días, horas, minutos y segundos restantes, actualizados cada segundo y calculados con la zona horaria de la invitación.
-- RF-10: CUANDO llega la hora del evento, EL SISTEMA reemplaza la cuenta regresiva por un texto de "¡Llegó el día!" y nunca muestra valores negativos.
+- RF-11: MIENTRAS falte tiempo para el evento, EL SISTEMA muestra días, horas, minutos y segundos restantes, actualizados cada segundo y calculados con la zona horaria de la invitación.
+- RF-12: CUANDO llega la hora del evento, EL SISTEMA reemplaza la cuenta regresiva por un texto de "¡Llegó el día!" y nunca muestra valores negativos.
 
 Fecha y hora:
 
-- RF-11: EL SISTEMA muestra el día de la semana, la fecha (mes, día y año) y la hora del evento en la zona horaria de la invitación. SI el navegador no reconoce esa zona, ENTONCES EL SISTEMA muestra la fecha con la zona indicada, como ya hace la spec 001.
+- RF-13: EL SISTEMA muestra el día de la semana, la fecha (mes, día y año) y la hora del evento en la zona horaria de la invitación. SI el navegador no reconoce esa zona, ENTONCES EL SISTEMA muestra la fecha con la zona indicada, como ya hace la spec 001.
 
 Cómo llegar:
 
-- RF-12: CUANDO el invitado toca "Cómo llegar", EL SISTEMA abre la ubicación del evento en Google Maps (la aplicación si está instalada, o el navegador) en Android y en iPhone.
-- RF-13: EL SISTEMA muestra la dirección escrita debajo del botón y, si existen, las indicaciones (por ejemplo, estacionamiento) en una lista.
+- RF-14: CUANDO el invitado toca "Cómo llegar", EL SISTEMA abre la ubicación del evento en Google Maps (la aplicación si está instalada, o el navegador) en Android y en iPhone.
+- RF-15: EL SISTEMA muestra la dirección escrita debajo del botón y, si existen, las indicaciones (por ejemplo, estacionamiento) en una lista.
 
 Regalos y confirmación (lugar reservado):
 
-- RF-14: MIENTRAS las specs 003 y 004 no estén implementadas, EL SISTEMA muestra en esas secciones su título y el texto "Muy pronto", sin botones que se puedan tocar.
+- RF-16: MIENTRAS las specs 003 y 004 no estén implementadas, EL SISTEMA muestra en esas secciones su título y el texto "Muy pronto", sin botones que se puedan tocar.
 
 ## Reglas
 
@@ -77,7 +77,7 @@ Regalos y confirmación (lugar reservado):
 - [ ] `/demo` muestra la portada y, al tocar el sobre, la animación y la presentación, en un celular y en escritorio.
 - [ ] Al recargar `/demo` en el mismo navegador ya no aparece el sobre; en otra invitación u otro navegador, sí.
 - [ ] Con "reducir movimiento" activado, el sobre abre sin animación.
-- [ ] Las secciones aparecen en el orden de RF-4 y una funcionalidad desactivada en los datos hace desaparecer su sección.
+- [ ] Las secciones aparecen en el orden de RF-6 y una funcionalidad desactivada en los datos hace desaparecer su sección.
 - [ ] La cuenta regresiva de una invitación con fecha pasada muestra "¡Llegó el día!" y ningún número negativo.
 - [ ] "Cómo llegar" abre Google Maps en la ubicación correcta desde un Android y desde un iPhone.
 - [ ] A 360 px no hay desplazamiento horizontal.
