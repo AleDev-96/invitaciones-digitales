@@ -21,5 +21,5 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: `seed.sql` trae los dos mensajes y hay tests de la lectura de `content`.
 - [x] **T7. Documentación.** Reglas
   - Hecho cuando: `data-model.md` (con la consulta de contadores), `architecture.md`, `templates.md`, el README, `AGENTS.md`, `MEMORY.md` y el INDEX reflejan la spec.
-- [ ] **T8. Revisión en celular y escritorio.** RF-1, RF-13
+- [x] **T8. Revisión en celular y escritorio.** RF-1, RF-13
   - Hecho cuando: a 360 px y en escritorio se ven el formulario, los dos agradecimientos y el cierre sin desplazamiento horizontal.
