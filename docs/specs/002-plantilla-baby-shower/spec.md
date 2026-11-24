@@ -83,7 +83,6 @@ Regalos y confirmación (lugar reservado):
 
 ## Preguntas abiertas
 
-- Texto del botón: "Cómo llegar" (INDEX) o "Ver mapa" (guía de estilo).
 - Si el sobre aparece en cada visita o solo la primera vez en ese navegador.
 
 ## Historial de cambios
@@ -92,3 +91,4 @@ Regalos y confirmación (lugar reservado):
 |---|---|
 | 2026-11-24 | Borrador inicial |
 | 2026-11-24 | Tipografías: se guardan en el repositorio con `@fontsource` |
+| 2026-11-24 | El botón de la ubicación dice "Cómo llegar" |
