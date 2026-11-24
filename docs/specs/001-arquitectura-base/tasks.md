@@ -23,5 +23,5 @@ En orden de dependencia. Cada tarea se marca como hecha (`- [x]`) y lleva su pro
   - Hecho cuando: lanzada a mano se comporta como indica el criterio de aceptación.
 - [ ] **T8. Publicación en Cloudflare Pages.** RF-1, RF-7, RF-12
   - Hecho cuando: se cumplen los criterios de aceptación sobre la dirección pública.
-- [ ] **T9. Actualizar la documentación.** —
+- [x] **T9. Actualizar la documentación.** —
   - Hecho cuando: `architecture.md`, `data-model.md`, `deployment.md`, `project-structure.md`, `AGENTS.md`, `MEMORY.md`, el README y la skill `create-invitation` reflejan lo construido, sin decisiones abiertas que esta spec cierra.

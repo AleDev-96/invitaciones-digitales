@@ -13,6 +13,7 @@ invitaciones-digitales/
 ├── .github/
 │   ├── agents/               # Definiciones de agentes (pendiente)
 │   ├── instructions/         # Instrucciones por tema (pendiente)
+│   ├── workflows/            # Tareas de GitHub Actions (keepalive)
 │   └── skills/
 │       ├── create-invitation/
 │       ├── create-template/
@@ -54,7 +55,11 @@ invitaciones-digitales/
 │   └── templates/
 │       └── baby-shower/      # Estructura de la plantilla
 │           └── themes/sage-geese/    # Un estilo
-├── supabase/migrations/      # Cambios versionados de base de datos
+├── functions/                # Cloudflare Pages Functions: vista previa del link ([slug].ts)
+├── public/og/                # Imágenes de vista previa del link (genérica y demo)
+├── supabase/
+│   ├── migrations/           # Cambios versionados de base de datos
+│   └── seed.sql              # Datos inventados de demostración
 ├── tests/
 │   ├── e2e/                  # Pruebas de punta a punta
 │   ├── unit/                 # Pruebas unitarias
@@ -66,17 +71,9 @@ invitaciones-digitales/
 └── README.md
 ```
 
-## Se agrega al crear la aplicación
+## Archivos de configuración
 
-Estos archivos todavía no existen. Se crean junto con el código que los necesita, no antes.
-
-```text
-├── package.json
-├── tsconfig.json
-├── .prettierignore
-├── .env.example
-└── docs/guias/ASSET_SOURCES.md       # Con el primer recurso gráfico final
-```
+En la raíz: `package.json`, `tsconfig.json`, `vite.config.ts` (también configura Vitest), `eslint.config.js`, `.prettierrc.json`, `.prettierignore`, `index.html` y `.env.example`. `docs/guias/ASSET_SOURCES.md` se crea con el primer recurso gráfico final.
 
 ## Fuera de la convención general
 
@@ -84,6 +81,8 @@ Dos carpetas no forman parte de la convención habitual de repositorios y se man
 
 - `src/templates/`: las plantillas y sus estilos son el núcleo del producto y necesitan un lugar propio y fijo.
 - `supabase/migrations/`: es la ubicación que usa la herramienta de Supabase para las migraciones.
+- `functions/`: Cloudflare Pages solo reconoce sus funciones en esa carpeta de la raíz.
+- `public/`: Vite publica tal cual lo que está ahí; se usa para las imágenes de vista previa del link, que necesitan una dirección fija.
 
 ## Responsabilidad de cada capa
 

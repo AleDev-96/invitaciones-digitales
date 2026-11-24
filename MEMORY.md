@@ -4,11 +4,12 @@ Memoria del proyecto entre sesiones. Máximo unas 50 líneas: resumir o eliminar
 
 ## Estado actual — v0.1
 
-Armado inicial del harness, hasta tener el ambiente listo para empezar el desarrollo de las invitaciones digitales personalizadas.
+Spec 001 (arquitectura base) construida: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Siguen las specs 002 a 006 de `docs/specs/INDEX.md`.
 
 ## Aprendizajes y errores a evitar
 
-Vacío por ahora.
+- Las migraciones se aplican pegándolas en el SQL Editor de Supabase; una aplicada no se edita.
+- La tarea `keepalive` solo se puede lanzar a mano cuando está en `main`.
 
 ## Decisiones
 

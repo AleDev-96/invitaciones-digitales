@@ -1,6 +1,32 @@
 # Modelo de datos
 
-**Estado:** propuesta conceptual. El esquema definitivo se escribe en migraciones SQL dentro de `supabase/migrations/` y este documento se actualiza en el mismo cambio.
+**Estado:** `invitations` creada en la spec 001 ([migración](../../supabase/migrations/20261124000000_invitations.sql)). El resto de las tablas es una propuesta que se cierra en las specs 003 y 004. Cada cambio de esquema va en una migración nueva de `supabase/migrations/` y actualiza este documento en el mismo cambio.
+
+## Tabla `invitations`
+
+| Columna | Contenido |
+|---|---|
+| `id` | Identificador (`uuid`) |
+| `slug` | Único; formato y palabras reservadas controlados por la base |
+| `template_key`, `theme_key` | Plantilla y estilo |
+| `status` | `draft`, `published` o `archived` |
+| `event_at`, `timezone` | Fecha y hora del evento, y zona horaria |
+| `rsvp_closes_at` | Cierre de confirmaciones (spec 003) |
+| `expected_guests` | Invitados esperados (spec 005) |
+| `takedown_on` | Fecha de baja; si se deja vacía, 7 días después del evento |
+| `preview_title`, `preview_description`, `preview_image_url` | Vista previa del link |
+| `content` | Textos y datos propios de la plantilla (`jsonb`) |
+| `features` | Funcionalidades activas |
+| `created_at`, `updated_at` | Auditoría |
+
+Acceso público, siempre con la clave pública:
+
+| Función | Publicada (antes de `takedown_on`) | Dada de baja o pasada la baja | Borrador o inexistente |
+|---|---|---|---|
+| `get_invitation(p_slug)` | Datos de la invitación | Solo `{"status": "archived"}` | `null` |
+| `get_invitation_preview(p_slug)` | Título, descripción e imagen | `null` | `null` |
+
+La tabla tiene RLS activo y ningún permiso para `anon` ni `authenticated`. Los datos de demostración están en [`supabase/seed.sql`](../../supabase/seed.sql).
 
 ## Entidades
 
@@ -33,15 +59,15 @@ Toda tabla dependiente de un evento referencia `invitation_id`.
 |---|---|---|
 | Público (sin sesión) | Leer una invitación activa y sus regalos con estado disponible/reservado | Listar respuestas, ver quién reservó, leer invitaciones inactivas |
 | Invitado (con token) | Crear, leer y modificar su propia respuesta y su propia reserva | Ver o tocar datos de otro invitado |
-| Quien administra (pantalla de Supabase) | Leer y corregir todos los datos | No aplica: no usa la aplicación |
+| Quien administra (pantalla de Supabase) | Leer y corregir todos los datos. Carga y edita las invitaciones | No aplica: no usa la aplicación |
 
 RLS activo en todas las tablas. Las políticas se prueban con un usuario sin sesión antes de publicar.
 
 ## Pendiente de definir
 
-Depende de las decisiones abiertas de [architecture.md](architecture.md):
+Se define en las specs 003 y 004:
 
-- Columnas y tipos de cada tabla.
+- Columnas y tipos de `gifts`, `gift_reservations` y `rsvps`.
 - Dónde vive el token del invitado y cómo se guarda (hash, no texto plano).
 - Si existe una tabla de invitados precargados.
 - Funciones RPC para confirmar asistencia, reservar, liberar y cambiar regalo.
