@@ -1,22 +1,8 @@
 import { useParams } from 'react-router';
 import { messages } from '../../content/messages';
 import { renderTemplate } from '../../templates/registry';
-import { StatusScreen } from './StatusScreen';
+import { ErrorScreen, StatusScreen } from './StatusScreen';
 import { useInvitation } from './useInvitation';
-
-function ErrorScreen({ onRetry }: { onRetry: () => void }) {
-  return (
-    <StatusScreen title={messages.error.title} body={messages.error.body}>
-      <button
-        type="button"
-        onClick={onRetry}
-        className="mt-2 rounded-full bg-stone-700 px-6 py-2 text-white"
-      >
-        {messages.error.retry}
-      </button>
-    </StatusScreen>
-  );
-}
 
 function Invitation({ slug }: { slug: string }) {
   const { state, retry } = useInvitation(slug);

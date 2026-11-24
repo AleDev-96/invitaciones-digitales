@@ -13,7 +13,7 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: hay tests de qué botones y avisos corresponden a cada caso (sin respuesta, sí, no, sin `rsvp`, cerrada, tope de regalos alcanzado).
 - [x] **T3. Servicio de regalos.** RF-8, RF-10, RF-11, RF-13, RF-20
   - Hecho cuando: hay tests de lista leída, reserva guardada, agotado, tope alcanzado, cerrada, sin respuesta y error de red.
-- [ ] **T4. Estado de la lista y ruta `/<slug>/regalos`.** RF-2, RF-5, RF-6, RF-7, RF-11, RF-12, RF-14 a RF-19
+- [x] **T4. Estado de la lista y ruta `/<slug>/regalos`.** RF-2, RF-5, RF-6, RF-7, RF-11, RF-12, RF-14 a RF-19
   - Hecho cuando: `/demo/regalos` carga la lista y `/demo-borrador/regalos` muestra lo mismo que `/demo-borrador`.
 - [ ] **T5. Sección "Regalos" y pantalla de la lista en `baby-shower`.** RF-1 a RF-4, RF-6 a RF-15, RF-19, RF-20
   - Hecho cuando: en `/demo` se abre la lista, se elige, se quita y se vuelve, con los avisos de cada caso.

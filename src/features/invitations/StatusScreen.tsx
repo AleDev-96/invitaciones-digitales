@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { messages } from '../../content/messages';
 
 type StatusScreenProps = {
   title: string;
@@ -13,5 +14,19 @@ export function StatusScreen({ title, body, children }: StatusScreenProps) {
       {body && <p className="max-w-sm text-stone-500">{body}</p>}
       {children}
     </main>
+  );
+}
+
+export function ErrorScreen({ onRetry }: { onRetry: () => void }) {
+  return (
+    <StatusScreen title={messages.error.title} body={messages.error.body}>
+      <button
+        type="button"
+        onClick={onRetry}
+        className="mt-2 rounded-full bg-stone-700 px-6 py-2 text-white"
+      >
+        {messages.error.retry}
+      </button>
+    </StatusScreen>
   );
 }
