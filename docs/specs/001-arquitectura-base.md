@@ -33,7 +33,7 @@ Dejar la aplicación funcionando y publicada, todavía sin diseño: una direcci�
 | Tema | Decisión | Alternativa descartada |
 |---|---|---|
 | Dirección | `/<slug>`, con slug único en toda la aplicación | `/<tipo>/<slug>`: más larga y expone el tipo en inglés |
-| Dominio | Gratuito de Cloudflare (`<nombre>.pages.dev`) | Dominio propio: tiene costo anual |
+| Dominio | Gratuito de Cloudflare: `babyshower-invitacion-digital.pages.dev`, uno solo para todas las invitaciones. Se puede sumar otro sitio de Cloudflare sobre el mismo repositorio si hace falta un nombre distinto | Dominio propio: tiene costo anual. Un sitio por invitación: más trabajo en cada alta |
 | Identificación del invitado | Link general. Al confirmar, la base entrega a ese navegador una clave propia que se guarda en el dispositivo (detalle en 003) | Link por invitado: obliga a cargar la lista y a enviar cada link |
 | Operaciones de invitados | Funciones de la base que validan todo adentro; ninguna tabla se lee ni se escribe directo desde la página | Políticas RLS abiertas: no distinguen a un invitado de otro |
 | Estilos | Variables CSS bajo el atributo `data-theme="<theme_key>"`; Tailwind usa esas variables | Una hoja de estilos global por estilo: los colores de uno pisan a los de otro |
@@ -162,6 +162,7 @@ Se mantiene en planes gratuitos. Límites verificados en la documentación de ca
 |---|---|---|
 | Supabase | Puede pausar el proyecto tras 7 días de poca actividad; se reactiva desde su pantalla. Hasta 2 proyectos activos | Cubierto con la tarea programada. Se usa un solo proyecto |
 | Cloudflare Pages Functions | 100.000 pedidos por día, compartidos con Workers | Cada apertura de una invitación consume uno |
+| Cloudflare Pages | 100 sitios por cuenta y 500 publicaciones por mes | Se usa un sitio; cada cambio integrado consume una publicación |
 | GitHub Actions | En un repositorio público, las tareas programadas se desactivan tras 60 días sin actividad en el repositorio | Se reactiva con un clic; queda anotado en la skill `create-invitation` |
 
 ## Criterios de aceptación
@@ -200,12 +201,15 @@ Se mantiene en planes gratuitos. Límites verificados en la documentación de ca
 
 ## Preguntas abiertas
 
-1. **Cuentas.** Hace falta un proyecto de Supabase y uno de Cloudflare Pages a nombre del responsable. Definir si los crea el responsable y comparte el acceso, o cómo se hace el alta.
-2. **Nombre del dominio gratuito.** Qué va delante de `.pages.dev`. Propuesta: `invitaciones-digitales`, sujeta a que esté libre.
-3. **Aprobación de las dependencias** de la tabla y de la carpeta `functions/` en la raíz.
+Ninguna. Resueltas el 2026-11-23:
+
+1. **Cuentas.** El responsable creó el proyecto de Supabase y la cuenta de Cloudflare. La dirección del proyecto y la clave pública de Supabase se cargan como variables de entorno; no se escriben en el repositorio. La conexión de Cloudflare con GitHub se hace en T8.
+2. **Nombre del dominio gratuito.** `babyshower-invitacion-digital.pages.dev`. El 2026-11-23 no estaba en uso; se confirma al crear el sitio en T8.
+3. **Dependencias y carpeta `functions/`.** Aprobadas.
 
 ## Historial de cambios
 
 | Fecha | Cambio |
 |---|---|
 | 2026-11-23 | Primera versión, con las respuestas de la clarificación |
+| 2026-11-23 | Se cierran las preguntas abiertas: cuentas, dominio y dependencias |
