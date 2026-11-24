@@ -1,7 +1,7 @@
 # 004 — Lista de regalos con reserva: spec
 
 - **Tipo:** larga
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Fecha:** 2026-11-24
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
@@ -105,3 +105,4 @@ Ninguna.
 | 2026-11-24 | La lista muestra solo "Disponible" o "Reservado", sin cuántos quedan |
 | 2026-11-24 | La lista cierra en una fecha propia de la invitación; si no se carga, al terminar el día anterior al evento. Corrige la decisión del INDEX "hasta el fin del evento" |
 | 2026-11-24 | Sin imágenes ni enlaces a tiendas: cada regalo lleva nombre y descripción opcional |
+| 2026-11-24 | Aprobada |
