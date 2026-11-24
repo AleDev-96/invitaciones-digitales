@@ -9,8 +9,12 @@ insert into public.invitations (
     '2027-06-12 16:00:00-03', 'America/Argentina/Buenos_Aires', '2027-12-31',
     'Baby shower de demostración',
     'Invitación de prueba de Invitaciones Digitales.', '/og/demo.png',
-    '{"title": "Baby shower de demostración", "honoree": "Bebé Demo"}',
-    '{}'
+    '{"babyName": "Bebé Demo", "hosts": "Ana y Juan",
+      "message": "Estamos muy felices de compartir con vos la espera de nuestro bebé.",
+      "closing": "¡Gracias por acompañarnos en este momento tan especial!",
+      "location": {"address": "Av. Siempre Viva 742, Ciudad de Ejemplo",
+        "notes": ["Hay estacionamiento en la esquina", "Tocar timbre en la casa del fondo"]}}',
+    '{countdown,map,gifts,rsvp}'
   ),
   (
     'demo-borrador', 'baby-shower', 'sage-geese', 'draft',

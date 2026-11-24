@@ -1,7 +1,7 @@
 # 002 — Plantilla `baby-shower` y estilo `sage-geese`: spec
 
 - **Tipo:** larga
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Fecha:** 2026-11-24
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
@@ -96,3 +96,4 @@ Ninguna.
 | 2026-11-24 | Tipografías: se guardan en el repositorio con `@fontsource` |
 | 2026-11-24 | El botón de la ubicación dice "Cómo llegar" |
 | 2026-11-24 | El sobre se muestra solo la primera vez en cada navegador |
+| 2026-11-24 | Aprobada. La invitación `demo` sigue con datos inventados; los reales se cargan solo en Supabase |
