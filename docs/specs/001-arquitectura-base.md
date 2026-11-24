@@ -1,7 +1,7 @@
 # 001 — Arquitectura base
 
 - **Tipo:** larga
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Fecha:** 2026-11-23
 
 ## Objetivo
