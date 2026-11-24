@@ -37,7 +37,7 @@ Pantalla de regalos:
 
 - RF-2: EL SISTEMA muestra la pantalla de regalos en `/<slug>/regalos`, con el botón "Volver a la invitación" arriba y abajo de la lista.
 - RF-3: EL SISTEMA muestra los regalos en el orden cargado por los dueños, cada uno con nombre, descripción, sus imágenes de referencia, el enlace "Ver en la tienda" si está cargado (se abre en otra pestaña) y la aclaración "Imagen ilustrativa" debajo de cada imagen.
-- RF-4: EL SISTEMA muestra en cada regalo si está "Disponible" o "Reservado". PENDIENTE: definición del responsable sobre si un regalo que se puede elegir varias veces muestra también cuántas quedan (por ejemplo, "Quedan 3").
+- RF-4: EL SISTEMA muestra en cada regalo solo "Disponible", mientras quede cupo, o "Reservado", cuando se agotó, sin indicar cuántas veces se puede elegir ni cuántas quedan.
 - RF-5: SI una imagen no carga, ENTONCES EL SISTEMA muestra en su lugar una ilustración del estilo, sin romper la tarjeta del regalo.
 - RF-6: SI la invitación no existe, es un borrador o está dada de baja, ENTONCES EL SISTEMA muestra en `/<slug>/regalos` la misma pantalla que en `/<slug>`.
 - RF-7: SI la invitación no tiene la funcionalidad de regalos o no tiene regalos cargados, ENTONCES EL SISTEMA muestra "Todavía no hay regalos cargados." y el botón para volver.
@@ -67,7 +67,7 @@ Cierre:
 
 Privacidad y seguridad:
 
-- RF-22: EL SISTEMA no muestra en la página pública el nombre de quien eligió cada regalo ni cuántas personas lo eligieron, salvo lo que defina RF-4.
+- RF-22: EL SISTEMA no muestra en la página pública el nombre de quien eligió cada regalo ni cuántas personas lo eligieron.
 - RF-23: EL SISTEMA valida en la base de datos, sin depender del navegador, que quien elige tenga una respuesta "Sí, asistiré" en esa invitación, que el regalo sea de esa invitación, que no se supere la cantidad de veces que se puede elegir el regalo ni la cantidad máxima de regalos por persona.
 - RF-24: EL SISTEMA no permite leer, modificar ni borrar reservas ajenas desde la página pública; cada invitado solo puede quitar la propia con su código.
 - RF-25: CUANDO se borra una invitación, un regalo o una respuesta, EL SISTEMA borra también sus reservas.
@@ -97,9 +97,8 @@ Privacidad y seguridad:
 
 ## Preguntas abiertas
 
-1. ¿Un regalo que se puede elegir varias veces muestra cuántas quedan? (RF-4)
-2. ¿La lista cierra a la hora del evento o más tarde? (RF-19)
-3. ¿Las imágenes son enlaces a imágenes de la tienda o se suben a Supabase Storage? (Alcance)
+1. ¿La lista cierra a la hora del evento o más tarde? (RF-19)
+2. ¿Las imágenes son enlaces a imágenes de la tienda o se suben a Supabase Storage? (Alcance)
 
 ## Historial de cambios
 
@@ -107,3 +106,4 @@ Privacidad y seguridad:
 |---|---|
 | 2026-11-24 | Borrador inicial |
 | 2026-11-24 | Hasta 3 regalos distintos por persona, con el tope como dato de la invitación; cada regalo tiene su cupo (por ejemplo, pañales P ×5) |
+| 2026-11-24 | La lista muestra solo "Disponible" o "Reservado", sin cuántos quedan |
