@@ -10,4 +10,21 @@
   --color-ink: #44463d;
   --color-muted: #77776b;
   --color-line: #dfded3;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-script: 'Allura', 'Brush Script MT', cursive;
+
+  --gingham:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-gingham-sage) 55%, transparent) 50%,
+      transparent 50%
+    ),
+    linear-gradient(
+      color-mix(in srgb, var(--color-gingham-sage) 55%, transparent) 50%,
+      transparent 50%
+    ),
+    linear-gradient(var(--color-gingham-light), var(--color-gingham-light));
+  --gingham-size: 14px 14px;
 }

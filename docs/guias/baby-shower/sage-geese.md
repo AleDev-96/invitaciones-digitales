@@ -95,7 +95,7 @@ No escribir párrafos completos en tipografía manuscrita. Fechas, horarios, dir
 2. **Presentación:** “Estás invitado/a a mi Baby Shower”, nombre del bebé y/o de quienes invitan, mensaje breve e ilustración principal.
 3. **Cuenta regresiva:** días, horas, minutos y segundos; si el evento ya pasó, no mostrar valores negativos.
 4. **Fecha y horario:** día, fecha y hora con jerarquía clara.
-5. **Ubicación:** dirección, indicaciones opcionales y botón “Ver mapa” que abre Google Maps.
+5. **Ubicación:** dirección, indicaciones opcionales y botón “Cómo llegar” que abre Google Maps.
 6. **Regalos:** productos con imagen de referencia, nombre exacto, descripción/características y acción para elegir o reservar.
 7. **Confirmación de asistencia:** formulario breve para confirmar, rechazar o actualizar la respuesta.
 8. **Cierre:** agradecimiento e ilustración pequeña.
@@ -169,6 +169,7 @@ En todas, borde lateral gingham verde muy claro sobre fondo marfil.
 Diferencias respecto de las capturas:
 
 - Los gansos van sin sombreros.
+- El botón de la ubicación dice "Cómo llegar" en lugar de "Ver mapa".
 - La lista de regalos es propia de la aplicación (con reserva), no un botón hacia una tienda externa.
 
 ## 10. Instrucciones para agentes de IA

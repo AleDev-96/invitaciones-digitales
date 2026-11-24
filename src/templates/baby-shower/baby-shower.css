@@ -1,0 +1,41 @@
+.baby-shower-frame {
+  background-image: var(--gingham);
+  background-size: var(--gingham-size);
+}
+
+.baby-shower-cover-leave {
+  animation: baby-shower-fade-out 500ms ease-in 900ms forwards;
+}
+
+.baby-shower-flap {
+  transform-origin: top center;
+  transition: transform 700ms ease-in-out;
+}
+
+.baby-shower-cover-leave .baby-shower-flap {
+  transform: rotateX(180deg);
+}
+
+.baby-shower-letter {
+  transition: transform 600ms ease-out 400ms;
+}
+
+.baby-shower-cover-leave .baby-shower-letter {
+  transform: translateY(-45%);
+}
+
+@keyframes baby-shower-fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .baby-shower-cover-leave,
+  .baby-shower-flap,
+  .baby-shower-letter {
+    animation: none;
+    transition: none;
+  }
+}

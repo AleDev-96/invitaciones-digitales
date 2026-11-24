@@ -4,12 +4,13 @@ Memoria del proyecto entre sesiones. Máximo unas 50 líneas: resumir o eliminar
 
 ## Estado actual — v0.1
 
-Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Siguen las specs 002 a 006 de `docs/specs/INDEX.md`.
+Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada; ilustraciones provisorias hasta la 006. Siguen las specs 003 a 006 de `docs/specs/INDEX.md`.
 
 ## Aprendizajes y errores a evitar
 
 - Las migraciones se aplican pegándolas en el SQL Editor de Supabase; una aplicada no se edita.
 - La tarea `keepalive` solo se puede lanzar a mano cuando está en `main`. Lee Variables del repo (no Secrets); `KEEPALIVE_UNTIL` va hasta la fecha de baja.
+- `seed.sql` usa `on conflict do nothing`: para cambiar la `demo` ya cargada hace falta un `update`.
 - En Cloudflare, el sitio se crea desde "Workers & Pages" → "Create" → pestaña "Pages". El asistente de Workers pide "API Token" y no sirve para este proyecto.
 
 ## Decisiones
@@ -27,6 +28,7 @@ El detalle está en `docs/architecture/architecture.md`.
 - Las capturas de diseños de terceros no se suben al repositorio; la guía de estilo las describe con texto.
 - Estructura de carpetas según la convención habitual del responsable (`.github/`, `assets/`, `docs/`, `src/`, `tests/`); detalle en `docs/architecture/project-structure.md`.
 - Los 6 principios innegociables están en `docs/CONSTITUTION.md` y ganan ante cualquier spec o skill.
+- Los datos reales de una invitación se cargan directo en Supabase, nunca en `seed.sql` ni en otro archivo del repo.
 - Orden de trabajo: spec aprobada, armar, validar, testear y recién después el pull request.
 
 ## Próximos pasos
