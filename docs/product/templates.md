@@ -11,17 +11,31 @@ Una invitación se define con una plantilla (`template_key`) y un estilo (`theme
 
 | Tipo de evento | `template_key` | Estructura | Estado |
 |---|---|---|---|
-| Baby shower | `baby-shower` | `src/templates/baby-shower/` | Sin implementar |
+| Baby shower | `baby-shower` | `src/templates/baby-shower/` | En desarrollo |
 
 ## Estilos
 
 | `template_key` | `theme_key` | Descripción | Guía de estilo | Código | Gráficos | Estado |
 |---|---|---|---|---|---|---|
-| `baby-shower` | `sage-geese` | Acuarela con gansos, verde salvia, marfil y taupe | [sage-geese.md](../guias/baby-shower/sage-geese.md) | `src/templates/baby-shower/themes/sage-geese/` | `assets/images/templates/baby-shower/sage-geese/` | Guía lista; sin implementar |
+| `baby-shower` | `sage-geese` | Acuarela con gansos, verde salvia, marfil y taupe | [sage-geese.md](../guias/baby-shower/sage-geese.md) | `src/templates/baby-shower/themes/sage-geese/` | `assets/images/templates/baby-shower/sage-geese/` | En desarrollo |
 
 Estados posibles: guía lista, en desarrollo, disponible.
 
 Si la plantilla o el estilo pedido no figura en estas tablas, seguir `.github/skills/create-template/`.
+
+## Datos de cada plantilla
+
+Campos de `content` que lee cada plantilla. Todos son opcionales: si falta uno, su texto no se muestra.
+
+| `template_key` | Campo | Qué es |
+|---|---|---|
+| `baby-shower` | `babyName` | Nombre del bebé |
+| `baby-shower` | `hosts` | Quienes invitan |
+| `baby-shower` | `message` | Mensaje de la presentación |
+| `baby-shower` | `closing` | Mensaje de cierre |
+| `baby-shower` | `location.address` | Dirección, debajo del botón "Cómo llegar" |
+| `baby-shower` | `location.mapsUrl` | Link de Google Maps; si falta, se arma con la dirección |
+| `baby-shower` | `location.notes` | Lista de indicaciones para llegar |
 
 ## Funcionalidades
 
@@ -29,8 +43,8 @@ Las funcionalidades son opcionales por invitación. Una funcionalidad nueva entr
 
 | Funcionalidad | Clave | Qué hace | Estado |
 |---|---|---|---|
-| Cuenta regresiva | `countdown` | Tiempo faltante para el evento | Sin implementar |
-| Ubicación | `map` | Dirección y botón que abre Google Maps | Sin implementar |
+| Cuenta regresiva | `countdown` | Tiempo faltante para el evento | En desarrollo |
+| Ubicación | `map` | Dirección y botón que abre Google Maps | En desarrollo |
 | Regalos sugeridos | `gifts` | Lista de regalos con reserva | Sin implementar |
 | Confirmación de asistencia | `rsvp` | Confirmar, rechazar o modificar la asistencia | Sin implementar |
 
