@@ -8,7 +8,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 
 | N.º | Spec | Tipo | Depende de | Estado |
 |---|---|---|---|---|
-| 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | — | Aprobada |
+| 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | — | Implementada |
 | 002 | Plantilla `baby-shower` y estilo `sage-geese` | Larga | 001 | Sin redactar |
 | 003 | Confirmación de asistencia | Larga | 001, 002 | Sin redactar |
 | 004 | Lista de regalos con reserva | Larga | 001, 002, 003 | Sin redactar |

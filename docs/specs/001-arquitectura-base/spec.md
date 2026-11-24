@@ -1,7 +1,7 @@
 # 001 — Arquitectura base: spec
 
 - **Tipo:** larga
-- **Estado:** aprobada
+- **Estado:** implementada
 - **Fecha:** 2026-11-23
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
@@ -79,7 +79,7 @@ Disponibilidad:
 - [x] Con la clave pública no se puede leer ni escribir la tabla `invitations` directamente.
 - [x] El link de `/demo` pegado en WhatsApp muestra el título, la descripción y la imagen de la demostración.
 - [x] Un link con slug inexistente muestra la vista previa genérica.
-- [ ] La tarea programada, lanzada a mano, consulta la base con una fecha vigente y no la consulta con una fecha vencida.
+- [x] La tarea programada, lanzada a mano, consulta la base con una fecha vigente y no la consulta con una fecha vencida.
 - [x] Pasan la comprobación de tipos, el lint, las pruebas y la compilación.
 - [x] No hay credenciales en el repositorio.
 

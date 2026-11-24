@@ -19,9 +19,9 @@ En orden de dependencia. Cada tarea se marca como hecha (`- [x]`) y lleva su pro
   - Hecho cuando: en local se ven los cinco estados y el estilo no afecta a la página raíz.
 - [x] **T6. Función de vista previa.** RF-12, RF-13
   - Hecho cuando: hay pruebas del armado de etiquetas y de la respuesta sin cambios ante un fallo.
-- [ ] **T7. Tarea programada.** RF-14 a RF-16
+- [x] **T7. Tarea programada.** RF-14 a RF-16
   - Hecho cuando: lanzada a mano se comporta como indica el criterio de aceptación.
-  - Pendiente: la lógica se probó en local con fecha vigente, vencida y vacía. Lanzarla a mano requiere que esté en `main`; se hace después de integrar el PR.
+  - Hecho: lanzada a mano desde `main` el 2026-11-24 con fecha vigente (2026-12-12), consultó la base y terminó bien. Los casos de fecha vencida y vacía se probaron en local.
 - [x] **T8. Publicación en Cloudflare Pages.** RF-1, RF-7, RF-12
   - Hecho cuando: se cumplen los criterios de aceptación sobre la dirección pública.
 - [x] **T9. Actualizar la documentación.** —
