@@ -9,7 +9,7 @@ En orden de dependencia. Cada tarea se marca como hecha (`- [x]`) y lleva su pro
 
 - [x] **T1. Crear el proyecto con Vite, React, TypeScript, Tailwind, lint, formato y Vitest.** —
   - Hecho cuando: `npm run build`, `npm run lint`, `npm run typecheck` y `npm test` terminan sin errores, y `AGENTS.md` lista esos comandos.
-- [ ] **T2. Reglas de dominio de la invitación.** RF-3, RF-4, RF-8
+- [x] **T2. Reglas de dominio de la invitación.** RF-3, RF-4, RF-8
   - Hecho cuando: hay pruebas que cubren slugs válidos, inválidos y reservados, y la visibilidad de cada estado.
 - [ ] **T3. Migración con la tabla `invitations`, sus permisos y las dos funciones; datos de demostración.** RF-8, RF-9
   - Hecho cuando: con la clave pública la tabla no se puede leer, y las funciones devuelven lo indicado para cada estado.
