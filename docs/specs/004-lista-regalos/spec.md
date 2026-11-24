@@ -1,7 +1,7 @@
 # 004 — Lista de regalos con reserva: spec
 
 - **Tipo:** larga
-- **Estado:** implementada
+- **Estado:** aprobada
 - **Fecha:** 2026-11-24
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)

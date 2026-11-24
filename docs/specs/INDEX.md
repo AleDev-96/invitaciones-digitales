@@ -11,7 +11,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 | 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | — | Implementada |
 | 002 | [Plantilla `baby-shower` y estilo `sage-geese`](002-plantilla-baby-shower/spec.md) | Larga | 001 | Implementada |
 | 003 | [Confirmación de asistencia](003-confirmacion-asistencia/spec.md) | Larga | 001, 002 | Implementada |
-| 004 | [Lista de regalos con reserva](004-lista-regalos/spec.md) | Larga | 001, 002, 003 | Implementada |
+| 004 | [Lista de regalos con reserva](004-lista-regalos/spec.md) | Larga | 001, 002, 003 | Aprobada |
 | 005 | Pantalla de los dueños del evento | Larga | 003, 004 | Sin redactar |
 | 006 | Primera invitación: baby shower | Invitación | 002 a 005 | Sin redactar |
 

@@ -1,6 +1,6 @@
 # 004 — Lista de regalos con reserva: plan
 
-- **Estado:** implementada
+- **Estado:** aprobada
 - **Spec:** [spec.md](spec.md)
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
