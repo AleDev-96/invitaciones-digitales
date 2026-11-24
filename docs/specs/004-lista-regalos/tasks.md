@@ -1,6 +1,6 @@
 # 004 — Lista de regalos con reserva: tareas
 
-- **Estado:** aprobada
+- **Estado:** implementada
 - **Spec:** [spec.md](spec.md) · **Plan:** [plan.md](plan.md)
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
@@ -21,5 +21,5 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: `seed.sql` trae el texto y regalos de 1 y de varias veces, con y sin descripción; hay tests de la lectura de `content`.
 - [x] **T7. Documentación.** Reglas
   - Hecho cuando: `data-model.md` (con la consulta de quién eligió), `architecture.md`, `templates.md`, el README, `AGENTS.md`, `MEMORY.md` y el INDEX reflejan la spec.
-- [ ] **T8. Revisión en celular y escritorio.** RF-2, RF-3
+- [x] **T8. Revisión en celular y escritorio.** RF-2, RF-3
   - Hecho cuando: a 360 px y en escritorio se ven la sección, la lista y cada estado del regalo sin desplazamiento horizontal.

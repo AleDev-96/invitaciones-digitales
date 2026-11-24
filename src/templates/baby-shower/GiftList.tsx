@@ -57,7 +57,7 @@ function Notice({
           <p className="text-lg">{text.confirmFirst}</p>
           <Link
             to={`/${slug}#confirmar`}
-            className="mt-3 inline-block rounded-full bg-(--color-sage-dark) px-5 py-2 text-(--color-paper)"
+            className="mt-3 inline-block rounded-full bg-(--color-taupe) px-5 py-2 font-semibold text-(--color-paper)"
           >
             {text.confirmButton}
           </Link>
@@ -104,7 +104,7 @@ function GiftItem({ list, gift, saving, onChoose, onRelease }: ItemProps) {
           type="button"
           disabled={saving}
           onClick={() => onChoose(gift.id)}
-          className="mt-3 w-full rounded-full bg-(--color-sage-dark) px-5 py-2 text-(--color-paper) disabled:opacity-60"
+          className="mt-3 w-full rounded-full bg-(--color-taupe) px-5 py-2 font-semibold text-(--color-paper) disabled:opacity-60"
         >
           {text.choose}
         </button>
