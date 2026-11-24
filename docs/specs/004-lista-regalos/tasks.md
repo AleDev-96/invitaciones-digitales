@@ -9,7 +9,7 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
 - [x] **T1. Migración de `gifts` y `gift_reservations`, y funciones.** RF-4, RF-8 a RF-12, RF-16, RF-18, RF-20 a RF-24
   - Hecho cuando: aplicada sobre una base de prueba, `tests/support/gifts-checks.sql` pasa con el rol `anon`, incluidos dos pedidos simultáneos sobre un regalo de 1 vez, un cuarto regalo de la misma persona y el cierre con y sin `gifts_closes_at`.
-- [ ] **T2. Tipos y reglas de la lista.** RF-4, RF-7, RF-9, RF-14, RF-15, RF-17, RF-19
+- [x] **T2. Tipos y reglas de la lista.** RF-4, RF-7, RF-9, RF-14, RF-15, RF-17, RF-19
   - Hecho cuando: hay tests de qué botones y avisos corresponden a cada caso (sin respuesta, sí, no, sin `rsvp`, cerrada, tope de regalos alcanzado).
 - [ ] **T3. Servicio de regalos.** RF-8, RF-10, RF-11, RF-13, RF-20
   - Hecho cuando: hay tests de lista leída, reserva guardada, agotado, tope alcanzado, cerrada, sin respuesta y error de red.
