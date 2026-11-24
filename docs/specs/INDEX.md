@@ -2,13 +2,13 @@
 
 Hoja de ruta de las specs necesarias para publicar la primera invitación: baby shower con la plantilla `baby-shower` y el estilo `sage-geese`. Vale solo para este primer desarrollo; los estilos e invitaciones futuros se anotan directamente en el índice de [README.md](README.md).
 
-Ninguna de estas specs está escrita todavía. Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sdd`](../../.github/skills/sdd/SKILL.md).
+Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sdd`](../../.github/skills/sdd/SKILL.md).
 
 ## Specs
 
 | N.º | Spec | Tipo | Depende de | Estado |
 |---|---|---|---|---|
-| 001 | Arquitectura base | Larga | — | Sin redactar |
+| 001 | [Arquitectura base](001-arquitectura-base.md) | Larga | — | Borrador |
 | 002 | Plantilla `baby-shower` y estilo `sage-geese` | Larga | 001 | Sin redactar |
 | 003 | Confirmación de asistencia | Larga | 001, 002 | Sin redactar |
 | 004 | Lista de regalos con reserva | Larga | 001, 002, 003 | Sin redactar |
@@ -74,6 +74,8 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Un link general para todos los invitados, sin links individuales. El modelo de datos no debe impedir sumarlos más adelante.
 - Se carga solo el número de invitados esperados, no la lista de personas.
 - El control de confirmaciones falsas lo hacen los dueños desde su pantalla.
+- El invitado escribe su nombre en texto libre; se aceptan nombres repetidos.
+- Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base.md).
 
 ## Pendientes de definir
 
@@ -83,6 +85,3 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 | Si la invitación se sigue viendo con las confirmaciones cerradas | 003 |
 | Si al borrar una confirmación se libera el regalo que eligió esa persona | 004, 005 |
 | Si para reservar un regalo hace falta haber confirmado asistencia | 004 |
-| Vista previa propia del link en WhatsApp | 001 |
-| Pausa del plan gratuito de Supabase por inactividad | 001 |
-| Plazo de baja y borrado de datos después del evento | 001 |
