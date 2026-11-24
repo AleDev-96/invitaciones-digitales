@@ -17,7 +17,7 @@ Que quien confirmó su asistencia elija desde la invitación qué regalo va a ll
 - Cada regalo con nombre, descripción, imágenes de referencia, enlace opcional a una tienda y cuántas veces se puede elegir.
 - Elegir hasta 3 regalos distintos por persona (tope configurable por invitación), y quitar o cambiar los propios, reconociendo a quien eligió por el código que guardó su navegador al confirmar ([spec 003](../003-confirmacion-asistencia/spec.md)).
 - Control en la base de datos de las veces que se puede elegir cada regalo, con doble clic y pedidos simultáneos.
-- Cierre de la lista a la hora del evento.
+- Cierre de la lista en una fecha fijada por invitación; si no se fija, al terminar el día anterior al evento.
 
 ## Fuera de alcance
 
@@ -61,7 +61,7 @@ Quién puede elegir:
 
 Cierre:
 
-- RF-19: EL SISTEMA mantiene la lista abierta para elegir, cambiar y quitar aunque las confirmaciones estén cerradas, hasta la hora del evento.
+- RF-19: EL SISTEMA mantiene la lista abierta para elegir, cambiar y quitar hasta la fecha y hora de cierre de regalos de la invitación, aunque las confirmaciones estén cerradas. Si la invitación no tiene fecha de cierre de regalos, cierra a las 00:00 del día del evento, en la zona horaria de la invitación (para una fiesta el 05/12, se puede elegir todo el 04/12).
 - RF-20: MIENTRAS la lista esté cerrada, EL SISTEMA la sigue mostrando sin botones, con "Tu regalo" marcado en el que eligió ese navegador.
 - RF-21: SI llega una elección o un pedido de quitar con la lista cerrada, ENTONCES EL SISTEMA lo rechaza en la base de datos y muestra "La lista de regalos ya está cerrada.".
 
@@ -74,7 +74,7 @@ Privacidad y seguridad:
 
 ## Reglas
 
-- Las del [README](../../../README.md#lista-de-regalos) y la [constitución](../../CONSTITUTION.md), con las [decisiones del INDEX](../INDEX.md#decisiones-ya-tomadas): para elegir hay que haber respondido "Sí, asistiré", la lista sigue abierta con las confirmaciones cerradas, cada regalo indica cuántas veces se puede elegir y borrar una respuesta borra sus reservas.
+- Las del [README](../../../README.md#lista-de-regalos) y la [constitución](../../CONSTITUTION.md), con las [decisiones del INDEX](../INDEX.md#decisiones-ya-tomadas): para elegir hay que haber respondido "Sí, asistiré", la lista sigue abierta con las confirmaciones cerradas (hasta su propio cierre), cada regalo indica cuántas veces se puede elegir y borrar una respuesta borra sus reservas.
 - Un enlace a una tienda no garantiza precio, stock ni que el producto siga igual; por eso cada imagen lleva "Imagen ilustrativa".
 - Las imágenes de los regalos son contenido de cada invitación, no adornos del estilo, y no se guardan en el repositorio.
 - Lo visual se verifica contra la [guía de estilo `sage-geese`](../../guias/baby-shower/sage-geese.md): estados claros (disponible, reservado, tu regalo, deshabilitado), botones taupe redondeados y tipografía legible para nombres y descripciones.
@@ -88,7 +88,7 @@ Privacidad y seguridad:
 - [ ] Un regalo que se puede elegir 1 vez, elegido desde dos navegadores a la vez, queda reservado para uno solo y el otro ve el mensaje de RF-12.
 - [ ] Un doble clic en "Elegir este regalo" crea una sola reserva.
 - [ ] Con 3 regalos elegidos no se puede elegir un cuarto, ni desde la pantalla ni con una llamada directa a la función; al quitar uno, se puede elegir otro.
-- [ ] Con las confirmaciones cerradas y antes de la hora del evento, se puede elegir; pasada la hora del evento, una llamada directa a la función de elegir es rechazada.
+- [ ] Con las confirmaciones cerradas y antes del cierre de regalos, se puede elegir; pasado el cierre (cargado, o las 00:00 del día del evento si no hay fecha), la lista se ve sin botones y una llamada directa a la función de elegir es rechazada.
 - [ ] Una llamada directa a la función de elegir con un código sin respuesta, con una respuesta "No podré ir", o con un regalo de otra invitación es rechazada.
 - [ ] Sin sesión y con la clave pública no se puede leer ni listar la tabla de reservas ni ver nombres.
 - [ ] Al borrar la respuesta desde la pantalla de Supabase, sus reservas desaparecen y el regalo vuelve a estar disponible.
@@ -97,8 +97,7 @@ Privacidad y seguridad:
 
 ## Preguntas abiertas
 
-1. ¿La lista cierra a la hora del evento o más tarde? (RF-19)
-2. ¿Las imágenes son enlaces a imágenes de la tienda o se suben a Supabase Storage? (Alcance)
+1. ¿Las imágenes son enlaces a imágenes de la tienda o se suben a Supabase Storage? (Alcance)
 
 ## Historial de cambios
 
@@ -107,3 +106,4 @@ Privacidad y seguridad:
 | 2026-11-24 | Borrador inicial |
 | 2026-11-24 | Hasta 3 regalos distintos por persona, con el tope como dato de la invitación; cada regalo tiene su cupo (por ejemplo, pañales P ×5) |
 | 2026-11-24 | La lista muestra solo "Disponible" o "Reservado", sin cuántos quedan |
+| 2026-11-24 | La lista cierra en una fecha propia de la invitación; si no se carga, al terminar el día anterior al evento. Corrige la decisión del INDEX "hasta el fin del evento" |

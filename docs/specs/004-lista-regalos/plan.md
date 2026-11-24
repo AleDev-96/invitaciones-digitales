@@ -14,7 +14,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 | Regalos por persona | Columna `gifts_per_guest` en `invitations` (3 por defecto); `reserve_gift` cuenta las reservas de esa respuesta dentro de la misma transacción, bloqueando la fila de la respuesta | Fijar 3 en el código: otra invitación no podría cambiarlo sin código nuevo |
 | Doble clic y reintentos | Una reserva por persona y por regalo (único `gift_id` + `rsvp_id`); repetir devuelve la reserva existente | Solo deshabilitar el botón: no cubre un reintento tras un corte de red |
 | Acceso | Funciones `get_gifts`, `reserve_gift` y `release_gift` (`security definer`); las tablas no tienen permisos para `anon` ni `authenticated`, igual que `rsvps` | Políticas RLS de lectura directa: expondrían quién reservó o requerirían una vista aparte |
-| Lista abierta o cerrada | La calcula la base: abierta hasta `event_at`. `get_gifts` la devuelve como `open` | Usar el reloj del celular: puede estar mal configurado |
+| Lista abierta o cerrada | Columna `gifts_closes_at` en `invitations`; si está vacía, las 00:00 del día del evento en su `timezone`. La calcula la base y `get_gifts` la devuelve como `open` | Usar el reloj del celular: puede estar mal configurado |
 | Imágenes | Enlaces (`image_urls`) a imágenes publicadas en otro sitio; si no cargan, ilustración del estilo | Supabase Storage: suma un servicio a configurar y permisos de subida. Pendiente de confirmar (pregunta 4) |
 | Pantalla de regalos | Ruta `/<slug>/regalos` dentro de la misma aplicación; carga la invitación con `get_invitation` como `/<slug>` | Ventana emergente en la misma página: el INDEX pide una pantalla aparte con botón para volver |
 | Sin `rsvp` activo | Lista solo informativa | Permitir reservar sin respuesta: rompe la decisión del INDEX de reservar solo con "Sí, asistiré" |
@@ -24,7 +24,8 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 Migración nueva `supabase/migrations/20261124000003_gifts.sql` (no se edita ninguna aplicada):
 
 - Tabla `gifts`: `id`, `invitation_id` (borrado en cascada), `position` (orden), `name` (1 a 80 caracteres), `description` (opcional, hasta 500), `image_urls` (`text[]`, solo `https://`), `store_url` (opcional, `https://`), `max_reservations` (entero mayor que 0, 1 por defecto), `created_at`. RLS activo y sin permisos para `anon` ni `authenticated`.
-- Columna `invitations.gifts_per_guest integer not null default 3` (mayor que 0).
+- Columnas `invitations.gifts_per_guest integer not null default 3` (mayor que 0) y `invitations.gifts_closes_at timestamptz` (opcional).
+- `invitation_gifts_open(inv)`: abierta si no pasó `gifts_closes_at` o, si está vacía, las 00:00 del día de `event_at` en `timezone`.
 - Tabla `gift_reservations`: `id`, `gift_id` (borrado en cascada), `rsvp_id` (borrado en cascada), `created_at`; único (`gift_id`, `rsvp_id`). RLS activo y sin permisos públicos.
 - `get_gifts(p_slug, p_token)`: con la invitación visible y `gifts` activo, devuelve `{"open", "can_reserve", "per_guest", "gifts": [...]}`; cada regalo trae `id`, `name`, `description`, `image_urls`, `store_url`, `available` y `mine` (si el código es de quien lo eligió). Nunca devuelve nombres. `can_reserve`: `no_rsvp`, `not_attending`, `attending` o `disabled` (sin `rsvp` activo).
 - `reserve_gift(p_slug, p_gift_id, p_token)`: devuelve `{"status": "reserved"}`, `sold_out`, `limit_reached`, `closed`, `no_rsvp`, `not_attending` o `invalid_request`. Invitación no visible: `null`.
