@@ -73,7 +73,7 @@ invitaciones-digitales/
 
 ## Archivos de configuración
 
-En la raíz: `package.json`, `tsconfig.json`, `vite.config.ts` (también configura Vitest), `eslint.config.js`, `.prettierrc.json`, `.prettierignore`, `index.html` y `.env.example`. `docs/guias/ASSET_SOURCES.md` se crea con el primer recurso gráfico final.
+En la raíz: `package.json`, `tsconfig.json`, `vite.config.ts` (también configura Vitest), `eslint.config.js`, `.prettierrc.json`, `.prettierignore`, `index.html` y `.env.example`. `docs/guias/ASSET_SOURCES.md` registra el origen y la licencia de cada recurso gráfico.
 
 ## Fuera de la convención general
 

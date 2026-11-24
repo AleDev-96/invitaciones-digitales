@@ -23,7 +23,7 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: hay tests del link y abre Maps desde un Android y desde un iPhone.
 - [x] **T8. Lugar de regalos y confirmación, y secciones según funcionalidades.** RF-7, RF-16
   - Hecho cuando: desactivar `gifts` o `rsvp` en los datos oculta su sección.
-- [ ] **T9. Ilustraciones provisorias y `ASSET_SOURCES.md`.** Reglas
+- [x] **T9. Ilustraciones provisorias y `ASSET_SOURCES.md`.** Reglas
   - Hecho cuando: cada recurso figura con origen y licencia.
 - [ ] **T10. Revisión en celular y escritorio, y documentación.** RF-10
   - Hecho cuando: no hay desplazamiento horizontal a 360 px, `templates.md` pasa a "en desarrollo" y se actualiza `MEMORY.md`.
