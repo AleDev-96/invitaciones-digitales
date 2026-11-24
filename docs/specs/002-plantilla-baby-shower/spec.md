@@ -83,7 +83,6 @@ Regalos y confirmación (lugar reservado):
 
 ## Preguntas abiertas
 
-- Tipografías: traerlas desde Google Fonts por link (sin dependencias nuevas) o guardarlas en el repositorio con `@fontsource` (dependencia nueva).
 - Texto del botón: "Cómo llegar" (INDEX) o "Ver mapa" (guía de estilo).
 - Si el sobre aparece en cada visita o solo la primera vez en ese navegador.
 
@@ -92,3 +91,4 @@ Regalos y confirmación (lugar reservado):
 | Fecha | Cambio |
 |---|---|
 | 2026-11-24 | Borrador inicial |
+| 2026-11-24 | Tipografías: se guardan en el repositorio con `@fontsource` |

@@ -14,7 +14,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 | Cuenta regresiva | Cálculo puro en `src/domain/` y un componente que lo refresca cada segundo | Librería de fechas: dependencia nueva para una resta |
 | Animación del sobre | CSS (transiciones y `prefers-reduced-motion`) | Librería de animación: dependencia nueva |
 | Ilustraciones provisorias | SVG simples propios, marcados como provisorios | Imágenes de bancos sin licencia verificada |
-| Tipografías | PENDIENTE: definición del responsable | |
+| Tipografías | `@fontsource/cormorant-garamond`, `@fontsource/lora` y `@fontsource/allura`, servidas junto con la app (licencia OFL) | Google Fonts por link: dos servidores externos más y la IP de cada invitado llega a Google |
 
 ## Diseño técnico
 
@@ -43,8 +43,8 @@ Campos de `content` que usa la plantilla (todos opcionales salvo `babyName`):
 | Registro de recursos | `docs/guias/ASSET_SOURCES.md` | Reglas |
 | Datos de la `demo` | `supabase/seed.sql` | RF-5, RF-6 |
 
-No hay tablas nuevas ni cambios de permisos. Los tests unitarios cubren la cuenta regresiva, el link de Maps y la lectura de `content`.
+No hay tablas nuevas ni cambios de permisos. Dependencias nuevas, aprobadas por el responsable: los tres paquetes de `@fontsource`. Los tests unitarios cubren la cuenta regresiva, el link de Maps y la lectura de `content`.
 
 ## Costo
 
-Sin servicios ni dependencias nuevas (salvo que se elija `@fontsource`, que es gratuita). Se mantiene en planes gratuitos.
+Sin servicios nuevos. Dependencias nuevas: los tres paquetes de `@fontsource`, gratuitos (licencia OFL). Se mantiene en planes gratuitos.
