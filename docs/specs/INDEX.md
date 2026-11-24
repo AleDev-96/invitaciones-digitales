@@ -61,6 +61,7 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Lista de quienes confirmaron y de quién eligió cada regalo.
 - Borrar confirmaciones falsas.
 - Quitar la reserva de un regalo.
+- Marcar un regalo como reservado a mano, con el nombre de quien lo regala (por ejemplo, alguien que no asiste).
 - Cerrar las confirmaciones.
 
 ### 006 — Primera invitación: baby shower
@@ -78,7 +79,8 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - El invitado escribe su nombre en texto libre; se aceptan nombres repetidos.
 - Quien confirmó no cambia ni cancela su respuesta desde la invitación: avisa a los dueños y ellos la borran. Así se evita tener que emparejar nombres escritos distinto ("Jorgito" y "Jorge Ayala").
 - Con las confirmaciones cerradas, la invitación se sigue viendo: el botón de confirmar se reemplaza por un mensaje de cierre y uno de contacto con los dueños, ambos cargados en los datos de la invitación.
-- Para reservar un regalo hay que haber confirmado asistencia: la reserva queda asociada a la confirmación y al nombre del invitado.
+- Para reservar un regalo hay que haber respondido "Sí, asistiré": la reserva queda asociada a esa respuesta y al nombre del invitado. Quien respondió "No podré ir" no elige regalo; si quiere regalar, avisa a los dueños.
+- Los dueños pueden marcar un regalo como reservado sin asociarlo a un invitado, anotando a mano quién lo regala (spec 005).
 - Borrar una confirmación borra también las reservas de regalos de esa persona.
 - La lista de regalos sigue abierta hasta el fin del evento, aunque las confirmaciones estén cerradas. Quien ya confirmó puede elegir o cambiar su regalo en ese período.
 - Cada regalo indica cuántas veces se puede elegir: por ejemplo, pañales talle P hasta 5 veces y la cuna evolutiva 1 sola. Reemplaza la restricción de "una reserva por regalo" de [data-model.md](../architecture/data-model.md); se corrige al aprobar la spec 004.
