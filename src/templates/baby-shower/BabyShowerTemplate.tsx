@@ -14,7 +14,15 @@ function formatEventDate(invitation: Invitation): string {
       eventAt,
     );
   } catch {
-    return new Intl.DateTimeFormat('es-AR', options).format(eventAt);
+    return new Intl.DateTimeFormat('es-AR', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short',
+    }).format(eventAt);
   }
 }
 
