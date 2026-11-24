@@ -1,17 +1,13 @@
-const GOOGLE_MAPS_HOSTS = [
-  'google.com',
-  'www.google.com',
-  'maps.google.com',
-  'google.com.ar',
-  'www.google.com.ar',
-  'maps.app.goo.gl',
-  'goo.gl',
-];
+const GOOGLE_HOST = /^(?:(?:www|maps)\.)?google\.(?:[a-z]{2,3}|com?\.[a-z]{2})$/;
+const SHORT_LINK_HOSTS = ['maps.app.goo.gl', 'goo.gl'];
 
 function isGoogleMapsUrl(value: string): boolean {
   try {
     const url = new URL(value);
-    return url.protocol === 'https:' && GOOGLE_MAPS_HOSTS.includes(url.hostname);
+    return (
+      url.protocol === 'https:' &&
+      (GOOGLE_HOST.test(url.hostname) || SHORT_LINK_HOSTS.includes(url.hostname))
+    );
   } catch {
     return false;
   }
