@@ -39,9 +39,9 @@ La invitación que se recorre, con datos de ejemplo. Guía visual: [sage-geese.m
 
 ### 003 — Confirmación de asistencia
 
-- Formulario al final de la página, con el nombre de la persona.
-- Cada confirmación es individual y suma uno al contador.
-- Después de confirmar, el botón queda bloqueado en ese navegador.
+- Formulario al final de la página, con el nombre de la persona y dos botones: "Sí, asistiré" y "No podré ir".
+- Cada respuesta es de una sola persona: la tarjeta se manda a cada celular por separado.
+- Después de responder, el formulario queda bloqueado en ese navegador.
 - Las confirmaciones se cierran en una fecha fijada por invitación o cuando los dueños las cierran a mano.
 
 ### 004 — Lista de regalos con reserva
@@ -56,7 +56,7 @@ La invitación que se recorre, con datos de ejemplo. Guía visual: [sage-geese.m
 Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterior de "sin panel"; al aprobarse se corrigen `AGENTS.md`, `MEMORY.md`, el README y la arquitectura.
 
 - Acceso con una palabra clave por invitación, sin distinguir mayúsculas de minúsculas, comprobada en la base de datos y con bloqueo tras varios intentos fallidos.
-- Contador de confirmados sobre invitados esperados (ejemplo: "10/64").
+- Contadores sobre los invitados esperados (ejemplo con 64): asistirán 32, no asistirán 30, sin respuesta 2. Al tocar cada número se ven los nombres.
 - Si se supera el número esperado, aviso "¡Tenemos un colado! Revisemos".
 - Lista de quienes confirmaron y de quién eligió cada regalo.
 - Borrar confirmaciones falsas.
