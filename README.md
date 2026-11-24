@@ -11,7 +11,7 @@ La idea central es mantener **un solo repositorio y una sola aplicación reutili
 - Crear invitaciones web atractivas y adaptadas a celulares.
 - Compartir cada invitación mediante un enlace único.
 - Mostrar fecha, horario, ubicación, indicaciones y otros detalles del evento.
-- Publicar una lista de regalos con imágenes y descripciones de referencia.
+- Publicar una lista de regalos sugeridos, con descripciones de referencia.
 - Permitir que los invitados confirmen, rechacen o modifiquen su asistencia.
 - Permitir reservar un regalo y cambiar la elección posteriormente.
 - Poder consultar confirmaciones y reservas de regalos de forma privada, desde la pantalla de Supabase.
@@ -40,13 +40,12 @@ Cada regalo podrá incluir:
 
 - Nombre.
 - Descripción o especificaciones para identificar el producto correcto.
-- Una o más imágenes de referencia.
-- Enlace a un producto o tienda, si corresponde.
-- Estado: disponible o reservado.
+- Cuántas veces se puede elegir (por ejemplo, pañales talle P hasta 5 veces).
+- Estado: disponible o reservado, sin mostrar cuántos quedan ni quién lo eligió.
 
-Un invitado podrá seleccionar un regalo disponible. Si cambia de opinión, deberá poder cancelar su elección y seleccionar otro. Un regalo no podrá quedar reservado por dos invitados al mismo tiempo.
+Sin imágenes ni enlaces a tiendas: la lista es modesta y cada invitado compra lo que pueda.
 
-Las imágenes y descripciones deben ayudar a identificar el regalo deseado. No se debe asumir que un enlace externo garantiza disponibilidad, precio o que el producto siga siendo idéntico.
+Quien confirmó "Sí, asistiré" puede elegir hasta 3 regalos distintos (configurable por invitación). Si cambia de opinión, quita su elección y elige otro. Un regalo nunca se elige más veces de las permitidas, aunque dos invitados lo elijan al mismo tiempo. La lista cierra al terminar el día anterior al evento, salvo que la invitación fije otra fecha.
 
 ### Confirmación de asistencia (RSVP)
 
@@ -113,9 +112,9 @@ Estas reglas deben respetarse en la interfaz y, especialmente, en el backend:
 
 1. Cada invitación tiene un identificador y un slug únicos.
 2. Los datos de una invitación no deben mezclarse con los de otra.
-3. Una reserva de regalo debe ser única: dos invitados no pueden reservar el mismo regalo disponible simultáneamente.
+3. Un regalo no se reserva más veces de las permitidas, ni siquiera con pedidos simultáneos.
 4. La reserva y su liberación deben validarse en el backend o en la base de datos, no solamente en el navegador.
-5. Si un invitado cambia de regalo, la reserva anterior debe liberarse y la nueva debe confirmarse de forma segura.
+5. Un invitado solo puede quitar sus propias reservas, y no supera el tope de regalos por persona.
 6. Un invitado solo puede consultar o modificar su propia respuesta mediante un mecanismo de autorización válido.
 7. Los datos de administración solo se consultan y modifican desde la pantalla de Supabase, con la cuenta de quien administra.
 8. Los contadores deben calcularse a partir de los registros guardados, no de valores mantenidos únicamente en el frontend.
@@ -221,8 +220,8 @@ El plan gratuito puede servir para validar el MVP y un evento de volumen reducid
 El esquema definitivo debe diseñarse y documentarse en migraciones SQL. Como punto de partida, se contemplan estas entidades:
 
 - **invitations:** tipo de evento, slug, estado, fecha, ubicación y configuración general.
-- **gifts:** regalos asociados a una invitación, con descripción, imágenes, enlace y disponibilidad.
-- **gift_reservations:** relación entre un regalo y quien lo reservó, con los datos mínimos necesarios para gestionar la reserva.
+- **gifts:** regalos asociados a una invitación, con descripción y cuántas veces se pueden elegir.
+- **gift_reservations:** qué respuesta de confirmación eligió cada regalo.
 - **rsvps:** respuestas de asistencia, una por persona.
 
 Todas las entidades dependientes de un evento deben referenciar `invitation_id`. El esquema debe impedir reservas duplicadas y definir con claridad qué información puede leer o modificar cada rol.
@@ -251,7 +250,7 @@ El MVP se considerará listo para el evento cuando:
 
 - [ ] La invitación se vea correctamente en celulares y computadoras.
 - [ ] Se pueda abrir la ubicación desde Google Maps.
-- [ ] Se visualicen los regalos con imágenes y descripciones claras.
+- [ ] Se visualicen los regalos con descripciones claras.
 - [ ] Un invitado pueda reservar un regalo disponible.
 - [ ] No sea posible reservar simultáneamente el mismo regalo dos veces.
 - [ ] El invitado pueda cambiar o cancelar su elección de regalo.

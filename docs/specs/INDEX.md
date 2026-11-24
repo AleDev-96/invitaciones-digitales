@@ -47,9 +47,9 @@ La invitación que se recorre, con datos de ejemplo. Guía visual: [sage-geese.m
 ### 004 — Lista de regalos con reserva
 
 - Pantalla aparte, con botón para volver a la invitación.
-- Reservar un regalo pide el nombre de quien lo elige.
-- Un regalo no puede reservarse más veces de las que permite, ni con doble clic ni con pedidos simultáneos.
-- La lista pública muestra solo "reservado", sin el nombre.
+- Elige quien respondió "Sí, asistiré", reconocido por el código de su navegador, sin escribir el nombre otra vez.
+- Hasta 3 regalos distintos por persona; un regalo no puede reservarse más veces de las que permite, ni con doble clic ni con pedidos simultáneos.
+- La lista pública muestra solo "Disponible" o "Reservado", sin el nombre ni cuántos quedan. Sin imágenes ni enlaces a tiendas.
 
 ### 005 — Pantalla de los dueños del evento
 
@@ -82,8 +82,8 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Para reservar un regalo hay que haber respondido "Sí, asistiré": la reserva queda asociada a esa respuesta y al nombre del invitado. Quien respondió "No podré ir" no elige regalo; si quiere regalar, avisa a los dueños.
 - Los dueños pueden marcar un regalo como reservado sin asociarlo a un invitado, anotando a mano quién lo regala (spec 005).
 - Borrar una confirmación borra también las reservas de regalos de esa persona.
-- La lista de regalos sigue abierta hasta el fin del evento, aunque las confirmaciones estén cerradas. Quien ya confirmó puede elegir o cambiar su regalo en ese período.
-- Cada regalo indica cuántas veces se puede elegir: por ejemplo, pañales talle P hasta 5 veces y la cuna evolutiva 1 sola. Reemplaza la restricción de "una reserva por regalo" de [data-model.md](../architecture/data-model.md); se corrige al aprobar la spec 004.
+- La lista de regalos sigue abierta aunque las confirmaciones estén cerradas, hasta la fecha de cierre de la invitación o, si no tiene, hasta terminar el día anterior al evento (para la fiesta del 05/12, todo el 04/12). Quien ya confirmó puede elegir o cambiar su regalo en ese período.
+- Cada regalo indica cuántas veces se puede elegir: por ejemplo, pañales talle P hasta 5 veces y la cuna evolutiva 1 sola. Reemplazó la restricción de "una reserva por regalo" de [data-model.md](../architecture/data-model.md).
 - Los dueños pueden quitar la reserva de un regalo desde su pantalla (spec 005).
 - Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base/spec.md).
 
