@@ -13,7 +13,7 @@ En orden de dependencia. Cada tarea se marca como hecha (`- [x]`) y lleva su pro
   - Hecho cuando: hay pruebas que cubren slugs válidos, inválidos y reservados, y la visibilidad de cada estado.
 - [ ] **T3. Migración con la tabla `invitations`, sus permisos y las dos funciones; datos de demostración.** RF-8, RF-9
   - Hecho cuando: con la clave pública la tabla no se puede leer, y las funciones devuelven lo indicado para cada estado.
-- [ ] **T4. Cliente de Supabase y servicio de carga por slug.** RF-1, RF-5
+- [x] **T4. Cliente de Supabase y servicio de carga por slug.** RF-1, RF-5
   - Hecho cuando: el servicio devuelve la invitación, "no encontrada", "dada de baja" o error, con pruebas de cada caso.
 - [ ] **T5. Rutas, página de invitación, pantallas de estado, registro de plantillas y estilos, y plantilla provisoria.** RF-1 a RF-7, RF-10, RF-11
   - Hecho cuando: en local se ven los cinco estados y el estilo no afecta a la página raíz.
