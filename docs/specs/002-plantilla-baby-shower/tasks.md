@@ -7,7 +7,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 
 Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
-- [ ] **T1. Lectura de `content` y datos de la `demo`.** RF-8, RF-9
+- [x] **T1. Lectura de `content` y datos de la `demo`.** RF-8, RF-9
   - Hecho cuando: hay tests de campos faltantes o con tipo incorrecto y `seed.sql` trae todos los campos del plan.
 - [ ] **T2. Tipografías y marco gingham del estilo.** RF-10
   - Hecho cuando: `/demo` usa las tres tipografías y el gingham solo en los costados, sin HEX fuera del tema.
