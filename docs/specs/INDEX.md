@@ -9,7 +9,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 | N.º | Spec | Tipo | Depende de | Estado |
 |---|---|---|---|---|
 | 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | — | Implementada |
-| 002 | Plantilla `baby-shower` y estilo `sage-geese` | Larga | 001 | Sin redactar |
+| 002 | [Plantilla `baby-shower` y estilo `sage-geese`](002-plantilla-baby-shower/spec.md) | Larga | 001 | Borrador |
 | 003 | Confirmación de asistencia | Larga | 001, 002 | Sin redactar |
 | 004 | Lista de regalos con reserva | Larga | 001, 002, 003 | Sin redactar |
 | 005 | Pantalla de los dueños del evento | Larga | 003, 004 | Sin redactar |
@@ -48,7 +48,7 @@ La invitación que se recorre, con datos de ejemplo. Guía visual: [sage-geese.m
 
 - Pantalla aparte, con botón para volver a la invitación.
 - Reservar un regalo pide el nombre de quien lo elige.
-- Un regalo no puede quedar reservado dos veces, ni con doble clic ni con pedidos simultáneos.
+- Un regalo no puede reservarse más veces de las que permite, ni con doble clic ni con pedidos simultáneos.
 - La lista pública muestra solo "reservado", sin el nombre.
 
 ### 005 — Pantalla de los dueños del evento
@@ -60,6 +60,7 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Si se supera el número esperado, aviso "¡Tenemos un colado! Revisemos".
 - Lista de quienes confirmaron y de quién eligió cada regalo.
 - Borrar confirmaciones falsas.
+- Quitar la reserva de un regalo.
 - Cerrar las confirmaciones.
 
 ### 006 — Primera invitación: baby shower
@@ -75,13 +76,17 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Se carga solo el número de invitados esperados, no la lista de personas.
 - El control de confirmaciones falsas lo hacen los dueños desde su pantalla.
 - El invitado escribe su nombre en texto libre; se aceptan nombres repetidos.
+- Quien confirmó no cambia ni cancela su respuesta desde la invitación: avisa a los dueños y ellos la borran. Así se evita tener que emparejar nombres escritos distinto ("Jorgito" y "Jorge Ayala").
+- Con las confirmaciones cerradas, la invitación se sigue viendo: el botón de confirmar se reemplaza por un mensaje de cierre y uno de contacto con los dueños, ambos cargados en los datos de la invitación.
+- Para reservar un regalo hay que haber confirmado asistencia: la reserva queda asociada a la confirmación y al nombre del invitado.
+- Borrar una confirmación borra también las reservas de regalos de esa persona.
+- La lista de regalos sigue abierta hasta el fin del evento, aunque las confirmaciones estén cerradas.
+- Cada regalo indica cuántas veces se puede elegir: por ejemplo, pañales talle P hasta 5 veces y la cuna evolutiva 1 sola. Reemplaza la restricción de "una reserva por regalo" de [data-model.md](../architecture/data-model.md); se corrige al aprobar la spec 004.
+- Los dueños pueden quitar la reserva de un regalo desde su pantalla (spec 005).
 - Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base/spec.md).
 
 ## Pendientes de definir
 
 | Tema | Spec |
 |---|---|
-| Si quien confirmó puede cambiar su respuesta desde su celular o debe avisar a los dueños | 003 |
-| Si la invitación se sigue viendo con las confirmaciones cerradas | 003 |
-| Si al borrar una confirmación se libera el regalo que eligió esa persona | 004, 005 |
-| Si para reservar un regalo hace falta haber confirmado asistencia | 004 |
+| Si quien ya confirmó puede elegir un regalo después del cierre de confirmaciones | 004 |
