@@ -23,7 +23,7 @@ export function Cover({ onOpened }: { onOpened: () => void }) {
 
   return (
     <div
-      className={`baby-shower-frame fixed inset-0 z-10 flex items-center justify-center p-3 ${opening ? 'baby-shower-cover-leave' : ''}`}
+      className={`baby-shower-frame fixed inset-0 z-10 flex print:hidden items-center justify-center p-3 ${opening ? 'baby-shower-cover-leave' : ''}`}
     >
       <div className="flex h-full w-full max-w-[430px] flex-col items-center justify-center gap-8 bg-(--color-background) px-6 text-center">
         <h1 className="font-(family-name:--font-display) text-4xl font-semibold text-(--color-sage-dark)">
