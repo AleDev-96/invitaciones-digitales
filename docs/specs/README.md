@@ -41,8 +41,10 @@ Cómo redactarlas e implementarlas paso a paso está en la skill [`sdd`](../../.
 
 ## Índice
 
+La hoja de ruta de las specs del primer desarrollo está en [INDEX.md](INDEX.md).
+
 | N.º | Spec | Tipo | Estado de la spec | Invitación |
 |---|---|---|---|---|
-| | Todavía no hay specs | | | |
+| | Todavía no hay specs escritas | | | |
 
 La columna "Invitación" aplica solo a specs de invitación: borrador, publicada o dada de baja.
