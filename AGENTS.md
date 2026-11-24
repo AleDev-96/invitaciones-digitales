@@ -162,7 +162,7 @@ En este proyecto predominan el estilo y la funcionalidad, así que todo cambio v
 - Durante el trabajo: vista previa en el navegador (`npm run dev`), compartida con el responsable del proyecto.
 - En cada rama publicada: enlace de vista previa de Cloudflare Pages, que se puede abrir desde un celular.
 - Revisar siempre un ancho de celular y uno de escritorio.
-- Antes de cada commit terminan sin errores (Node 22 o superior):
+- Antes de cada commit terminan sin errores (Node 22.22 o superior):
 
   | Comando | Qué comprueba |
   |---|---|
