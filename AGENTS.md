@@ -14,7 +14,7 @@ Proyecto para generar invitaciones digitales: cada invitación es una página we
 
 ## Estado actual
 
-El repositorio contiene documentación y la estructura de carpetas. Todavía no hay aplicación: no existe `package.json` ni código en `src/`. No asumir que un archivo existe sin comprobarlo.
+Está construida la base de la [spec 001](docs/specs/001-arquitectura-base/spec.md): rutas `/` y `/<slug>`, tabla `invitations`, registro de plantillas y estilos, plantilla provisoria `baby-shower`, vista previa del link y tarea keepalive. El diseño, la confirmación de asistencia, los regalos y la pantalla de dueños llegan con las specs 002 a 005 ([índice](docs/specs/INDEX.md)). No asumir que un archivo existe sin comprobarlo.
 
 ## Stack y estructura
 
@@ -93,7 +93,9 @@ Se trabaja con specs ([docs/specs/README.md](docs/specs/README.md)), siguiendo l
 - **Specs largas:** las iniciales de arquitectura y los rediseños grandes. Pueden tomar el tiempo que haga falta; es preferible definir bien antes que rehacer un desarrollo costoso.
 - **Specs cortas:** rediseños o ajustes acotados.
 - **Specs de invitación:** cortas. Cuando ya existe la plantilla y el estilo, solo definen tipo de evento, estilo, imágenes y funcionalidades.
-- **Cambios menores** (un texto, un color, un ajuste de espaciado): directo, sin spec.
+- **Cambios menores** (un texto, un color, un ajuste de espaciado) y reorganizaciones de archivos o documentos: directo, sin spec.
+
+Toda spec, sea larga, corta o de invitación, es una carpeta `docs/specs/NNN-nombre-corto/` con `spec.md` (qué y por qué), `plan.md` (cómo) y `tasks.md` (en qué orden).
 
 Orden de cada trabajo:
 
@@ -112,7 +114,7 @@ Una rama por trabajo; no trabajar directo sobre `main`. Borrar el `.gitkeep` de 
 | Estilo en código | `src/templates/<tipo>/themes/<estilo>/` | Estilo |
 | Guía de estilo | `docs/guias/<tipo>/<estilo>.md` | Estilo |
 | Gráficos fijos | `assets/images/templates/<tipo>/<estilo>/` | Estilo |
-| Pedido de la invitación | `docs/specs/NNN-nombre-corto.md` | Invitación |
+| Pedido de la invitación | `docs/specs/NNN-nombre-corto/spec.md` | Invitación |
 | Textos, fechas, regalos y fotos del evento | Supabase, asociados al `invitation_id` | Invitación |
 
 En el repositorio hay carpetas por tipo de evento y por estilo, no por cliente. Los datos de cada invitación viven en Supabase y no se versionan.
@@ -160,7 +162,16 @@ En este proyecto predominan el estilo y la funcionalidad, así que todo cambio v
 - Durante el trabajo: vista previa en el navegador (`npm run dev`), compartida con el responsable del proyecto.
 - En cada rama publicada: enlace de vista previa de Cloudflare Pages, que se puede abrir desde un celular.
 - Revisar siempre un ancho de celular y uno de escritorio.
-- `npm run build` termina sin errores.
+- Antes de cada commit terminan sin errores (Node 22.22 o superior):
+
+  | Comando | Qué comprueba |
+  |---|---|
+  | `npm run typecheck` | Tipos de TypeScript |
+  | `npm run lint` | Reglas de código (ESLint) |
+  | `npm run format:check` | Formato (Prettier); `npm run format` lo corrige |
+  | `npm test` | Pruebas de Vitest en `tests/` |
+  | `npm run build` | Compilación de producción en `dist/` |
+
 - Los cambios de datos o permisos se prueban también sin sesión iniciada.
 
 Los comandos y el enlace de vista previa aplican a partir de que exista la aplicación y su despliegue.

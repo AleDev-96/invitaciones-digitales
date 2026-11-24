@@ -1,10 +1,12 @@
-# NNN — Título
+# NNN — Título: spec
 
-<!-- Spec larga: completar todo. Spec corta: dejar solo Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación. -->
+<!-- Qué se construye y por qué. Sin stack, archivos ni tablas: eso va en plan.md. Spec corta: alcanza con Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación. -->
 
 - **Tipo:** larga o corta
 - **Estado:** borrador
 - **Fecha:** AAAA-MM-DD
+
+Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
 
 ## Objetivo
 
@@ -29,22 +31,9 @@ Qué ve y qué puede hacer cada persona (invitado, quien administra), en formato
 
 Reglas de negocio, seguridad y privacidad que aplican. Enlazar las del README en lugar de copiarlas.
 
-## Diseño técnico
-
-Carpetas y archivos afectados, datos y tablas, dependencias nuevas con su justificación. Indicar qué RF cubre cada parte.
-
-## Costo
-
-Confirmar que se mantiene en planes gratuitos, o detallar qué límite se toca.
-
 ## Criterios de aceptación
 
 - [ ] Criterio comprobable.
-
-## Tareas
-
-- [ ] **T1. Descripción.** RF-1
-  - Hecho cuando: comprobación verificable.
 
 ## Preguntas abiertas
 

@@ -1,6 +1,6 @@
 # Despliegue
 
-**Estado:** previsto. Todavía no hay nada desplegado; los pasos se completan y verifican cuando exista la aplicación.
+**Estado:** configurado con la [spec 001](../specs/001-arquitectura-base/spec.md). Sitio: `invitaciones-digitales-bhi.pages.dev`.
 
 ## Variables de entorno
 
@@ -17,16 +17,38 @@
 
 Se publica desde GitHub con la integración de Cloudflare Pages.
 
+- **Project name:** `invitaciones-digitales`. Cloudflare le agregó `-bhi` porque el nombre estaba tomado: el sitio es `invitaciones-digitales-bhi.pages.dev`.
 - **Framework preset:** Vite.
 - **Build command:** `npm run build`.
 - **Build output directory:** `dist`.
-- **Variables de entorno:** las dos de la tabla anterior.
+- **Production branch:** `main`.
+- **Variables de entorno:** las dos de la tabla anterior, más `NODE_VERSION` = `24`. Valen para producción y para vista previa.
 
-Cada cambio en la rama configurada genera un despliegue nuevo.
+Cada cambio en `main` publica el sitio. Cada rama subida genera además un enlace de vista previa propio, que se puede abrir desde un celular.
+
+La carpeta `functions/` la publica Cloudflare sola: `functions/[slug].ts` arma la vista previa del link de cada invitación con las mismas dos variables. Sin variables o con la base caída, devuelve la vista previa genérica.
+
+Se puede sumar otro sitio de Cloudflare sobre el mismo repositorio si hace falta un nombre distinto; todos leen la misma base.
 
 ## Supabase
 
-- El esquema se crea aplicando las migraciones de `supabase/migrations/` en orden.
+- El esquema se crea pegando cada migración de `supabase/migrations/`, en orden, en el "SQL Editor" de Supabase. Una migración aplicada no se edita: los cambios van en una nueva.
+- `supabase/seed.sql` carga invitaciones inventadas de demostración (`demo`, `demo-borrador`, `demo-baja`, `demo-error`).
+
+### Pausa del plan gratuito
+
+Supabase puede pausar un proyecto gratuito tras 7 días de poca actividad. Para evitarlo, `.github/workflows/keepalive.yml` hace una consulta mínima cada 2 días. Usa tres variables del repositorio (Settings → Secrets and variables → Actions → Variables):
+
+| Variable | Valor |
+|---|---|
+| `KEEPALIVE_UNTIL` | Fecha AAAA-MM-DD de baja de la última invitación publicada. Pasada esa fecha, la tarea no consulta la base |
+| `SUPABASE_URL` | URL del proyecto |
+| `SUPABASE_ANON_KEY` | Clave pública. Nunca la `service_role` |
+
+- Se lanza a mano desde la pestaña Actions → keepalive → "Run workflow", y se apaga con "Disable workflow".
+- Si la consulta falla, la ejecución queda en rojo y GitHub avisa por correo.
+- En un repositorio público, GitHub desactiva las tareas programadas tras 60 días sin actividad. Se reactivan con "Enable workflow".
+- Si el proyecto igual se pausa, no pierde datos: se reactiva desde la pantalla de Supabase con "Restore project".
 - El plan gratuito sirve para validar el MVP y un evento chico, pero no garantiza disponibilidad. Revisar sus límites antes de usarlo en eventos pagos.
 
 ## Verificación antes de compartir una invitación

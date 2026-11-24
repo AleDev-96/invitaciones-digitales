@@ -14,7 +14,7 @@ Cuando hay que publicar un evento nuevo con una plantilla y un estilo que ya fig
 ## Pasos
 
 1. Buscar el tipo de evento en `docs/product/templates.md` para saber qué plantilla, estilos y funcionalidades le corresponden.
-2. Escribir una spec corta con el molde `docs/specs/_templates/invitation-spec.md` y esperar su aprobación.
+2. Escribir una spec corta con el molde `docs/specs/_templates/invitation.md`, guardada como `docs/specs/NNN-nombre-corto/spec.md`, junto con `plan.md` y `tasks.md` de los moldes de `docs/specs/_templates/`, y esperar su aprobación.
 3. Reunir los datos del evento:
    - Plantilla (`template_key`), estilo (`theme_key`) y funcionalidades activas.
    - Slug para la URL.
@@ -27,6 +27,8 @@ Cuando hay que publicar un evento nuevo con una plantilla y un estilo que ya fig
 7. Revisar la invitación en un ancho de celular y uno de escritorio, y validarla con el responsable del proyecto en la vista previa.
 8. Probar el flujo completo con un invitado de prueba: confirmar, modificar, reservar y cambiar regalo.
 9. Borrar los datos de prueba, publicar la invitación y compartir la URL.
+10. Si la base estaba pausada, reactivarla desde la pantalla de Supabase antes de publicar.
+11. Actualizar la variable del repositorio `KEEPALIVE_UNTIL` al `takedown_on` de la invitación, si es posterior al valor actual, y comprobar que la tarea `keepalive` esté activa en la pestaña Actions (ver `docs/architecture/deployment.md`).
 
 ## Reglas / checklist
 

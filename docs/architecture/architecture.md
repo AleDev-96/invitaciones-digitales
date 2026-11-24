@@ -1,6 +1,6 @@
 # Arquitectura
 
-**Estado:** propuesta inicial. Las decisiones marcadas como abiertas se cierran antes de escribir el código que dependa de ellas.
+**Estado:** base construida con la [spec 001](../specs/001-arquitectura-base/spec.md). Las decisiones de base se cierran ahí.
 
 ## Visión general
 
@@ -11,6 +11,7 @@ Invitado (celular, link de WhatsApp)
         │
         ▼
 Cloudflare Pages ── sirve la aplicación React (archivos estáticos)
+        │                y la función de vista previa del link (functions/[slug].ts)
         │
         ▼
 Supabase ── base de datos Postgres, funciones y políticas RLS
@@ -44,7 +45,8 @@ Los gráficos viven en `assets/images/`, fuera de `src/`. Una imagen se publica 
 
 ## Rutas
 
-- Invitación pública: `/<tipo>/<slug>`, por ejemplo `/baby-shower/sofia`.
+- Página raíz `/`: neutra, no lista invitaciones.
+- Invitación pública: `/<slug>`, por ejemplo `/oliver`. El slug es único en toda la aplicación: minúsculas sin acentos, números y guiones, de 3 a 40 caracteres, y no puede ser una palabra reservada (`src/domain/invitation.ts`).
 
 La aplicación busca la invitación por slug y renderiza la plantilla indicada en su `template_key` con el estilo indicado en su `theme_key`.
 
@@ -63,17 +65,17 @@ El detalle de reglas de negocio y seguridad está en el [README](../../README.md
 - **Plantilla y estilo:** una plantilla define la estructura de un tipo de evento y puede tener varios estilos (colores, tipografías, ilustraciones). Cada invitación indica `template_key` y `theme_key`. Varias invitaciones pueden compartir la misma combinación y estar publicadas a la vez.
 - **Funcionalidades opcionales:** cada invitación activa o desactiva las suyas con datos. El catálogo está en [templates.md](../product/templates.md).
 - **Sin generación de PDF:** el recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.
-- **Ciclo de vida:** al terminar el evento la invitación se despublica y los datos personales de invitados se borran, previa entrega de la lista de confirmados y regalos a quien la encargó. El plazo se define en la spec de arquitectura.
+- **Ciclo de vida:** al terminar el evento la invitación se despublica y los datos personales de invitados se borran, previa entrega de la lista de confirmados y regalos a quien la encargó. El plazo es de 7 días después del evento.
 
-## Decisiones abiertas
+## Decisiones de la spec 001
 
-Se cierran en la spec de arquitectura base.
+El detalle y las alternativas descartadas están en el [plan de la spec 001](../specs/001-arquitectura-base/plan.md).
 
-
-1. **Operaciones de invitados.** El invitado no inicia sesión, así que las políticas RLS por sí solas no distinguen a un invitado de otro. Propuesta: funciones de Postgres (RPC) que reciben el token del invitado y validan todo adentro de la base; las tablas `rsvps` y `gift_reservations` quedan sin lectura ni escritura directa para el público.
-2. **Identificación del invitado.** Dos caminos: (a) lista de invitados precargada, con un link individual por invitado; (b) un link único para todos, donde el token se genera al confirmar y se guarda en el navegador. El estado "pendiente" del README solo tiene sentido con (a).
-3. **Relación entre regalo y RSVP.** Definir si para reservar un regalo hace falta haber confirmado asistencia, o si son acciones independientes.
-4. **Vista previa del link en WhatsApp.** Un sitio estático devuelve el mismo título e imagen para todas las invitaciones. Si se quiere una vista previa propia por invitación hace falta una Cloudflare Pages Function que complete las etiquetas Open Graph según el slug.
-5. **Tipo en la URL.** Definir si el primer tramo de la URL es el `template_key` (`/baby-shower/sofia`) o un alias propio (`/cumple/juan`), y si el slug es único en toda la aplicación o solo dentro de su tipo.
-6. **Aplicación del estilo.** Definir el mecanismo técnico para que los colores y tipografías de un estilo no afecten a otro (por ejemplo, variables CSS bajo un atributo `data-theme`).
-7. **Pausa del plan gratuito de Supabase.** Verificar si el proyecto se pausa por inactividad y cómo evitar que ocurra cerca de la fecha de un evento.
+- **Link general:** uno para todos los invitados. La identificación de cada invitado al confirmar se define en la spec 003.
+- **Acceso público por funciones:** la tabla `invitations` no se lee ni se escribe directo; la página usa `get_invitation(slug)` y la vista previa `get_invitation_preview(slug)`. Las operaciones de invitados de las specs 003 y 004 siguen el mismo criterio.
+- **Estilos aislados:** cada estilo declara sus variables CSS bajo `[data-theme="<theme_key>"]`; la página de invitación pone ese atributo en su contenedor y Tailwind lee las variables (`bg-(--color-background)`).
+- **Registro de plantillas:** `src/templates/registry.ts` indica qué estilos tiene cada plantilla. Una combinación no registrada muestra el mensaje de error, no otra plantilla.
+- **Vista previa por invitación:** `functions/[slug].ts` reemplaza el bloque `<!-- preview:start -->` de `index.html` con el título, la descripción y la imagen de la invitación. Si algo falla, devuelve la vista previa genérica.
+- **Pausa de Supabase:** `.github/workflows/keepalive.yml` consulta la base cada 2 días hasta la fecha `KEEPALIVE_UNTIL`.
+- **Baja:** 7 días después del evento (`takedown_on`). Desde ese día la invitación muestra "Esta invitación ya no está disponible", aunque siga publicada. El borrado de datos de invitados se hace a mano.
+- **Pruebas:** Vitest en `tests/unit/`.

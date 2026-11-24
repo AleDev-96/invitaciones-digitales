@@ -1,0 +1,41 @@
+# Consulta mínima a Supabase cada 2 días para que el plan gratuito no pause el proyecto.
+# Variables del repositorio (Settings > Secrets and variables > Actions > Variables):
+#   KEEPALIVE_UNTIL: fecha AAAA-MM-DD; pasada esa fecha la tarea no consulta la base.
+#   SUPABASE_URL y SUPABASE_ANON_KEY: dirección y clave pública. Nunca la clave service_role.
+name: keepalive
+
+on:
+  schedule:
+    - cron: '0 12 */2 * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Consultar la base
+        env:
+          KEEPALIVE_UNTIL: ${{ vars.KEEPALIVE_UNTIL }}
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+          today=$(TZ=America/Argentina/Buenos_Aires date +%F)
+          if [ -z "$KEEPALIVE_UNTIL" ] || [[ "$today" > "$KEEPALIVE_UNTIL" ]]; then
+            echo "Fecha activa hasta: '${KEEPALIVE_UNTIL}'. Hoy es $today. No se consulta la base."
+            exit 0
+          fi
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::Faltan las variables SUPABASE_URL o SUPABASE_ANON_KEY."
+            exit 1
+          fi
+          curl --fail-with-body --silent --show-error --max-time 30 \
+            -X POST "$SUPABASE_URL/rest/v1/rpc/get_invitation_preview" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"p_slug":"keepalive"}'
+          echo
+          echo "Consulta hecha. Activa hasta $KEEPALIVE_UNTIL."
