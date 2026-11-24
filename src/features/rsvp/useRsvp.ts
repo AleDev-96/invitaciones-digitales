@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { RsvpAnswer } from '../../domain/rsvp';
 import {
   clearStoredRsvp,
-  newRsvpToken,
   readStoredRsvp,
+  rsvpTokenFor,
   saveStoredRsvp,
 } from '../../infra/rsvpStorage';
 import { callRpc, type RpcCaller } from '../../infra/supabase';
@@ -52,7 +52,7 @@ export function useRsvp(slug: string, open: boolean, rpc: RpcCaller = callRpc) {
       if (busy.current) return 'error';
       busy.current = true;
       setSubmitting(true);
-      const token = pendingToken.current ?? newRsvpToken();
+      const token = pendingToken.current ?? readStoredRsvp(slug)?.token ?? rsvpTokenFor(slug);
       pendingToken.current = token;
       const result = await submitRsvp(slug, { name, attending, token }, rpc);
       busy.current = false;

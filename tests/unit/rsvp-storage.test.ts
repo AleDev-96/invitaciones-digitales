@@ -3,6 +3,7 @@ import {
   clearStoredRsvp,
   newRsvpToken,
   readStoredRsvp,
+  rsvpTokenFor,
   saveStoredRsvp,
 } from '../../src/infra/rsvpStorage';
 
@@ -58,6 +59,14 @@ describe('rsvp storage', () => {
     expect(readStoredRsvp('demo', failingStorage)).toBeNull();
     expect(() => clearStoredRsvp('demo', failingStorage)).not.toThrow();
     expect(readStoredRsvp('demo', null)).toBeNull();
+  });
+
+  it('keeps one token per invitation', () => {
+    const storage = memoryStorage();
+    const token = rsvpTokenFor('demo', storage);
+    expect(rsvpTokenFor('demo', storage)).toBe(token);
+    expect(rsvpTokenFor('otra', storage)).not.toBe(token);
+    expect(rsvpTokenFor('demo', failingStorage)).toMatch(/^[0-9a-f-]{36}$/);
   });
 
   it('creates random tokens', () => {

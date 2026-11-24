@@ -1,4 +1,5 @@
 const keyFor = (slug: string) => `rsvp:${slug}`;
+const tokenKeyFor = (slug: string) => `rsvp-token:${slug}`;
 
 export type StoredRsvp = { token: string; name: string; attending: boolean };
 
@@ -47,4 +48,22 @@ export function clearStoredRsvp(slug: string, storage = browserStorage()): void 
 
 export function newRsvpToken(): string {
   return crypto.randomUUID();
+}
+
+// Un código por invitación y por navegador, guardado antes de enviar: otra pestaña o una recarga
+// tras un corte reusan el mismo y la base no crea una segunda respuesta.
+export function rsvpTokenFor(slug: string, storage = browserStorage()): string {
+  try {
+    const saved = storage?.getItem(tokenKeyFor(slug));
+    if (saved) return saved;
+  } catch {
+    // Sin almacenamiento: se usa un código nuevo.
+  }
+  const token = newRsvpToken();
+  try {
+    storage?.setItem(tokenKeyFor(slug), token);
+  } catch {
+    // Sin almacenamiento: el código vive solo en esta visita.
+  }
+  return token;
 }
