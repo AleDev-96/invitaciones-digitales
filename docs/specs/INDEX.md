@@ -80,7 +80,7 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Con las confirmaciones cerradas, la invitación se sigue viendo: el botón de confirmar se reemplaza por un mensaje de cierre y uno de contacto con los dueños, ambos cargados en los datos de la invitación.
 - Para reservar un regalo hay que haber confirmado asistencia: la reserva queda asociada a la confirmación y al nombre del invitado.
 - Borrar una confirmación borra también las reservas de regalos de esa persona.
-- La lista de regalos sigue abierta hasta el fin del evento, aunque las confirmaciones estén cerradas.
+- La lista de regalos sigue abierta hasta el fin del evento, aunque las confirmaciones estén cerradas. Quien ya confirmó puede elegir o cambiar su regalo en ese período.
 - Cada regalo indica cuántas veces se puede elegir: por ejemplo, pañales talle P hasta 5 veces y la cuna evolutiva 1 sola. Reemplaza la restricción de "una reserva por regalo" de [data-model.md](../architecture/data-model.md); se corrige al aprobar la spec 004.
 - Los dueños pueden quitar la reserva de un regalo desde su pantalla (spec 005).
 - Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base/spec.md).
@@ -89,4 +89,4 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 
 | Tema | Spec |
 |---|---|
-| Si quien ya confirmó puede elegir un regalo después del cierre de confirmaciones | 004 |
+| Cómo se reconoce a quien confirmó al elegir o cambiar un regalo: propuesta, un código guardado en su navegador al confirmar, sin volver a escribir el nombre | 003, 004 |
