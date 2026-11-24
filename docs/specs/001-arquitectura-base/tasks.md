@@ -17,7 +17,7 @@ En orden de dependencia. Cada tarea se marca como hecha (`- [x]`) y lleva su pro
   - Hecho cuando: el servicio devuelve la invitación, "no encontrada", "dada de baja" o error, con pruebas de cada caso.
 - [ ] **T5. Rutas, página de invitación, pantallas de estado, registro de plantillas y estilos, y plantilla provisoria.** RF-1 a RF-7, RF-10, RF-11
   - Hecho cuando: en local se ven los cinco estados y el estilo no afecta a la página raíz.
-- [ ] **T6. Función de vista previa.** RF-12, RF-13
+- [x] **T6. Función de vista previa.** RF-12, RF-13
   - Hecho cuando: hay pruebas del armado de etiquetas y de la respuesta sin cambios ante un fallo.
 - [ ] **T7. Tarea programada.** RF-14 a RF-16
   - Hecho cuando: lanzada a mano se comporta como indica el criterio de aceptación.
