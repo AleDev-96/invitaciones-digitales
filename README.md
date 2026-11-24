@@ -50,21 +50,19 @@ Las imágenes y descripciones deben ayudar a identificar el regalo deseado. No s
 
 ### Confirmación de asistencia (RSVP)
 
-El formulario deberá permitir registrar, como mínimo:
+Cada persona responde desde su celular con su nombre y uno de dos botones: "Sí, asistiré" o "No podré ir" ([spec 003](docs/specs/003-confirmacion-asistencia/spec.md)).
 
-- Nombre del invitado o grupo familiar.
-- Cantidad de asistentes, si el evento lo permite.
-- Estado de asistencia: confirmado, rechazado o pendiente.
-- Comentario opcional.
-
-El invitado debe poder volver a su confirmación y modificarla mediante un mecanismo seguro, por ejemplo, un enlace individual de gestión o un token de acceso. No debe poder modificar la respuesta de otra persona.
+- Una respuesta es de una sola persona. Si alguien escribe dos nombres, lo corrigen los dueños; quienes no tienen celular, como los chicos, no responden.
+- Después de responder, ese navegador ve el agradecimiento en lugar del formulario. La respuesta no se cambia desde la invitación: el invitado avisa a los dueños y ellos la borran.
+- Las respuestas se cierran en la fecha de cierre, a la hora del evento si no hay fecha, o a mano. La base rechaza lo que llegue tarde.
+- Nadie puede ver ni tocar la respuesta de otra persona desde la página.
 
 ### Consulta y administración
 
 La aplicación no tiene panel de administración. Quien administra usa la pantalla de Supabase para:
 
-- Consultar el total de confirmaciones y la cantidad de asistentes confirmados.
-- Ver confirmados, rechazados y pendientes.
+- Consultar cuántos asistirán, cuántos no y cuántos no respondieron ([consulta](docs/architecture/data-model.md#tabla-rsvps)).
+- Ver quiénes asistirán y quiénes no.
 - Consultar los datos de cada respuesta.
 - Ver qué regalos están disponibles y cuáles fueron reservados.
 - Liberar o corregir una reserva cuando sea necesario.
@@ -225,7 +223,7 @@ El esquema definitivo debe diseñarse y documentarse en migraciones SQL. Como pu
 - **invitations:** tipo de evento, slug, estado, fecha, ubicación y configuración general.
 - **gifts:** regalos asociados a una invitación, con descripción, imágenes, enlace y disponibilidad.
 - **gift_reservations:** relación entre un regalo y quien lo reservó, con los datos mínimos necesarios para gestionar la reserva.
-- **rsvps:** respuestas de asistencia y cantidad de asistentes.
+- **rsvps:** respuestas de asistencia, una por persona.
 
 Todas las entidades dependientes de un evento deben referenciar `invitation_id`. El esquema debe impedir reservas duplicadas y definir con claridad qué información puede leer o modificar cada rol.
 

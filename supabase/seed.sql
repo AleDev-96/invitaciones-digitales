@@ -14,7 +14,8 @@ insert into public.invitations (
       "closing": "¡Gracias por acompañarnos en este momento tan especial!",
       "location": {"address": "Av. Siempre Viva 742, Ciudad de Ejemplo",
         "notes": ["Hay estacionamiento en la esquina", "Tocar timbre en la casa del fondo"]},
-      "rsvp": {"contactMessage": "Si necesitás cambiar tu respuesta, escribile a Ana."}}',
+      "rsvp": {"closedMessage": "Las confirmaciones cerraron. ¡Nos vemos en la fiesta!",
+        "contactMessage": "Si necesitás cambiar tu respuesta, escribile a Ana."}}',
     '{countdown,map,gifts,rsvp}'
   ),
   (
