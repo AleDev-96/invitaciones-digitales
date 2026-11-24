@@ -15,7 +15,7 @@ Que quien confirmó su asistencia elija desde la invitación qué regalo va a ll
 - Sección "Regalos" de la plantilla `baby-shower` con un texto opcional y un botón hacia la lista.
 - Pantalla aparte con la lista de regalos y un botón para volver a la invitación.
 - Cada regalo con nombre, descripción, imágenes de referencia, enlace opcional a una tienda y cuántas veces se puede elegir.
-- Elegir, cambiar y quitar el regalo propio, reconociendo a quien eligió por el código que guardó su navegador al confirmar ([spec 003](../003-confirmacion-asistencia/spec.md)).
+- Elegir hasta 3 regalos distintos por persona (tope configurable por invitación), y quitar o cambiar los propios, reconociendo a quien eligió por el código que guardó su navegador al confirmar ([spec 003](../003-confirmacion-asistencia/spec.md)).
 - Control en la base de datos de las veces que se puede elegir cada regalo, con doble clic y pedidos simultáneos.
 - Cierre de la lista a la hora del evento.
 
@@ -46,7 +46,7 @@ Elegir un regalo:
 
 - RF-8: MIENTRAS el navegador tenga una respuesta "Sí, asistiré" y la lista esté abierta, EL SISTEMA muestra el botón "Elegir este regalo" en cada regalo disponible.
 - RF-9: CUANDO el invitado toca "Elegir este regalo", EL SISTEMA lo reserva a su nombre y marca ese regalo como "Tu regalo", sin pedir el nombre otra vez.
-- RF-10: PENDIENTE: definición del responsable sobre cuántos regalos puede elegir una persona (uno solo, y elegir otro lo cambia, o varios).
+- RF-10: SI el invitado ya eligió la cantidad máxima de regalos por persona de la invitación (3 si no se cargó otra), ENTONCES EL SISTEMA no muestra "Elegir este regalo" en los demás y muestra "Ya elegiste <n> regalos. Para cambiar uno, primero quitá tu elección.". Cada persona elige un mismo regalo una sola vez.
 - RF-11: CUANDO el invitado toca "Quitar mi elección" en su regalo, EL SISTEMA libera la reserva y el regalo vuelve a estar disponible.
 - RF-12: SI el regalo se agotó entre que se cargó la lista y el invitado lo eligió, ENTONCES EL SISTEMA no lo reserva, muestra "Alguien lo eligió recién. Probá con otro regalo." y actualiza la lista.
 - RF-13: MIENTRAS una elección está en curso, EL SISTEMA deshabilita los botones de la lista, y un doble clic o un reintento no genera una segunda reserva del mismo regalo para la misma persona.
@@ -68,7 +68,7 @@ Cierre:
 Privacidad y seguridad:
 
 - RF-22: EL SISTEMA no muestra en la página pública el nombre de quien eligió cada regalo ni cuántas personas lo eligieron, salvo lo que defina RF-4.
-- RF-23: EL SISTEMA valida en la base de datos, sin depender del navegador, que quien elige tenga una respuesta "Sí, asistiré" en esa invitación, que el regalo sea de esa invitación y que no se supere la cantidad de veces que se puede elegir.
+- RF-23: EL SISTEMA valida en la base de datos, sin depender del navegador, que quien elige tenga una respuesta "Sí, asistiré" en esa invitación, que el regalo sea de esa invitación, que no se supere la cantidad de veces que se puede elegir el regalo ni la cantidad máxima de regalos por persona.
 - RF-24: EL SISTEMA no permite leer, modificar ni borrar reservas ajenas desde la página pública; cada invitado solo puede quitar la propia con su código.
 - RF-25: CUANDO se borra una invitación, un regalo o una respuesta, EL SISTEMA borra también sus reservas.
 
@@ -87,6 +87,7 @@ Privacidad y seguridad:
 - [ ] Con "Sí, asistiré" se elige un regalo, queda como "Tu regalo" y al recargar sigue marcado; "Quitar mi elección" lo libera.
 - [ ] Un regalo que se puede elegir 1 vez, elegido desde dos navegadores a la vez, queda reservado para uno solo y el otro ve el mensaje de RF-12.
 - [ ] Un doble clic en "Elegir este regalo" crea una sola reserva.
+- [ ] Con 3 regalos elegidos no se puede elegir un cuarto, ni desde la pantalla ni con una llamada directa a la función; al quitar uno, se puede elegir otro.
 - [ ] Con las confirmaciones cerradas y antes de la hora del evento, se puede elegir; pasada la hora del evento, una llamada directa a la función de elegir es rechazada.
 - [ ] Una llamada directa a la función de elegir con un código sin respuesta, con una respuesta "No podré ir", o con un regalo de otra invitación es rechazada.
 - [ ] Sin sesión y con la clave pública no se puede leer ni listar la tabla de reservas ni ver nombres.
@@ -96,13 +97,13 @@ Privacidad y seguridad:
 
 ## Preguntas abiertas
 
-1. ¿Cuántos regalos puede elegir una persona? (RF-10)
-2. ¿Un regalo que se puede elegir varias veces muestra cuántas quedan? (RF-4)
-3. ¿La lista cierra a la hora del evento o más tarde? (RF-19)
-4. ¿Las imágenes son enlaces a imágenes de la tienda o se suben a Supabase Storage? (Alcance)
+1. ¿Un regalo que se puede elegir varias veces muestra cuántas quedan? (RF-4)
+2. ¿La lista cierra a la hora del evento o más tarde? (RF-19)
+3. ¿Las imágenes son enlaces a imágenes de la tienda o se suben a Supabase Storage? (Alcance)
 
 ## Historial de cambios
 
 | Fecha | Cambio |
 |---|---|
 | 2026-11-24 | Borrador inicial |
+| 2026-11-24 | Hasta 3 regalos distintos por persona, con el tope como dato de la invitación; cada regalo tiene su cupo (por ejemplo, pañales P ×5) |

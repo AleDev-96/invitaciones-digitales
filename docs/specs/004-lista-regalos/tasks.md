@@ -8,11 +8,11 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
 - [ ] **T1. Migración de `gifts` y `gift_reservations`, y funciones.** RF-4, RF-9 a RF-13, RF-17, RF-19, RF-21 a RF-25
-  - Hecho cuando: aplicada sobre una base de prueba, `tests/support/gifts-checks.sql` pasa con el rol `anon`, incluidos dos pedidos simultáneos sobre un regalo de 1 vez.
+  - Hecho cuando: aplicada sobre una base de prueba, `tests/support/gifts-checks.sql` pasa con el rol `anon`, incluidos dos pedidos simultáneos sobre un regalo de 1 vez y un cuarto regalo de la misma persona.
 - [ ] **T2. Tipos y reglas de la lista.** RF-4, RF-8, RF-15, RF-16, RF-18, RF-20
-  - Hecho cuando: hay tests de qué botones y avisos corresponden a cada caso (sin respuesta, sí, no, sin `rsvp`, cerrada).
+  - Hecho cuando: hay tests de qué botones y avisos corresponden a cada caso (sin respuesta, sí, no, sin `rsvp`, cerrada, tope de regalos alcanzado).
 - [ ] **T3. Servicio de regalos.** RF-9, RF-11, RF-12, RF-14, RF-21
-  - Hecho cuando: hay tests de lista leída, reserva guardada, agotado, cerrada, sin respuesta y error de red.
+  - Hecho cuando: hay tests de lista leída, reserva guardada, agotado, tope alcanzado, cerrada, sin respuesta y error de red.
 - [ ] **T4. Estado de la lista y ruta `/<slug>/regalos`.** RF-2, RF-6, RF-7, RF-8, RF-12, RF-13, RF-15 a RF-20
   - Hecho cuando: `/demo/regalos` carga la lista y `/demo-borrador/regalos` muestra lo mismo que `/demo-borrador`.
 - [ ] **T5. Sección "Regalos" y pantalla de la lista en `baby-shower`.** RF-1 a RF-5, RF-7 a RF-16, RF-20, RF-21

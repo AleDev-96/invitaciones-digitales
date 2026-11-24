@@ -11,6 +11,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 |---|---|---|
 | Reconocer a quien elige | El código que guardó el navegador al confirmar (spec 003); la base busca la respuesta por su huella | Pedir el nombre otra vez: no empareja "Jorgito" con "Jorge Ayala" |
 | Veces que se elige un regalo | Columna `max_reservations` en `gifts`; al reservar se bloquea la fila del regalo (`for update`) y se cuentan sus reservas dentro de la misma transacción | Contar desde el navegador antes de reservar: dos pedidos simultáneos pasarían los dos |
+| Regalos por persona | Columna `gifts_per_guest` en `invitations` (3 por defecto); `reserve_gift` cuenta las reservas de esa respuesta dentro de la misma transacción, bloqueando la fila de la respuesta | Fijar 3 en el código: otra invitación no podría cambiarlo sin código nuevo |
 | Doble clic y reintentos | Una reserva por persona y por regalo (único `gift_id` + `rsvp_id`); repetir devuelve la reserva existente | Solo deshabilitar el botón: no cubre un reintento tras un corte de red |
 | Acceso | Funciones `get_gifts`, `reserve_gift` y `release_gift` (`security definer`); las tablas no tienen permisos para `anon` ni `authenticated`, igual que `rsvps` | Políticas RLS de lectura directa: expondrían quién reservó o requerirían una vista aparte |
 | Lista abierta o cerrada | La calcula la base: abierta hasta `event_at`. `get_gifts` la devuelve como `open` | Usar el reloj del celular: puede estar mal configurado |
@@ -23,9 +24,10 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 Migración nueva `supabase/migrations/20261124000003_gifts.sql` (no se edita ninguna aplicada):
 
 - Tabla `gifts`: `id`, `invitation_id` (borrado en cascada), `position` (orden), `name` (1 a 80 caracteres), `description` (opcional, hasta 500), `image_urls` (`text[]`, solo `https://`), `store_url` (opcional, `https://`), `max_reservations` (entero mayor que 0, 1 por defecto), `created_at`. RLS activo y sin permisos para `anon` ni `authenticated`.
+- Columna `invitations.gifts_per_guest integer not null default 3` (mayor que 0).
 - Tabla `gift_reservations`: `id`, `gift_id` (borrado en cascada), `rsvp_id` (borrado en cascada), `created_at`; único (`gift_id`, `rsvp_id`). RLS activo y sin permisos públicos.
-- `get_gifts(p_slug, p_token)`: con la invitación visible y `gifts` activo, devuelve `{"open", "can_reserve", "gifts": [...]}`; cada regalo trae `id`, `name`, `description`, `image_urls`, `store_url`, `available` y `mine` (si el código es de quien lo eligió). Nunca devuelve nombres. `can_reserve`: `no_rsvp`, `not_attending`, `attending` o `disabled` (sin `rsvp` activo).
-- `reserve_gift(p_slug, p_gift_id, p_token)`: devuelve `{"status": "reserved"}`, `sold_out`, `closed`, `no_rsvp`, `not_attending` o `invalid_request`. Invitación no visible: `null`.
+- `get_gifts(p_slug, p_token)`: con la invitación visible y `gifts` activo, devuelve `{"open", "can_reserve", "per_guest", "gifts": [...]}`; cada regalo trae `id`, `name`, `description`, `image_urls`, `store_url`, `available` y `mine` (si el código es de quien lo eligió). Nunca devuelve nombres. `can_reserve`: `no_rsvp`, `not_attending`, `attending` o `disabled` (sin `rsvp` activo).
+- `reserve_gift(p_slug, p_gift_id, p_token)`: devuelve `{"status": "reserved"}`, `sold_out`, `limit_reached`, `closed`, `no_rsvp`, `not_attending` o `invalid_request`. Invitación no visible: `null`.
 - `release_gift(p_slug, p_gift_id, p_token)`: `{"status": "released"}`, `closed` o `invalid_request`.
 - Consulta para la pantalla de Supabase con quién eligió cada regalo, documentada en `data-model.md`; la spec 005 la convierte en función.
 
@@ -38,7 +40,7 @@ Campo nuevo de `content` (opcional):
 | Parte | Ubicación | RF |
 |---|---|---|
 | Tablas y funciones | `supabase/migrations/` | RF-4, RF-9 a RF-13, RF-17, RF-19, RF-21 a RF-25 |
-| Tipos y reglas de la lista | `src/domain/gift.ts` | RF-4, RF-8, RF-15, RF-16, RF-18, RF-20 |
+| Tipos y reglas de la lista | `src/domain/gift.ts` | RF-4, RF-8, RF-10, RF-15, RF-16, RF-18, RF-20 |
 | Leer, elegir y quitar | `src/services/gifts.ts` | RF-9, RF-11, RF-12, RF-14, RF-21 |
 | Estado de la lista | `src/features/gifts/useGifts.ts` | RF-8, RF-12, RF-13, RF-15 a RF-20 |
 | Ruta `/<slug>/regalos` | `src/app/App.tsx`, `src/features/gifts/GiftsPage.tsx` | RF-2, RF-6, RF-7 |
