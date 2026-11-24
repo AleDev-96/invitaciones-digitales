@@ -10,6 +10,7 @@ const publishedRow = {
   event_at: '2027-06-12T19:00:00+00:00',
   timezone: 'America/Argentina/Buenos_Aires',
   rsvp_closes_at: null,
+  rsvp_open: true,
   expected_guests: null,
   takedown_on: '2027-12-31',
   preview_title: 'Baby shower de demostración',
@@ -30,7 +31,12 @@ describe('loadInvitation', () => {
     expect(rpc).toHaveBeenCalledWith('get_invitation', { p_slug: 'demo' });
     expect(result).toMatchObject({
       kind: 'found',
-      invitation: { slug: 'demo', templateKey: 'baby-shower', themeKey: 'sage-geese' },
+      invitation: {
+        slug: 'demo',
+        templateKey: 'baby-shower',
+        themeKey: 'sage-geese',
+        rsvpOpen: true,
+      },
     });
   });
 

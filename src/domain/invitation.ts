@@ -13,6 +13,7 @@ export type Invitation = {
   eventAt: string;
   timezone: string;
   rsvpClosesAt: string | null;
+  rsvpOpen: boolean;
   expectedGuests: number | null;
   takedownOn: string;
   preview: InvitationPreview;

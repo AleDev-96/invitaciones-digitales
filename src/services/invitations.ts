@@ -15,6 +15,7 @@ type InvitationRow = {
   event_at: string;
   timezone: string;
   rsvp_closes_at: string | null;
+  rsvp_open?: boolean;
   expected_guests: number | null;
   takedown_on: string;
   preview_title: string;
@@ -32,6 +33,7 @@ function toInvitation(row: InvitationRow): Invitation {
     eventAt: row.event_at,
     timezone: row.timezone,
     rsvpClosesAt: row.rsvp_closes_at,
+    rsvpOpen: row.rsvp_open === true,
     expectedGuests: row.expected_guests,
     takedownOn: row.takedown_on,
     preview: {
