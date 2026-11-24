@@ -10,6 +10,7 @@ Spec 001 (arquitectura base) construida: aplicación React con rutas `/<slug>`, 
 
 - Las migraciones se aplican pegándolas en el SQL Editor de Supabase; una aplicada no se edita.
 - La tarea `keepalive` solo se puede lanzar a mano cuando está en `main`.
+- En Cloudflare, el sitio se crea desde "Workers & Pages" → "Create" → pestaña "Pages". El asistente de Workers pide "API Token" y no sirve para este proyecto.
 
 ## Decisiones
 
