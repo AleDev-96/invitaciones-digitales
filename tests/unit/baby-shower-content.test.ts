@@ -26,6 +26,7 @@ describe('readBabyShowerContent', () => {
         notes: ['Hay estacionamiento'],
       },
       rsvp: { closedMessage: null, contactMessage: null },
+      gifts: { intro: null },
     });
   });
 
@@ -37,6 +38,7 @@ describe('readBabyShowerContent', () => {
       closing: null,
       location: { address: null, mapsUrl: null, notes: [] },
       rsvp: { closedMessage: null, contactMessage: null },
+      gifts: { intro: null },
     });
   });
 
@@ -62,6 +64,13 @@ describe('readBabyShowerContent', () => {
       closedMessage: 'Cerramos el 4.',
       contactMessage: 'Escribile a Ana.',
     });
+  });
+
+  it('reads the gifts intro', () => {
+    expect(readBabyShowerContent({ gifts: { intro: ' Te dejamos ideas. ' } }).gifts).toEqual({
+      intro: 'Te dejamos ideas.',
+    });
+    expect(readBabyShowerContent({ gifts: { intro: 3 } }).gifts.intro).toBeNull();
   });
 
   it('ignores a location that is not an object', () => {

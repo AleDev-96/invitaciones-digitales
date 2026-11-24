@@ -4,7 +4,9 @@
 
 begin;
 
--- Regalos propios de esta prueba, para no depender de los de la seed.
+-- Regalos propios de esta prueba, en lugar de los de la seed.
+delete from public.gifts where invitation_id = (select id from public.invitations where slug = 'demo');
+
 insert into public.gifts (id, invitation_id, position, name, description, max_reservations)
 select v.id::uuid, i.id, v.position, v.name, v.description, v.max
 from public.invitations i,

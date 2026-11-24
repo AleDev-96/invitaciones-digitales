@@ -17,7 +17,7 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: `/demo/regalos` carga la lista y `/demo-borrador/regalos` muestra lo mismo que `/demo-borrador`.
 - [x] **T5. Sección "Regalos" y pantalla de la lista en `baby-shower`.** RF-1 a RF-4, RF-6 a RF-15, RF-19, RF-20
   - Hecho cuando: en `/demo` se abre la lista, se elige, se quita y se vuelve, con los avisos de cada caso.
-- [ ] **T6. Texto de la sección y regalos de la `demo`.** RF-1 a RF-4
+- [x] **T6. Texto de la sección y regalos de la `demo`.** RF-1 a RF-4
   - Hecho cuando: `seed.sql` trae el texto y regalos de 1 y de varias veces, con y sin descripción; hay tests de la lectura de `content`.
 - [ ] **T7. Documentación.** Reglas
   - Hecho cuando: `data-model.md` (con la consulta de quién eligió), `architecture.md`, `templates.md`, el README, `AGENTS.md`, `MEMORY.md` y el INDEX reflejan la spec.
