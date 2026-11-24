@@ -46,6 +46,10 @@ begin
   assert res ->> 'status' = 'closed', res::text;
   assert (public.get_invitation('demo') ->> 'rsvp_open')::boolean;
   assert not (public.get_invitation('demo-cerrada') ->> 'rsvp_open')::boolean;
+
+  -- Sin la funcionalidad rsvp no se aceptan respuestas.
+  res := public.submit_rsvp('demo-error', 'Ana', true, '77777777-7777-4777-8777-777777777777');
+  assert res ->> 'status' = 'closed', res::text;
 end $$;
 
 -- RF-16: sin acceso directo a la tabla ni a las funciones internas.

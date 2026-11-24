@@ -19,14 +19,16 @@ create index rsvps_invitation_id_idx on public.rsvps (invitation_id);
 alter table public.rsvps enable row level security;
 revoke all on table public.rsvps from public, anon, authenticated;
 
--- Abiertas hasta rsvp_closes_at (o la hora del evento si está vacía), salvo cierre manual.
+-- Abiertas si la invitación usa rsvp, hasta rsvp_closes_at (o la hora del evento si está vacía), salvo cierre manual.
 create function public.invitation_rsvp_open(inv public.invitations)
 returns boolean
 language sql
 stable
 set search_path = ''
 as $$
-  select not inv.rsvp_closed and now() < coalesce(inv.rsvp_closes_at, inv.event_at);
+  select 'rsvp' = any(inv.features)
+    and not inv.rsvp_closed
+    and now() < coalesce(inv.rsvp_closes_at, inv.event_at);
 $$;
 
 -- La base guarda solo la huella del código del navegador.
