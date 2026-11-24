@@ -1,0 +1,25 @@
+# 004 — Lista de regalos con reserva: tareas
+
+- **Estado:** borrador
+- **Spec:** [spec.md](spec.md) · **Plan:** [plan.md](plan.md)
+
+Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
+
+Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
+
+- [ ] **T1. Migración de `gifts` y `gift_reservations`, y funciones.** RF-4, RF-9 a RF-13, RF-17, RF-19, RF-21 a RF-25
+  - Hecho cuando: aplicada sobre una base de prueba, `tests/support/gifts-checks.sql` pasa con el rol `anon`, incluidos dos pedidos simultáneos sobre un regalo de 1 vez.
+- [ ] **T2. Tipos y reglas de la lista.** RF-4, RF-8, RF-15, RF-16, RF-18, RF-20
+  - Hecho cuando: hay tests de qué botones y avisos corresponden a cada caso (sin respuesta, sí, no, sin `rsvp`, cerrada).
+- [ ] **T3. Servicio de regalos.** RF-9, RF-11, RF-12, RF-14, RF-21
+  - Hecho cuando: hay tests de lista leída, reserva guardada, agotado, cerrada, sin respuesta y error de red.
+- [ ] **T4. Estado de la lista y ruta `/<slug>/regalos`.** RF-2, RF-6, RF-7, RF-8, RF-12, RF-13, RF-15 a RF-20
+  - Hecho cuando: `/demo/regalos` carga la lista y `/demo-borrador/regalos` muestra lo mismo que `/demo-borrador`.
+- [ ] **T5. Sección "Regalos" y pantalla de la lista en `baby-shower`.** RF-1 a RF-5, RF-7 a RF-16, RF-20, RF-21
+  - Hecho cuando: en `/demo` se abre la lista, se elige, se quita y se vuelve, con los avisos de cada caso.
+- [ ] **T6. Texto de la sección y regalos de la `demo`.** RF-1 a RF-5
+  - Hecho cuando: `seed.sql` trae el texto y regalos de 1 y de varias veces, con y sin tienda, y una imagen rota; hay tests de la lectura de `content`.
+- [ ] **T7. Documentación.** Reglas
+  - Hecho cuando: `data-model.md` (con la consulta de quién eligió), `architecture.md`, `templates.md`, el README, `AGENTS.md`, `MEMORY.md` y el INDEX reflejan la spec.
+- [ ] **T8. Revisión en celular y escritorio.** RF-2, RF-3, RF-5
+  - Hecho cuando: a 360 px y en escritorio se ven la sección, la lista y cada estado del regalo sin desplazamiento horizontal.
