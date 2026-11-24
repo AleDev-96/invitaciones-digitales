@@ -1,6 +1,6 @@
 # NNN — Título: tareas
 
-<!-- Solo spec larga. En orden de dependencia; si salen más de 10, proponer dividir la spec. -->
+<!-- Toda spec lo lleva. En orden de dependencia; si salen más de 10, proponer dividir la spec. -->
 
 - **Estado:** borrador
 - **Spec:** [spec.md](spec.md) · **Plan:** [plan.md](plan.md)

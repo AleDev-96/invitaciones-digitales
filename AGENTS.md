@@ -93,7 +93,9 @@ Se trabaja con specs ([docs/specs/README.md](docs/specs/README.md)), siguiendo l
 - **Specs largas:** las iniciales de arquitectura y los rediseños grandes. Pueden tomar el tiempo que haga falta; es preferible definir bien antes que rehacer un desarrollo costoso.
 - **Specs cortas:** rediseños o ajustes acotados.
 - **Specs de invitación:** cortas. Cuando ya existe la plantilla y el estilo, solo definen tipo de evento, estilo, imágenes y funcionalidades.
-- **Cambios menores** (un texto, un color, un ajuste de espaciado): directo, sin spec.
+- **Cambios menores** (un texto, un color, un ajuste de espaciado) y reorganizaciones de archivos o documentos: directo, sin spec.
+
+Toda spec, sea larga, corta o de invitación, es una carpeta `docs/specs/NNN-nombre-corto/` con `spec.md` (qué y por qué), `plan.md` (cómo) y `tasks.md` (en qué orden).
 
 Orden de cada trabajo:
 

@@ -1,6 +1,6 @@
 # NNN — Título: spec
 
-<!-- Qué se construye y por qué. Sin stack, archivos ni tablas: eso va en plan.md. Spec corta: dejar solo Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación. -->
+<!-- Qué se construye y por qué. Sin stack, archivos ni tablas: eso va en plan.md. Spec corta: alcanza con Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación. -->
 
 - **Tipo:** larga o corta
 - **Estado:** borrador

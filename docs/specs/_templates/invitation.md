@@ -4,6 +4,8 @@
 - **Estado:** borrador
 - **Fecha:** AAAA-MM-DD
 
+Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
+
 ## Evento
 
 - **Tipo de evento:**

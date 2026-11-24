@@ -1,6 +1,6 @@
 # NNN — Título: plan
 
-<!-- Solo spec larga. Cómo se construye lo que pide spec.md. -->
+<!-- Toda spec lo lleva. Cómo se construye lo que pide spec.md. En una spec corta o de invitación puede ser de pocas líneas. -->
 
 - **Estado:** borrador
 - **Spec:** [spec.md](spec.md)

@@ -9,30 +9,30 @@ description: Cómo trabajar con Spec-Driven Development en Invitaciones Digitale
 
 Cada vez que trabajes con `docs/specs/`: redactar, clarificar, revisar o cambiar una spec, o implementarla y verificarla. Los tipos, estados e índice están en [`docs/specs/README.md`](../../../docs/specs/README.md).
 
-Los cambios menores (un texto, un color, un ajuste de espaciado) no llevan spec.
+Los cambios menores (un texto, un color, un ajuste de espaciado) y las reorganizaciones de archivos o documentos no llevan spec.
 
 ## Qué tamaño de spec corresponde
 
 | Tamaño | Cuándo | Molde |
 |---|---|---|
 | **Larga** | Arquitectura de base, funcionalidad nueva, plantilla o estilo nuevo, rediseño que cambia estructura, datos o varias pantallas | [`spec.md`](../../../docs/specs/_templates/spec.md), [`plan.md`](../../../docs/specs/_templates/plan.md) y [`tasks.md`](../../../docs/specs/_templates/tasks.md) |
-| **Corta** | Rediseño o ajuste acotado a una pantalla o sección, sin cambios de datos ni dependencias | Solo `spec.md`, con Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación |
-| **Invitación** | Invitación nueva con plantilla y estilo existentes | [`invitation.md`](../../../docs/specs/_templates/invitation.md), guardado como `spec.md` |
+| **Corta** | Rediseño o ajuste acotado a una pantalla o sección, sin cambios de datos ni dependencias | Los mismos tres; en `spec.md` alcanzan Objetivo, Alcance, Requisitos funcionales y Criterios de aceptación |
+| **Invitación** | Invitación nueva con plantilla y estilo existentes | [`invitation.md`](../../../docs/specs/_templates/invitation.md), guardado como `spec.md`, más `plan.md` y `tasks.md` |
 
-Cada spec es una carpeta `docs/specs/NNN-nombre-corto/`. `spec.md` dice qué y por qué; `plan.md`, cómo; `tasks.md`, en qué orden.
+Cada spec es una carpeta `docs/specs/NNN-nombre-corto/` y siempre lleva los tres archivos, sea larga, corta o de invitación: `spec.md` dice qué y por qué; `plan.md`, cómo; `tasks.md`, en qué orden. En una spec corta o de invitación, el plan y las tareas pueden ser de pocas líneas.
 
-Las specs iniciales son largas y pueden tomar el tiempo que haga falta. Si dudás entre larga y corta, preguntá al responsable. Si una spec corta empieza a necesitar diseño técnico o más de 5 tareas, pasala a larga.
+Las specs iniciales son largas y pueden tomar el tiempo que haga falta. Si dudás entre larga y corta, preguntá al responsable. Si una spec corta empieza a necesitar más de 5 tareas o cambios de datos, pasala a larga.
 
 ## Flujo
 
-[`CONSTITUTION.md`](../../../docs/CONSTITUTION.md) → Spec → Clarificación → Plan y tareas (solo spec larga) → Armado → Validación → Test → Pull request
+[`CONSTITUTION.md`](../../../docs/CONSTITUTION.md) → Spec → Clarificación → Plan y tareas → Armado → Validación → Test → Pull request
 
-- **Nunca pases de la spec al armado sin la aprobación explícita del responsable.** En una spec larga, `plan.md` y `tasks.md` se aprueban junto con `spec.md` o en una segunda pasada.
+- **Nunca pases de la spec al armado sin la aprobación explícita del responsable.** `plan.md` y `tasks.md` se aprueban junto con `spec.md` o en una segunda pasada.
 - **Con la spec aprobada, el armado se delega:** se hacen todas las tareas en orden, sin pedir ok entre tareas, y se frena solo en los casos de "Preguntar antes" de [`AGENTS.md`](../../../AGENTS.md).
 - **Ninguna spec puede contradecir la constitución.** Si un pedido choca con un principio, frená y avisá.
 - **La spec manda:** si algo no está en la spec, no se implementa. Si falta una decisión, frená y preguntá.
 - **Un cambio de requisitos** se hace primero en la spec y después en el código. Se anota en el historial de cambios de la spec.
-- Al cambiar de estado, actualizá el encabezado `**Estado:**` de `spec.md` (y de `plan.md` y `tasks.md` si corresponde) y el índice de `docs/specs/README.md`. Si hubo decisiones o aprendizajes, también `MEMORY.md`.
+- Al cambiar de estado, actualizá el encabezado `**Estado:**` de `spec.md`, `plan.md` y `tasks.md` y el índice de `docs/specs/README.md`. Si hubo decisiones o aprendizajes, también `MEMORY.md`.
 
 ## Spec
 
@@ -47,7 +47,7 @@ Las specs iniciales son largas y pueden tomar el tiempo que haga falta. Si dudá
 - **Clarificación:** hacé de 1 a 10 preguntas, de a una, hasta que no queden preguntas abiertas. Para una spec corta o de invitación suelen alcanzar de 1 a 3.
 - En specs de invitación no hay RF: alcanzan los datos del molde y sus criterios de aceptación.
 
-## Plan y tareas (solo spec larga)
+## Plan y tareas
 
 El plan va en `plan.md` y las tareas en `tasks.md`, dentro de la carpeta de la spec.
 
