@@ -1,6 +1,6 @@
 # Despliegue
 
-**Estado:** configurado con la [spec 001](../specs/001-arquitectura-base/spec.md). Sitio: `babyshower-invitacion-digital.pages.dev`.
+**Estado:** configurado con la [spec 001](../specs/001-arquitectura-base/spec.md). Sitio: `invitaciones-digitales-bhi.pages.dev`.
 
 ## Variables de entorno
 
@@ -17,6 +17,7 @@
 
 Se publica desde GitHub con la integración de Cloudflare Pages.
 
+- **Project name:** `invitaciones-digitales`. Cloudflare le agregó `-bhi` porque el nombre estaba tomado: el sitio es `invitaciones-digitales-bhi.pages.dev`.
 - **Framework preset:** Vite.
 - **Build command:** `npm run build`.
 - **Build output directory:** `dist`.

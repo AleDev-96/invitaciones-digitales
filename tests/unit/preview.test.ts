@@ -6,7 +6,7 @@ const html = `<head>
     <title>Tenés una invitación</title>
     <!-- preview:end -->
   </head>`;
-const pageUrl = 'https://babyshower-invitacion-digital.pages.dev/demo';
+const pageUrl = 'https://invitaciones-digitales-bhi.pages.dev/demo';
 
 describe('buildPreviewTags', () => {
   it('writes the invitation title, description, absolute image and url', () => {
@@ -18,7 +18,7 @@ describe('buildPreviewTags', () => {
     expect(tags).toContain('<meta property="og:title" content="Baby shower" />');
     expect(tags).toContain('<meta property="og:description" content="Te esperamos" />');
     expect(tags).toContain(
-      '<meta property="og:image" content="https://babyshower-invitacion-digital.pages.dev/og/demo.png" />',
+      '<meta property="og:image" content="https://invitaciones-digitales-bhi.pages.dev/og/demo.png" />',
     );
     expect(tags).toContain(`<meta property="og:url" content="${pageUrl}" />`);
   });
@@ -26,7 +26,7 @@ describe('buildPreviewTags', () => {
   it('uses the default image when the invitation has none', () => {
     const tags = buildPreviewTags({ title: 'T', description: '', imageUrl: null }, pageUrl);
     expect(tags).toContain(
-      'content="https://babyshower-invitacion-digital.pages.dev/og/default.png"',
+      'content="https://invitaciones-digitales-bhi.pages.dev/og/default.png"',
     );
   });
 

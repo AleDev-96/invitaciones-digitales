@@ -12,7 +12,7 @@ Cómo se construye lo que pide la spec. Cada parte indica qué requisitos (RF) c
 | Tema | Decisión | Alternativa descartada |
 |---|---|---|
 | Dirección | `/<slug>`, con slug único en toda la aplicación | `/<tipo>/<slug>`: más larga y expone el tipo en inglés |
-| Dominio | Gratuito de Cloudflare: `babyshower-invitacion-digital.pages.dev`, uno solo para todas las invitaciones. Se puede sumar otro sitio de Cloudflare sobre el mismo repositorio si hace falta un nombre distinto | Dominio propio: tiene costo anual. Un sitio por invitación: más trabajo en cada alta |
+| Dominio | Gratuito de Cloudflare: `invitaciones-digitales-bhi.pages.dev`, uno solo para todas las invitaciones. Se puede sumar otro sitio de Cloudflare sobre el mismo repositorio si hace falta un nombre distinto | Dominio propio: tiene costo anual. Un sitio por invitación: más trabajo en cada alta |
 | Identificación del invitado | Link general. Al confirmar, la base entrega a ese navegador una clave propia que se guarda en el dispositivo (detalle en 003) | Link por invitado: obliga a cargar la lista y a enviar cada link |
 | Operaciones de invitados | Funciones de la base que validan todo adentro; ninguna tabla se lee ni se escribe directo desde la página | Políticas RLS abiertas: no distinguen a un invitado de otro |
 | Estilos | Variables CSS bajo el atributo `data-theme="<theme_key>"`; Tailwind usa esas variables | Una hoja de estilos global por estilo: los colores de uno pisan a los de otro |

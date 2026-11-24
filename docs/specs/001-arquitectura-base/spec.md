@@ -72,23 +72,23 @@ Disponibilidad:
 
 ## Criterios de aceptación
 
-- [ ] `/demo` muestra la invitación de demostración en la dirección pública `.pages.dev`, en un celular y en escritorio.
-- [ ] Recargar `/demo` muestra la misma invitación.
-- [ ] Un slug inexistente y una invitación en borrador muestran el mismo mensaje.
-- [ ] Una invitación dada de baja muestra su mensaje y la respuesta de la base no incluye datos del evento.
-- [ ] Con la clave pública no se puede leer ni escribir la tabla `invitations` directamente.
+- [x] `/demo` muestra la invitación de demostración en la dirección pública `.pages.dev`, en un celular y en escritorio.
+- [x] Recargar `/demo` muestra la misma invitación.
+- [x] Un slug inexistente y una invitación en borrador muestran el mismo mensaje.
+- [x] Una invitación dada de baja muestra su mensaje y la respuesta de la base no incluye datos del evento.
+- [x] Con la clave pública no se puede leer ni escribir la tabla `invitations` directamente.
 - [ ] El link de `/demo` pegado en WhatsApp muestra el título, la descripción y la imagen de la demostración.
-- [ ] Un link con slug inexistente muestra la vista previa genérica.
+- [x] Un link con slug inexistente muestra la vista previa genérica.
 - [ ] La tarea programada, lanzada a mano, consulta la base con una fecha vigente y no la consulta con una fecha vencida.
-- [ ] Pasan la comprobación de tipos, el lint, las pruebas y la compilación.
-- [ ] No hay credenciales en el repositorio.
+- [x] Pasan la comprobación de tipos, el lint, las pruebas y la compilación.
+- [x] No hay credenciales en el repositorio.
 
 ## Preguntas abiertas
 
 Ninguna. Resueltas el 2026-11-23:
 
 1. **Cuentas.** El responsable creó el proyecto de Supabase y la cuenta de Cloudflare. La dirección del proyecto y la clave pública de Supabase se cargan como variables de entorno; no se escriben en el repositorio. La conexión de Cloudflare con GitHub se hace en T8.
-2. **Nombre del dominio gratuito.** `babyshower-invitacion-digital.pages.dev`. El 2026-11-23 no estaba en uso; se confirma al crear el sitio en T8.
+2. **Nombre del dominio gratuito.** `invitaciones-digitales-bhi.pages.dev`. Se había elegido `babyshower-invitacion-digital.pages.dev`, pero el sitio se creó con el nombre de proyecto `invitaciones-digitales` y Cloudflare agregó la terminación `-bhi` porque ese nombre estaba tomado. Se decidió dejarlo así el 2026-11-24.
 3. **Dependencias y carpeta `functions/`.** Aprobadas.
 
 ## Historial de cambios
