@@ -1,7 +1,7 @@
 # 003 — Confirmación de asistencia: spec
 
 - **Tipo:** larga
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Fecha:** 2026-11-24
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
@@ -91,3 +91,4 @@ Ninguna.
 | 2026-11-24 | Borrador inicial. Un solo nombre por confirmación: la tarjeta se manda a cada persona por separado |
 | 2026-11-24 | Se suma "No podré ir": cada respuesta guarda si asiste o no, para los contadores asistirán, no asistirán y sin respuesta de la spec 005. El campo vacío pide el nombre con un mensaje amable |
 | 2026-11-24 | Una sola persona: solo con la aclaración del formulario, sin control automático. Los chicos sin celular quedan fuera |
+| 2026-11-24 | Aprobada |

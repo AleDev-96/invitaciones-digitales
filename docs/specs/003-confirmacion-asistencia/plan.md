@@ -1,6 +1,6 @@
 # 003 — Confirmación de asistencia: plan
 
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Spec:** [spec.md](spec.md)
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
