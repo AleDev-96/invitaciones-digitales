@@ -1,7 +1,7 @@
 # 002 — Plantilla `baby-shower` y estilo `sage-geese`: spec
 
 - **Tipo:** larga
-- **Estado:** aprobada
+- **Estado:** implementada
 - **Fecha:** 2026-11-24
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)

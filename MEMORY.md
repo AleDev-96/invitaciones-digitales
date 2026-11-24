@@ -4,7 +4,7 @@ Memoria del proyecto entre sesiones. Máximo unas 50 líneas: resumir o eliminar
 
 ## Estado actual — v0.1
 
-Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada en rama, pendiente de validación y PR. Siguen las specs 003 a 006 de `docs/specs/INDEX.md`.
+Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada; ilustraciones provisorias hasta la 006. Siguen las specs 003 a 006 de `docs/specs/INDEX.md`.
 
 ## Aprendizajes y errores a evitar
 

@@ -43,8 +43,8 @@ Las funcionalidades son opcionales por invitación. Una funcionalidad nueva entr
 
 | Funcionalidad | Clave | Qué hace | Estado |
 |---|---|---|---|
-| Cuenta regresiva | `countdown` | Tiempo faltante para el evento | En desarrollo |
-| Ubicación | `map` | Dirección y botón que abre Google Maps | En desarrollo |
+| Cuenta regresiva | `countdown` | Tiempo faltante para el evento | Disponible |
+| Ubicación | `map` | Dirección y botón que abre Google Maps | Disponible |
 | Regalos sugeridos | `gifts` | Lista de regalos con reserva | Sin implementar |
 | Confirmación de asistencia | `rsvp` | Confirmar, rechazar o modificar la asistencia | Sin implementar |
 

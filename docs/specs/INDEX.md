@@ -9,7 +9,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 | N.º | Spec | Tipo | Depende de | Estado |
 |---|---|---|---|---|
 | 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | — | Implementada |
-| 002 | [Plantilla `baby-shower` y estilo `sage-geese`](002-plantilla-baby-shower/spec.md) | Larga | 001 | Aprobada |
+| 002 | [Plantilla `baby-shower` y estilo `sage-geese`](002-plantilla-baby-shower/spec.md) | Larga | 001 | Implementada |
 | 003 | Confirmación de asistencia | Larga | 001, 002 | Sin redactar |
 | 004 | Lista de regalos con reserva | Larga | 001, 002, 003 | Sin redactar |
 | 005 | Pantalla de los dueños del evento | Larga | 003, 004 | Sin redactar |

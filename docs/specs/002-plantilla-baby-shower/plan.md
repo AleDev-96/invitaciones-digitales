@@ -1,6 +1,6 @@
 # 002 — Plantilla `baby-shower` y estilo `sage-geese`: plan
 
-- **Estado:** aprobada
+- **Estado:** implementada
 - **Spec:** [spec.md](spec.md)
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
