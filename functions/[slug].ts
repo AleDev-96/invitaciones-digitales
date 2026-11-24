@@ -1,5 +1,10 @@
 import { isValidSlug } from '../src/domain/invitation';
-import { injectPreview, parsePreview, type LinkPreview } from '../src/domain/preview';
+import {
+  GENERIC_PREVIEW,
+  injectPreview,
+  parsePreview,
+  type LinkPreview,
+} from '../src/domain/preview';
 
 type Env = {
   VITE_SUPABASE_URL?: string;
@@ -10,7 +15,7 @@ type PagesContext = {
   request: Request;
   env: Env;
   params: { slug?: string | string[] };
-  next: () => Promise<Response>;
+  next: (input?: Request) => Promise<Response>;
 };
 
 async function fetchPreview(slug: string, env: Env): Promise<LinkPreview | null> {
@@ -26,19 +31,19 @@ async function fetchPreview(slug: string, env: Env): Promise<LinkPreview | null>
 }
 
 export async function onRequestGet(context: PagesContext): Promise<Response> {
-  const page = await context.next();
+  const request = new Request(context.request);
+  request.headers.delete('if-none-match');
+  request.headers.delete('if-modified-since');
+  const page = await context.next(request);
   const slug = typeof context.params.slug === 'string' ? context.params.slug : '';
   const isHtml = page.headers.get('content-type')?.includes('text/html');
   if (!isValidSlug(slug) || !page.ok || !isHtml) return page;
 
-  try {
-    const preview = await fetchPreview(slug, context.env);
-    if (!preview) return page;
-    const html = injectPreview(await page.clone().text(), preview, context.request.url);
-    const headers = new Headers(page.headers);
-    headers.delete('content-length');
-    return new Response(html, { status: page.status, headers });
-  } catch {
-    return page;
-  }
+  const preview = await fetchPreview(slug, context.env).catch(() => null);
+  const html = injectPreview(await page.text(), preview ?? GENERIC_PREVIEW, context.request.url);
+  const headers = new Headers(page.headers);
+  headers.delete('content-length');
+  headers.delete('etag');
+  headers.delete('last-modified');
+  return new Response(html, { status: page.status, headers });
 }

@@ -6,6 +6,12 @@ export type LinkPreview = {
 
 export const DEFAULT_PREVIEW_IMAGE = '/og/default.png';
 
+export const GENERIC_PREVIEW: LinkPreview = {
+  title: 'Tenés una invitación',
+  description: 'Abrí el link para ver la invitación.',
+  imageUrl: null,
+};
+
 const PREVIEW_BLOCK = /<!-- preview:start -->[\s\S]*?<!-- preview:end -->/;
 
 function escapeHtml(value: string): string {
