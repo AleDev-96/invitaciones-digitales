@@ -13,7 +13,7 @@
 | `event_at`, `timezone` | Fecha y hora del evento, y zona horaria |
 | `rsvp_closes_at` | Cierre de confirmaciones (spec 003) |
 | `expected_guests` | Invitados esperados (spec 005) |
-| `takedown_on` | Fecha de baja; si se deja vacía, 7 días después del evento |
+| `takedown_on` | Fecha de baja; si se deja vacía, 7 días después del evento. Si cambia la fecha del evento y la baja era la automática, se recalcula |
 | `preview_title`, `preview_description`, `preview_image_url` | Vista previa del link |
 | `content` | Textos y datos propios de la plantilla (`jsonb`) |
 | `features` | Funcionalidades activas |
