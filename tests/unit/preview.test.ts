@@ -25,9 +25,7 @@ describe('buildPreviewTags', () => {
 
   it('uses the default image when the invitation has none', () => {
     const tags = buildPreviewTags({ title: 'T', description: '', imageUrl: null }, pageUrl);
-    expect(tags).toContain(
-      'content="https://invitaciones-digitales-bhi.pages.dev/og/default.png"',
-    );
+    expect(tags).toContain('content="https://invitaciones-digitales-bhi.pages.dev/og/default.png"');
   });
 
   it('escapes html in the texts', () => {
