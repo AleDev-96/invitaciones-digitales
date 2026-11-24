@@ -32,9 +32,11 @@ Reemplazar la plantilla provisoria de la spec 001 por la invitación de baby sho
 
 Portada:
 
-- RF-1: CUANDO alguien abre una invitación publicada, EL SISTEMA muestra primero la portada con el sobre cerrado y el texto "¡Tenés una invitación!".
+- RF-1: CUANDO alguien abre una invitación publicada por primera vez en ese navegador, EL SISTEMA muestra primero la portada con el sobre cerrado y el texto "¡Tenés una invitación!".
 - RF-2: CUANDO el invitado toca el sobre, EL SISTEMA lo abre con una animación de 1,5 segundos como máximo y muestra la presentación.
 - RF-3: MIENTRAS el dispositivo tenga activada la preferencia de reducir movimiento, EL SISTEMA pasa a la presentación sin animación.
+- RF-3a: CUANDO alguien vuelve a abrir una invitación cuyo sobre ya abrió en ese navegador, EL SISTEMA muestra directamente la presentación, sin la portada.
+- RF-3b: SI el navegador no permite guardar que el sobre ya se abrió (por ejemplo, en modo incógnito), ENTONCES EL SISTEMA muestra la portada en cada visita.
 
 Página:
 
@@ -73,6 +75,7 @@ Regalos y confirmación (lugar reservado):
 ## Criterios de aceptación
 
 - [ ] `/demo` muestra la portada y, al tocar el sobre, la animación y la presentación, en un celular y en escritorio.
+- [ ] Al recargar `/demo` en el mismo navegador ya no aparece el sobre; en otra invitación u otro navegador, sí.
 - [ ] Con "reducir movimiento" activado, el sobre abre sin animación.
 - [ ] Las secciones aparecen en el orden de RF-4 y una funcionalidad desactivada en los datos hace desaparecer su sección.
 - [ ] La cuenta regresiva de una invitación con fecha pasada muestra "¡Llegó el día!" y ningún número negativo.
@@ -83,7 +86,7 @@ Regalos y confirmación (lugar reservado):
 
 ## Preguntas abiertas
 
-- Si el sobre aparece en cada visita o solo la primera vez en ese navegador.
+Ninguna.
 
 ## Historial de cambios
 
@@ -92,3 +95,4 @@ Regalos y confirmación (lugar reservado):
 | 2026-11-24 | Borrador inicial |
 | 2026-11-24 | Tipografías: se guardan en el repositorio con `@fontsource` |
 | 2026-11-24 | El botón de la ubicación dice "Cómo llegar" |
+| 2026-11-24 | El sobre se muestra solo la primera vez en cada navegador |

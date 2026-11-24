@@ -13,6 +13,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 | Link a Google Maps | `https://www.google.com/maps/search/?api=1&query=<dirección>`, o `content.location.mapsUrl` si se carga uno | Coordenadas o la API de Maps: piden clave y pueden tener costo |
 | Cuenta regresiva | Cálculo puro en `src/domain/` y un componente que lo refresca cada segundo | Librería de fechas: dependencia nueva para una resta |
 | Animación del sobre | CSS (transiciones y `prefers-reduced-motion`) | Librería de animación: dependencia nueva |
+| Sobre ya abierto | Marca por slug en `localStorage` del navegador; sin datos personales | Guardarlo en la base: pediría identificar al visitante |
 | Ilustraciones provisorias | SVG simples propios, marcados como provisorios | Imágenes de bancos sin licencia verificada |
 | Tipografías | `@fontsource/cormorant-garamond`, `@fontsource/lora` y `@fontsource/allura`, servidas junto con la app (licencia OFL) | Google Fonts por link: dos servidores externos más y la IP de cada invitado llega a Google |
 
@@ -35,10 +36,11 @@ Campos de `content` que usa la plantilla (todos opcionales salvo `babyName`):
 | Lectura segura de `content` | `src/domain/` | RF-6, RF-7 |
 | Cálculo de cuenta regresiva | `src/domain/` | RF-9, RF-10 |
 | Armado del link de Maps | `src/domain/` | RF-12 |
-| Portada y sobre | `src/templates/baby-shower/` | RF-1 a RF-3 |
+| Portada y sobre | `src/templates/baby-shower/` | RF-1 a RF-3b |
 | Secciones y su orden | `src/templates/baby-shower/` | RF-4, RF-5, RF-11, RF-13, RF-14 |
 | Cuenta regresiva y ubicación compartibles | `src/components/` | RF-9, RF-10, RF-12 |
 | Paleta, tipografías y gingham | `src/templates/baby-shower/themes/sage-geese/` | RF-8 |
+| Sobre ya abierto | Marca por slug en `localStorage` del navegador; sin datos personales | Guardarlo en la base: pediría identificar al visitante |
 | Ilustraciones provisorias | `src/templates/baby-shower/themes/sage-geese/` | RF-1, RF-4 |
 | Registro de recursos | `docs/guias/ASSET_SOURCES.md` | Reglas |
 | Datos de la `demo` | `supabase/seed.sql` | RF-5, RF-6 |
