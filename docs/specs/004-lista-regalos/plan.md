@@ -15,7 +15,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 | Doble clic y reintentos | Una reserva por persona y por regalo (único `gift_id` + `rsvp_id`); repetir devuelve la reserva existente | Solo deshabilitar el botón: no cubre un reintento tras un corte de red |
 | Acceso | Funciones `get_gifts`, `reserve_gift` y `release_gift` (`security definer`); las tablas no tienen permisos para `anon` ni `authenticated`, igual que `rsvps` | Políticas RLS de lectura directa: expondrían quién reservó o requerirían una vista aparte |
 | Lista abierta o cerrada | Columna `gifts_closes_at` en `invitations`; si está vacía, las 00:00 del día del evento en su `timezone`. La calcula la base y `get_gifts` la devuelve como `open` | Usar el reloj del celular: puede estar mal configurado |
-| Imágenes | Enlaces (`image_urls`) a imágenes publicadas en otro sitio; si no cargan, ilustración del estilo | Supabase Storage: suma un servicio a configurar y permisos de subida. Pendiente de confirmar (pregunta 4) |
+| Imágenes y tiendas | Sin columnas de imágenes ni enlaces: la lista es modesta y cada invitado compra lo que pueda | Enlaces a fotos de tiendas o Supabase Storage: trabajo de carga y fotos que pueden desaparecer, para una lista que no busca un producto exacto |
 | Pantalla de regalos | Ruta `/<slug>/regalos` dentro de la misma aplicación; carga la invitación con `get_invitation` como `/<slug>` | Ventana emergente en la misma página: el INDEX pide una pantalla aparte con botón para volver |
 | Sin `rsvp` activo | Lista solo informativa | Permitir reservar sin respuesta: rompe la decisión del INDEX de reservar solo con "Sí, asistiré" |
 
@@ -23,11 +23,11 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 
 Migración nueva `supabase/migrations/20261124000003_gifts.sql` (no se edita ninguna aplicada):
 
-- Tabla `gifts`: `id`, `invitation_id` (borrado en cascada), `position` (orden), `name` (1 a 80 caracteres), `description` (opcional, hasta 500), `image_urls` (`text[]`, solo `https://`), `store_url` (opcional, `https://`), `max_reservations` (entero mayor que 0, 1 por defecto), `created_at`. RLS activo y sin permisos para `anon` ni `authenticated`.
+- Tabla `gifts`: `id`, `invitation_id` (borrado en cascada), `position` (orden), `name` (1 a 80 caracteres), `description` (opcional, hasta 200), `max_reservations` (entero mayor que 0, 1 por defecto), `created_at`. RLS activo y sin permisos para `anon` ni `authenticated`.
 - Columnas `invitations.gifts_per_guest integer not null default 3` (mayor que 0) y `invitations.gifts_closes_at timestamptz` (opcional).
 - `invitation_gifts_open(inv)`: abierta si no pasó `gifts_closes_at` o, si está vacía, las 00:00 del día de `event_at` en `timezone`.
 - Tabla `gift_reservations`: `id`, `gift_id` (borrado en cascada), `rsvp_id` (borrado en cascada), `created_at`; único (`gift_id`, `rsvp_id`). RLS activo y sin permisos públicos.
-- `get_gifts(p_slug, p_token)`: con la invitación visible y `gifts` activo, devuelve `{"open", "can_reserve", "per_guest", "gifts": [...]}`; cada regalo trae `id`, `name`, `description`, `image_urls`, `store_url`, `available` y `mine` (si el código es de quien lo eligió). Nunca devuelve nombres. `can_reserve`: `no_rsvp`, `not_attending`, `attending` o `disabled` (sin `rsvp` activo).
+- `get_gifts(p_slug, p_token)`: con la invitación visible y `gifts` activo, devuelve `{"open", "can_reserve", "per_guest", "gifts": [...]}`; cada regalo trae `id`, `name`, `description`, `available` y `mine` (si el código es de quien lo eligió). Nunca devuelve nombres. `can_reserve`: `no_rsvp`, `not_attending`, `attending` o `disabled` (sin `rsvp` activo).
 - `reserve_gift(p_slug, p_gift_id, p_token)`: devuelve `{"status": "reserved"}`, `sold_out`, `limit_reached`, `closed`, `no_rsvp`, `not_attending` o `invalid_request`. Invitación no visible: `null`.
 - `release_gift(p_slug, p_gift_id, p_token)`: `{"status": "released"}`, `closed` o `invalid_request`.
 - Consulta para la pantalla de Supabase con quién eligió cada regalo, documentada en `data-model.md`; la spec 005 la convierte en función.
@@ -40,16 +40,16 @@ Campo nuevo de `content` (opcional):
 
 | Parte | Ubicación | RF |
 |---|---|---|
-| Tablas y funciones | `supabase/migrations/` | RF-4, RF-9 a RF-13, RF-17, RF-19, RF-21 a RF-25 |
-| Tipos y reglas de la lista | `src/domain/gift.ts` | RF-4, RF-8, RF-10, RF-15, RF-16, RF-18, RF-20 |
-| Leer, elegir y quitar | `src/services/gifts.ts` | RF-9, RF-11, RF-12, RF-14, RF-21 |
-| Estado de la lista | `src/features/gifts/useGifts.ts` | RF-8, RF-12, RF-13, RF-15 a RF-20 |
-| Ruta `/<slug>/regalos` | `src/app/App.tsx`, `src/features/gifts/GiftsPage.tsx` | RF-2, RF-6, RF-7 |
-| Sección y pantalla visual | `src/templates/baby-shower/sections/Gifts.tsx`, `src/templates/baby-shower/GiftList.tsx`, `src/content/messages.ts` | RF-1 a RF-5, RF-7 a RF-16, RF-20, RF-21 |
+| Tablas y funciones | `supabase/migrations/` | RF-4, RF-8 a RF-12, RF-16, RF-18, RF-20 a RF-24 |
+| Tipos y reglas de la lista | `src/domain/gift.ts` | RF-4, RF-7, RF-9, RF-14, RF-15, RF-17, RF-19 |
+| Leer, elegir y quitar | `src/services/gifts.ts` | RF-8, RF-10, RF-11, RF-13, RF-20 |
+| Estado de la lista | `src/features/gifts/useGifts.ts` | RF-7, RF-11, RF-12, RF-14 a RF-19 |
+| Ruta `/<slug>/regalos` | `src/app/App.tsx`, `src/features/gifts/GiftsPage.tsx` | RF-2, RF-5, RF-6 |
+| Sección y pantalla visual | `src/templates/baby-shower/sections/Gifts.tsx`, `src/templates/baby-shower/GiftList.tsx`, `src/content/messages.ts` | RF-1 a RF-4, RF-6 a RF-15, RF-19, RF-20 |
 | Texto de la sección | `src/templates/baby-shower/content.ts` | RF-1 |
-| Datos de la `demo` | `supabase/seed.sql` | RF-1 a RF-5 |
-| Comprobaciones sin sesión | `tests/support/gifts-checks.sql` | RF-12, RF-13, RF-21 a RF-25 |
-| Tests unitarios | `tests/unit/` | RF-4, RF-8, RF-12 a RF-16, RF-18 |
+| Datos de la `demo` | `supabase/seed.sql` | RF-1 a RF-4 |
+| Comprobaciones sin sesión | `tests/support/gifts-checks.sql` | RF-11, RF-12, RF-20 a RF-24 |
+| Tests unitarios | `tests/unit/` | RF-4, RF-7, RF-11 a RF-15, RF-17 |
 
 Se borra `ComingSoon.tsx`, que queda sin uso. La función de Cloudflare `functions/[slug].ts` solo atiende `/<slug>`; `/<slug>/regalos` usa la vista previa genérica del sitio.
 
@@ -59,4 +59,4 @@ Sin dependencias nuevas.
 
 ## Costo
 
-Dos tablas y tres funciones en el mismo proyecto de Supabase, y enlaces a imágenes externas. Con unos 100 invitados y algunas decenas de regalos, el uso queda muy por debajo del plan gratuito. Sin servicios nuevos.
+Dos tablas y tres funciones en el mismo proyecto de Supabase, sin imágenes. Con unos 100 invitados y algunas decenas de regalos, el uso queda muy por debajo del plan gratuito. Sin servicios nuevos.
