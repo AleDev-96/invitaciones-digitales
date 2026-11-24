@@ -77,7 +77,7 @@ Disponibilidad:
 - [x] Un slug inexistente y una invitación en borrador muestran el mismo mensaje.
 - [x] Una invitación dada de baja muestra su mensaje y la respuesta de la base no incluye datos del evento.
 - [x] Con la clave pública no se puede leer ni escribir la tabla `invitations` directamente.
-- [ ] El link de `/demo` pegado en WhatsApp muestra el título, la descripción y la imagen de la demostración.
+- [x] El link de `/demo` pegado en WhatsApp muestra el título, la descripción y la imagen de la demostración.
 - [x] Un link con slug inexistente muestra la vista previa genérica.
 - [ ] La tarea programada, lanzada a mano, consulta la base con una fecha vigente y no la consulta con una fecha vencida.
 - [x] Pasan la comprobación de tipos, el lint, las pruebas y la compilación.
