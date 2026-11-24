@@ -31,9 +31,9 @@ export function Rsvp({ slug, open, texts }: Props) {
     if (outcome === 'error') setProblem(text.networkError);
   }
 
+  // Enter no elige una respuesta: hay que tocar uno de los dos botones.
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    void answer(true);
   }
 
   return (
@@ -82,8 +82,9 @@ export function Rsvp({ slug, open, texts }: Props) {
           )}
           <div className="mt-5 flex flex-col gap-3">
             <button
-              type="submit"
+              type="button"
               disabled={submitting}
+              onClick={() => void answer(true)}
               className="rounded-full bg-(--color-sage-dark) px-6 py-3 text-lg text-(--color-paper) disabled:opacity-60"
             >
               {text.attend}
