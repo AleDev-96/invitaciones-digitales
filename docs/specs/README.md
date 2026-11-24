@@ -53,6 +53,6 @@ La hoja de ruta de las specs del primer desarrollo está en [INDEX.md](INDEX.md)
 
 | N.º | Spec | Tipo | Estado de la spec | Invitación |
 |---|---|---|---|---|
-| 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | Aprobada | |
+| 001 | [Arquitectura base](001-arquitectura-base/spec.md) | Larga | Implementada | |
 
 La columna "Invitación" aplica solo a specs de invitación: borrador, publicada o dada de baja.
