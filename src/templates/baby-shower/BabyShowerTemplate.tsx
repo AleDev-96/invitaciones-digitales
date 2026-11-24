@@ -7,11 +7,15 @@ function text(content: Record<string, unknown>, key: string): string | null {
 }
 
 function formatEventDate(invitation: Invitation): string {
-  return new Intl.DateTimeFormat('es-AR', {
-    timeZone: invitation.timezone,
-    dateStyle: 'full',
-    timeStyle: 'short',
-  }).format(new Date(invitation.eventAt));
+  const options: Intl.DateTimeFormatOptions = { dateStyle: 'full', timeStyle: 'short' };
+  const eventAt = new Date(invitation.eventAt);
+  try {
+    return new Intl.DateTimeFormat('es-AR', { ...options, timeZone: invitation.timezone }).format(
+      eventAt,
+    );
+  } catch {
+    return new Intl.DateTimeFormat('es-AR', options).format(eventAt);
+  }
 }
 
 // Plantilla provisoria de la spec 001: sin diseño. El diseño real llega con la spec 002.
