@@ -48,6 +48,7 @@ Los gráficos viven en `assets/images/`, fuera de `src/`. Una imagen se publica 
 - Página raíz `/`: neutra, no lista invitaciones.
 - Invitación pública: `/<slug>`, por ejemplo `/oliver`. El slug es único en toda la aplicación: minúsculas sin acentos, números y guiones, de 3 a 40 caracteres, y no puede ser una palabra reservada (`src/domain/invitation.ts`).
 - Lista de regalos: `/<slug>/regalos`. Muestra lo mismo que `/<slug>` si la invitación no existe, es un borrador o está dada de baja. Cada plantilla con regalos registra su pantalla (`giftsPage`) en `src/templates/registry.ts`.
+- Pantalla de los dueños: `/<slug>/papis` ([spec 005](../specs/005-pantalla-papis/spec.md)). Es una sola para todas las plantillas, neutra y sin enlaces desde la invitación. Pide la palabra clave, la guarda en `sessionStorage` y la manda en cada llamada; la base la comprueba siempre.
 
 La aplicación busca la invitación por slug y renderiza la plantilla indicada en su `template_key` con el estilo indicado en su `theme_key`.
 
@@ -62,7 +63,7 @@ El detalle de reglas de negocio y seguridad está en el [README](../../README.md
 
 ## Decisiones tomadas
 
-- **Sin panel de administración:** confirmaciones y reservas se consultan desde la pantalla de Supabase.
+- **Pantalla de los dueños en lugar de panel de administración:** los dueños ven y corrigen confirmaciones y reservas en `/<slug>/papis`; la carga de invitaciones y regalos sigue en Supabase (spec 005).
 - **Plantilla y estilo:** una plantilla define la estructura de un tipo de evento y puede tener varios estilos (colores, tipografías, ilustraciones). Cada invitación indica `template_key` y `theme_key`. Varias invitaciones pueden compartir la misma combinación y estar publicadas a la vez.
 - **Funcionalidades opcionales:** cada invitación activa o desactiva las suyas con datos. El catálogo está en [templates.md](../product/templates.md).
 - **Sin generación de PDF:** el recuerdo de la tarjeta se obtiene con la función de imprimir del navegador.

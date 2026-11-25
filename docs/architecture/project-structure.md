@@ -49,6 +49,7 @@ invitaciones-digitales/
 │   ├── features/
 │   │   ├── invitations/      # Datos y consulta de invitaciones
 │   │   ├── gifts/            # Regalos, reservas, liberaciones
+│   │   ├── owners/           # Pantalla de los dueños (/<slug>/papis)
 │   │   └── rsvp/             # Confirmación de asistencia
 │   ├── infra/                # Conexión con Supabase y otros servicios externos
 │   ├── services/             # Operaciones que combinan dominio e infraestructura
@@ -90,7 +91,7 @@ Dos carpetas no forman parte de la convención habitual de repositorios y se man
 - `components/`: componentes visuales compartidos entre plantillas.
 - `content/`: textos fijos de la interfaz y datos ficticios para previsualización.
 - `domain/`: tipos y reglas de negocio puras.
-- `features/`: lógica y pantallas por funcionalidad (invitaciones, regalos, confirmación).
+- `features/`: lógica y pantallas por funcionalidad (invitaciones, regalos, confirmación, pantalla de los dueños).
 - `infra/`: conexión con Supabase.
 - `services/`: operaciones que usan el dominio y la infraestructura.
 - `templates/<tipo>/`: estructura de un tipo de evento (secciones y orden).

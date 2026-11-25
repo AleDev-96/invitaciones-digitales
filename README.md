@@ -51,21 +51,21 @@ Quien confirmó "Sí, asistiré" puede elegir hasta 3 regalos distintos (configu
 
 Cada persona responde desde su celular con su nombre y uno de dos botones: "Sí, asistiré" o "No podré ir" ([spec 003](docs/specs/003-confirmacion-asistencia/spec.md)).
 
-- Una respuesta es de una sola persona. Si alguien escribe dos nombres, lo corrigen los dueños; quienes no tienen celular, como los chicos, no responden.
-- Después de responder, ese navegador ve el agradecimiento en lugar del formulario. La respuesta no se cambia desde la invitación: el invitado avisa a los dueños y ellos la borran.
+- Una respuesta es de una sola persona. Si alguien escribe dos nombres, los dueños la corrigen y agregan a la otra persona desde su pantalla; quienes no tienen celular, como los chicos, no responden.
+- Después de responder, ese navegador ve el agradecimiento en lugar del formulario. La respuesta no se cambia desde la invitación: el invitado avisa a los dueños y ellos la corrigen o la borran.
 - Las respuestas se cierran en la fecha de cierre, a la hora del evento si no hay fecha, o a mano. La base rechaza lo que llegue tarde.
 - Nadie puede ver ni tocar la respuesta de otra persona desde la página.
 
 ### Consulta y administración
 
-La aplicación no tiene panel de administración. Quien administra usa la pantalla de Supabase para:
+Los dueños del evento tienen una pantalla en `/<slug>/papis`, protegida con una palabra clave por invitación ([spec 005](docs/specs/005-pantalla-papis/spec.md)). Desde ahí:
 
-- Consultar cuántos asistirán, cuántos no y cuántos no respondieron ([consulta](docs/architecture/data-model.md#tabla-rsvps)).
-- Ver quiénes asistirán y quiénes no.
-- Consultar los datos de cada respuesta.
-- Ver qué regalos están disponibles y cuáles fueron reservados.
-- Liberar o corregir una reserva cuando sea necesario.
-- Cargar y editar los datos de la invitación.
+- Ven cuántos asistirán, cuántos no y cuántos no respondieron, con los nombres.
+- Corrigen, agregan y borran confirmaciones; al borrar una, sus regalos vuelven a quedar disponibles.
+- Ven quién eligió cada regalo, quitan elecciones y anotan regalos a mano.
+- Cierran y reabren las confirmaciones.
+
+Quien administra sigue usando la pantalla de Supabase para cargar y editar la invitación, sus regalos y la palabra clave de los dueños.
 
 Estos datos no deben quedar expuestos públicamente.
 
@@ -116,7 +116,7 @@ Estas reglas deben respetarse en la interfaz y, especialmente, en el backend:
 4. La reserva y su liberación deben validarse en el backend o en la base de datos, no solamente en el navegador.
 5. Un invitado solo puede quitar sus propias reservas, y no supera el tope de regalos por persona.
 6. Un invitado solo puede consultar o modificar su propia respuesta mediante un mecanismo de autorización válido.
-7. Los datos de administración solo se consultan y modifican desde la pantalla de Supabase, con la cuenta de quien administra.
+7. Los datos de administración solo se consultan y modifican desde la pantalla de Supabase, con la cuenta de quien administra, o desde la pantalla de los dueños, con la palabra clave de esa invitación comprobada por la base en cada llamada.
 8. Los contadores deben calcularse a partir de los registros guardados, no de valores mantenidos únicamente en el frontend.
 9. Las operaciones deben contemplar errores de red, doble clic y solicitudes simultáneas.
 10. No se deben publicar datos personales de invitados en la página pública.
