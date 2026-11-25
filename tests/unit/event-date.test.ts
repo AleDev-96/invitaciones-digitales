@@ -8,8 +8,20 @@ describe('getEventDateParts', () => {
       month: 'diciembre',
       day: '5',
       year: '2026',
-      time: '16:00 h',
+      time: '16:00 hs.',
     });
+  });
+
+  it('shows a time range when the invitation has an end time', () => {
+    expect(getEventDateParts('2026-12-05T17:30:00Z', 'America/Argentina/Salta', '18:30').time).toBe(
+      'De 14:30 a 18:30 hs.',
+    );
+  });
+
+  it('ignores an end time that is not a valid hour', () => {
+    expect(getEventDateParts('2026-12-05T17:30:00Z', 'America/Argentina/Salta', '6 pm').time).toBe(
+      '14:30 hs.',
+    );
   });
 
   it('uses the time zone to decide the day', () => {
@@ -20,6 +32,6 @@ describe('getEventDateParts', () => {
   it('shows the zone next to the time when the time zone is not recognized', () => {
     const parts = getEventDateParts('2026-12-05T19:00:00Z', 'Zona/Inexistente');
     expect(parts.year).toBe('2026');
-    expect(parts.time).toMatch(/^\d{2}:\d{2} h \(.+\)$/);
+    expect(parts.time).toMatch(/^\d{2}:\d{2} hs\. \(.+\)$/);
   });
 });
