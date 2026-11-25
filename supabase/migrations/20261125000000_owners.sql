@@ -151,6 +151,7 @@ begin
           select jsonb_agg(jsonb_build_object(
             'id', gr.id,
             'name', coalesce(r.guest_name, gr.giver_name),
+            'rsvp_id', gr.rsvp_id,
             'manual', gr.rsvp_id is null
           ) order by gr.created_at, gr.id)
           from public.gift_reservations gr

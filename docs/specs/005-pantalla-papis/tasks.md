@@ -9,7 +9,7 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
 - [x] **T1. Migración, clave de la `demo` y comprobaciones SQL.** RF-4 a RF-6, RF-12, RF-14 a RF-16, RF-18, RF-21 a RF-25
   - Hecho cuando: `tests/support/owners-checks.sql` pasa contra la base local, y `rsvp-checks.sql` y `gifts-checks.sql` siguen pasando.
-- [ ] **T2. Dominio y servicio de los dueños.** RF-5, RF-6, RF-8 a RF-11, RF-13, RF-19
+- [x] **T2. Dominio y servicio de los dueños.** RF-5, RF-6, RF-8 a RF-11, RF-13, RF-19
   - Hecho cuando: los tests unitarios de contadores, colado, orden y lectura de respuestas pasan.
 - [ ] **T3. Clave en la pestaña, ruta y pantalla de acceso.** RF-1 a RF-8
   - Hecho cuando: en la vista previa, `/demo/papis` pide la clave, entra con la correcta, muestra los errores y "Salir" la olvida.
