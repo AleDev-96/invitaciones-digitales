@@ -36,7 +36,7 @@ Migración nueva `supabase/migrations/20261125000000_owners.sql` (no se edita ni
   - `owner_add_rsvp(p_name, p_attending)`: crea una confirmación sin huella, aunque las confirmaciones estén cerradas.
   - `owner_release_gift(p_reservation_id)`: borra la elección si el regalo es de esa invitación.
   - `owner_reserve_gift(p_gift_id, p_name)`: bloquea el regalo (`for update`), controla el cupo y guarda `giver_name`; `{"status": "sold_out"}` o `{"status": "invalid_name"}` si no corresponde.
-  - `owner_set_rsvp_closed(p_closed)`: cambia `rsvp_closed`.
+  - `owner_set_rsvp_closed(p_closed)`: cambia `rsvp_closed`; reabrir después de la fecha de cierre devuelve `{"status": "past_deadline"}`.
 - `get_invitation` no cambia: la huella y los intentos no salen nunca.
 
 | Parte | Ubicación | RF |

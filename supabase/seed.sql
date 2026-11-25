@@ -60,3 +60,7 @@ from public.invitations i,
   ) as g(position, name, description, max_reservations)
 where i.slug = 'demo'
   and not exists (select 1 from public.gifts where invitation_id = i.id);
+
+-- Pantalla de los dueños de la demo: palabra clave de prueba e invitados esperados.
+update public.invitations set expected_guests = 6 where slug = 'demo' and expected_guests is null;
+select public.set_owner_key('demo', 'Gansito Demo');
