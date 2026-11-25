@@ -1,6 +1,6 @@
 # Modelo de datos
 
-**Estado:** `invitations` creada en la spec 001 ([migración](../../supabase/migrations/20261124000000_invitations.sql)) `rsvps` en la spec 003 ([migración](../../supabase/migrations/20261124000002_rsvps.sql)) y `gifts` y `gift_reservations` en la spec 004 ([migración](../../supabase/migrations/20261124000003_gifts.sql)). Cada cambio de esquema va en una migración nueva de `supabase/migrations/` y actualiza este documento en el mismo cambio.
+**Estado:** `invitations` creada en la spec 001 ([migración](../../supabase/migrations/20261124000000_invitations.sql)) `rsvps` en la spec 003 ([migración](../../supabase/migrations/20261124000002_rsvps.sql)) y `gifts` y `gift_reservations` en la spec 004 ([migración](../../supabase/migrations/20261124000003_gifts.sql)). La spec 005 suma la pantalla de los dueños ([migración](../../supabase/migrations/20261125000000_owners.sql)). Cada cambio de esquema va en una migración nueva de `supabase/migrations/` y actualiza este documento en el mismo cambio.
 
 ## Tabla `invitations`
 
@@ -14,6 +14,8 @@
 | `rsvp_closes_at` | Cierre de las respuestas; si está vacía, se cierran a la hora del evento |
 | `rsvp_closed` | Cierre manual de las respuestas (falso por defecto) |
 | `expected_guests` | Invitados esperados (spec 005) |
+| `owner_key_hash` | Huella de la palabra clave de los dueños (`crypt` con `bf`); nunca sale de la base |
+| `owner_failed_attempts`, `owner_locked_until` | Intentos fallidos seguidos y bloqueo de 15 minutos tras el quinto |
 | `takedown_on` | Fecha de baja; si se deja vacía, 7 días después del evento. Si cambia la fecha del evento y la baja era la automática, se recalcula |
 | `preview_title`, `preview_description`, `preview_image_url` | Vista previa del link |
 | `content` | Textos y datos propios de la plantilla (`jsonb`) |
@@ -120,14 +122,30 @@ order by g.position;
 
 Para cerrar la lista a mano: `update public.invitations set gifts_closes_at = now() where slug = 'demo';`.
 
+## Pantalla de los dueños (spec 005)
+
+Funciones `security definer` con permiso para `anon`. Todas reciben `p_slug` y `p_key`, comprueban la palabra clave (minúsculas, sin espacios en los bordes) y devuelven `null` si la invitación no es visible, o `{"status": "wrong" | "locked"}` si la clave no pasa. Cinco fallos seguidos bloquean 15 minutos.
+
+| Función | Hace |
+|---|---|
+| `get_owner_panel` | Invitados esperados, estado de las confirmaciones, respuestas y regalos con quién los eligió |
+| `owner_delete_rsvp(p_rsvp_id)` | Borra la respuesta; sus elecciones se borran en cascada |
+| `owner_update_rsvp(p_rsvp_id, p_name, p_attending)` | Corrige nombre o respuesta; pasar a "No asistirá" libera sus elecciones |
+| `owner_add_rsvp(p_name, p_attending)` | Agrega una respuesta sin navegador asociado, aunque estén cerradas |
+| `owner_release_gift(p_reservation_id)` | Quita una elección, aunque la lista esté cerrada |
+| `owner_reserve_gift(p_gift_id, p_name)` | Anota una elección a mano; cuenta para el cupo, no para el tope por persona (`sold_out` si no hay lugar) |
+| `owner_set_rsvp_closed(p_closed)` | Cierra o reabre; reabrir después de la fecha de cierre devuelve `past_deadline` |
+
+La palabra clave se carga o se cambia desde el SQL Editor, con `select public.set_owner_key('<slug>', '<palabra clave>');` (mínimo 6 caracteres). Esa función no tiene permisos para `anon` ni `authenticated`. Las comprobaciones están en [`tests/support/owners-checks.sql`](../../tests/support/owners-checks.sql).
+
 ## Entidades
 
 | Tabla | Contenido |
 |---|---|
 | `invitations` | Tipo de evento, `template_key`, `theme_key`, slug, estado, fecha, ubicación y configuración general |
 | `gifts` | Regalos de una invitación: nombre, descripción opcional y cuántas veces se puede elegir |
-| `gift_reservations` | Qué respuesta eligió qué regalo |
-| `rsvps` | Respuesta de una persona: nombre y si asiste |
+| `gift_reservations` | Qué respuesta eligió qué regalo, o el nombre de quien lo regala si lo anotaron los dueños (`giver_name`) |
+| `rsvps` | Respuesta de una persona: nombre y si asiste. Sin `token_hash` si la agregaron los dueños |
 
 ## Relaciones
 
@@ -151,6 +169,7 @@ Toda tabla dependiente de un evento referencia `invitation_id`.
 |---|---|---|
 | Público (sin sesión) | Leer una invitación activa y sus regalos con estado disponible/reservado | Listar respuestas, ver quién reservó, leer invitaciones inactivas |
 | Invitado (con el código de su navegador) | Crear y leer su propia respuesta; elegir y quitar sus propios regalos | Modificar o borrar su respuesta, ver o tocar datos de otro invitado |
+| Dueños (con la palabra clave de su invitación) | Ver nombres, corregir, agregar y borrar respuestas; quitar y anotar elecciones; cerrar y reabrir confirmaciones | Ver otra invitación, editar la invitación o sus regalos, leer la huella |
 | Quien administra (pantalla de Supabase) | Leer y corregir todos los datos. Carga y edita las invitaciones | No aplica: no usa la aplicación |
 
 RLS activo en todas las tablas. Las políticas se prueban con un usuario sin sesión antes de publicar.

@@ -33,7 +33,8 @@ Se puede sumar otro sitio de Cloudflare sobre el mismo repositorio si hace falta
 ## Supabase
 
 - El esquema se crea pegando cada migración de `supabase/migrations/`, en orden, en el "SQL Editor" de Supabase. Una migración aplicada no se edita: los cambios van en una nueva.
-- `supabase/seed.sql` carga invitaciones inventadas de demostración (`demo`, `demo-borrador`, `demo-baja`, `demo-error`).
+- `supabase/seed.sql` carga invitaciones inventadas de demostración (`demo`, `demo-cerrada`, `demo-borrador`, `demo-baja`, `demo-error`). La `demo` tiene la palabra clave de prueba `Gansito Demo`.
+- Para la pantalla de los dueños de una invitación real, quien administra corre en el SQL Editor `select public.set_owner_key('<slug>', '<palabra clave>');` y les pasa la palabra clave por un canal privado. Volver a correrla la cambia y desbloquea la pantalla.
 
 ### Pausa del plan gratuito
 
