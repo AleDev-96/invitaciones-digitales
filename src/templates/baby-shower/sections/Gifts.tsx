@@ -42,6 +42,12 @@ function FundDetails({ fund, art: Art }: { fund: Fund; art?: Art }) {
         <p className="mx-auto mb-4 max-w-xs text-lg whitespace-pre-line">{fund.message}</p>
       )}
       <dl className="mx-auto max-w-xs rounded-2xl border border-(--color-line) bg-(--color-paper) px-5 py-4">
+        {fund.account && (
+          <>
+            <dt className="text-sm text-(--color-muted)">{text.fund.account}</dt>
+            <dd className="mb-3 text-lg">{fund.account}</dd>
+          </>
+        )}
         <dt className="text-sm text-(--color-muted)">{text.fund.alias}</dt>
         <dd className="text-lg font-semibold break-all text-(--color-sage-dark) select-all">
           {fund.alias}

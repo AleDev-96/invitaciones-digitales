@@ -19,6 +19,7 @@ export type BabyShowerContent = {
     intro: string | null;
     fund: {
       message: string | null;
+      account: string | null;
       alias: string | null;
       holder: string | null;
     };
@@ -49,6 +50,7 @@ export function readBabyShowerContent(content: Content): BabyShowerContent {
       intro: readText(gifts, 'intro'),
       fund: {
         message: readText(fund, 'message'),
+        account: readText(fund, 'account'),
         alias: readText(fund, 'alias'),
         holder: readText(fund, 'holder'),
       },

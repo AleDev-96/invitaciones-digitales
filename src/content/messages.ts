@@ -42,6 +42,7 @@ export const messages = {
       title: 'Regalos',
       open: 'Ver lista de regalos',
       fund: {
+        account: 'Cuenta',
         alias: 'Alias',
         holder: 'Nombre',
         copy: 'Copiar alias',

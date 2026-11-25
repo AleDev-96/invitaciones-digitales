@@ -46,7 +46,7 @@ Las funcionalidades son opcionales por invitación. Una funcionalidad nueva entr
 |---|---|---|---|
 | Cuenta regresiva | `countdown` | Tiempo faltante para el evento | Disponible |
 | Ubicación | `map` | Dirección y botón que abre Google Maps | Disponible |
-| Regalos sugeridos | `gifts` | Lista en `/<slug>/regalos`: cada regalo con su cupo, hasta `gifts_per_guest` por persona que confirmó; texto de la sección en `content.gifts.intro` (cada salto de línea se respeta); opcional, `content.gifts.fund` (`message`, `alias`, `holder`) muestra debajo del botón un aporte en dinero con el alias y un botón para copiarlo | Disponible |
+| Regalos sugeridos | `gifts` | Lista en `/<slug>/regalos`: cada regalo con su cupo, hasta `gifts_per_guest` por persona que confirmó; texto de la sección en `content.gifts.intro` (cada salto de línea se respeta); opcional, `content.gifts.fund` (`message`, `account`, `alias`, `holder`) muestra debajo del botón un aporte en dinero con el alias y un botón para copiarlo | Disponible |
 | Confirmación de asistencia | `rsvp` | Responder "Sí, asistiré" o "No podré ir" con el nombre; mensajes de cierre y contacto en `content.rsvp` | Disponible |
 
 ## Funcionalidades habituales por tipo de evento
