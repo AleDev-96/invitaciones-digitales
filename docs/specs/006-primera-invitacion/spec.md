@@ -65,3 +65,4 @@ La palabra clave de los dueños queda para la spec 005, que crea el dato.
 - 2026-11-25: para que se lea mejor, la indicación del sobre es más grande y los textos azul y gris son más oscuros; la confirmación de asistencia pasa antes de los regalos; el aviso de nombre vacío dice "Ingrese su nombre, por favor.".
 - 2026-11-25: el campo del formulario dice "Nombre"; en regalos se suma el chanchito con cuenta y alias para aportar dinero (`content.gifts.fund`). Lámpara sin "con luz roja", fuera las perchas y se agregan juguetes sin límite (solo datos).
 - 2026-11-25: imagen nueva para la vista previa del link (`public/og/sage-geese-frame.jpg`, gansito en marco sobre cuadrillé) y descripción más corta (solo datos).
+- 2026-11-25: la presentación usa un marco ilustrado con moño y rosas en lugar del óvalo; el título y el nombre siguen siendo texto. Mensaje final: "¡Gracias por ser parte de este hermoso momento!" (solo datos).

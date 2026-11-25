@@ -160,7 +160,7 @@ La guía se armó a partir de cuatro capturas de una invitación de terceros, de
 Lo que mostraban:
 
 1. **Portada:** texto "Te invito a celebrar mi Baby Shower" (serif + manuscrita), sobre verde oliva cerrado con moño gingham, flecha punteada y la indicación de tocar el moño para ver más.
-2. **Presentación:** marco ovalado con follaje verde y moño arriba; "Estás invitado a mi Baby Shower", nombre del bebé en manuscrita grande verde oscuro, mensaje breve y nombres de los papás; debajo, una familia de gansos con globos.
+2. **Presentación:** marco ilustrado con moño verde y rosas (`title-frame.webp`, sin texto; la plantilla escribe encima el título y el nombre); "Estás invitado a mi Baby Shower", nombre del bebé en manuscrita grande verde oscuro, mensaje breve y nombres de los papás; debajo, una familia de gansos con globos.
 3. **Fecha y ubicación:** cuenta regresiva en cuatro columnas (días, horas, minutos, segundos), día de la semana en una etiqueta verde, fecha en formato mes / día grande / año, hora debajo; título "¿Cómo llegar?" entre líneas discontinuas, botón taupe "Ver mapa", dirección y estacionamiento en viñetas, con ilustraciones chicas a los costados.
 4. **Regalos y cierre:** caja de regalo ilustrada, botón taupe hacia la lista de regalos, texto aclarando que es opcional, globo aerostático con nubes, agradecimiento y título "Confirmar asistencia".
 
