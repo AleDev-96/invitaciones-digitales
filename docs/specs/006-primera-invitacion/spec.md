@@ -50,7 +50,7 @@ La palabra clave de los dueños queda para la spec 005, que crea el dato.
 
 ## Criterios de aceptación
 
-- [ ] Se ve bien en celular y en escritorio, con las ilustraciones finales y sin ninguna marcada como provisoria.
+- [x] Se ve bien en celular y en escritorio, con las ilustraciones finales y sin ninguna marcada como provisoria.
 - [ ] La invitación real carga en su URL con los textos, la fecha, la hora y la ubicación entregados.
 - [ ] "Cómo llegar" abre Google Maps en la dirección correcta en Android y en iPhone.
 - [ ] Las funcionalidades activas funcionan de punta a punta con datos de prueba: confirmar "Sí, asistiré" y "No podré ir", elegir, cambiar y quitar regalos.
@@ -58,3 +58,7 @@ La palabra clave de los dueños queda para la spec 005, que crea el dato.
 - [ ] Los datos de prueba se borraron antes de compartir el enlace.
 - [ ] `KEEPALIVE_UNTIL` llega hasta la fecha de baja y la tarea `keepalive` está activa.
 - [ ] Después del evento: se entrega a los dueños la lista de confirmados y regalos, se da de baja la invitación y se borran los datos de invitados.
+
+## Historial de cambios
+
+- 2026-11-25: horario de 14:30 a 18:30 con el campo nuevo `content.endTime`; regalo y globo intercambiados entre regalos y cierre; sobre ilustrado en la portada; nombres en verde oscuro y borde a cuadros más marcado, fino en escritorio.

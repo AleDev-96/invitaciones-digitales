@@ -17,7 +17,7 @@ Una invitación se define con una plantilla (`template_key`) y un estilo (`theme
 
 | `template_key` | `theme_key` | Descripción | Guía de estilo | Código | Gráficos | Estado |
 |---|---|---|---|---|---|---|
-| `baby-shower` | `sage-geese` | Acuarela con gansos, verde salvia, marfil y taupe | [sage-geese.md](../guias/baby-shower/sage-geese.md) | `src/templates/baby-shower/themes/sage-geese/` | `assets/images/templates/baby-shower/sage-geese/` | En desarrollo |
+| `baby-shower` | `sage-geese` | Acuarela con gansos, verde salvia, marfil y taupe | [sage-geese.md](../guias/baby-shower/sage-geese.md) | `src/templates/baby-shower/themes/sage-geese/` | `assets/images/templates/baby-shower/sage-geese/` | Disponible |
 
 Estados posibles: guía lista, en desarrollo, disponible.
 
