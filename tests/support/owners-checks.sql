@@ -32,6 +32,11 @@ begin
     assert false, 'aceptó una palabra clave de menos de 6 caracteres';
   exception when raise_exception then null;
   end;
+  begin
+    perform public.set_owner_key('demo', repeat('gansito', 11));
+    assert false, 'aceptó una palabra clave de más de 72 bytes';
+  exception when raise_exception then null;
+  end;
 end $$;
 
 set local role anon;

@@ -49,6 +49,10 @@ begin
   if char_length(v_key) < 6 then
     raise exception 'La palabra clave tiene que tener al menos 6 caracteres.';
   end if;
+  -- bcrypt solo compara los primeros 72 bytes.
+  if octet_length(v_key) > 72 then
+    raise exception 'La palabra clave tiene que tener como máximo 72 bytes.';
+  end if;
   update public.invitations
   set owner_key_hash = extensions.crypt(v_key, extensions.gen_salt('bf')),
       owner_failed_attempts = 0,

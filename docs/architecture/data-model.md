@@ -136,7 +136,7 @@ Funciones `security definer` con permiso para `anon`. Todas reciben `p_slug` y `
 | `owner_reserve_gift(p_gift_id, p_name)` | Anota una elección a mano; cuenta para el cupo, no para el tope por persona (`sold_out` si no hay lugar) |
 | `owner_set_rsvp_closed(p_closed)` | Cierra o reabre; reabrir después de la fecha de cierre devuelve `past_deadline` |
 
-La palabra clave se carga o se cambia desde el SQL Editor, con `select public.set_owner_key('<slug>', '<palabra clave>');` (mínimo 6 caracteres). Esa función no tiene permisos para `anon` ni `authenticated`. Las comprobaciones están en [`tests/support/owners-checks.sql`](../../tests/support/owners-checks.sql).
+La palabra clave se carga o se cambia desde el SQL Editor, con `select public.set_owner_key('<slug>', '<palabra clave>');` (de 6 caracteres a 72 bytes). Esa función no tiene permisos para `anon` ni `authenticated`. Las comprobaciones están en [`tests/support/owners-checks.sql`](../../tests/support/owners-checks.sql).
 
 ## Entidades
 
