@@ -140,7 +140,7 @@ export function GiftList({ invitation }: TemplateProps) {
         </div>
         <theme.giftsArt className="mx-auto mb-4 w-40" />
         {content.gifts.intro && (
-          <p className="mx-auto mb-6 max-w-xs text-lg">{content.gifts.intro}</p>
+          <p className="mx-auto mb-6 max-w-xs text-lg whitespace-pre-line">{content.gifts.intro}</p>
         )}
 
         {state.kind === 'loading' && <p className="text-(--color-muted)">{text.loading}</p>}

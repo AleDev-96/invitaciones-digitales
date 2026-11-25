@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import { messages } from '../../../../content/messages';
+import gooseWithBowUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-gingham-bow.webp';
 
-// Ilustraciones provisorias propias (spec 002). Se reemplazan por las finales en la spec 006.
+// Las ilustraciones con Placeholder son provisorias (spec 002); se reemplazan por las finales en la spec 006.
 function Placeholder({
   viewBox,
   className,
@@ -67,6 +68,20 @@ function Goose({ x, scale = 1 }: { x: number; scale?: number }) {
         strokeWidth="1.5"
       />
     </g>
+  );
+}
+
+export function GooseWithBow({ className }: { className?: string }) {
+  return (
+    <div className={className}>
+      <img
+        src={gooseWithBowUrl}
+        alt={messages.babyShower.art.gooseWithBow}
+        width={534}
+        height={900}
+        className="mx-auto h-auto max-h-56 w-auto"
+      />
+    </div>
   );
 }
 

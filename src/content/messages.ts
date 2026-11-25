@@ -79,5 +79,8 @@ export const messages = {
       closed: 'Las confirmaciones ya están cerradas.',
     },
     placeholderArt: 'Ilustración provisoria',
+    art: {
+      gooseWithBow: 'Gansito con moño a cuadros',
+    },
   },
 };

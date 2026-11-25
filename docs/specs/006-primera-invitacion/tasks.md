@@ -9,9 +9,9 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
 - [ ] **T1. Ilustraciones finales del estilo `sage-geese`.**
   - Hecho cuando: ninguna ilustración tiene `data-placeholder="true"`, cada recurso figura en `ASSET_SOURCES.md` y `/demo` se ve bien en celular y escritorio.
-- [ ] **T2. Imagen de la vista previa del link.**
+- [x] **T2. Imagen de la vista previa del link.**
   - Hecho cuando: el link de la `demo` en un validador de Open Graph muestra la imagen elegida.
-- [ ] **T3. Archivo SQL con los datos reales, fuera del repositorio.**
+- [x] **T3. Archivo SQL con los datos reales, fuera del repositorio.**
   - Hecho cuando: aplicado en un Supabase local, la invitación carga con sus textos, fecha, ubicación y regalos, y queda en borrador.
 - [ ] **T4. Carga en Supabase y prueba de punta a punta.**
   - Hecho cuando: el responsable cargó el SQL, la invitación se probó publicada con invitados de prueba (sí, no, regalos) y los datos de prueba se borraron.
