@@ -16,7 +16,7 @@ export function Presentation({ content, art: Art }: Props) {
           {text.title}
         </h1>
         {content.babyName && (
-          <p className="mt-3 font-(family-name:--font-script) text-5xl text-(--color-dusty-blue)">
+          <p className="mt-3 font-(family-name:--font-script) text-7xl text-(--color-sage-dark)">
             {content.babyName}
           </p>
         )}
@@ -27,7 +27,7 @@ export function Presentation({ content, art: Art }: Props) {
       {content.hosts && (
         <p className="mt-6 text-(--color-muted)">
           {text.hostsLead}
-          <span className="block font-(family-name:--font-script) text-3xl text-(--color-dusty-blue)">
+          <span className="block font-(family-name:--font-script) text-3xl text-(--color-sage-dark)">
             {content.hosts}
           </span>
         </p>

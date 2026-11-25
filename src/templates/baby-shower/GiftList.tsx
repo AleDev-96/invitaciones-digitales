@@ -132,61 +132,65 @@ export function GiftList({ invitation }: TemplateProps) {
   const showProblem = problem && !(problem === 'closed' && list && !list.open);
 
   return (
-    <div className="baby-shower-frame min-h-dvh px-3 sm:px-8">
-      <main className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) px-6 py-8 text-center font-(family-name:--font-body) text-(--color-ink)">
-        <BackLink slug={slug} />
-        <div className="mt-8">
-          <SectionTitle>{text.listTitle}</SectionTitle>
-        </div>
-        <theme.giftsArt className="mx-auto mb-4 w-40" />
-        {content.gifts.intro && (
-          <p className="mx-auto mb-6 max-w-xs text-lg">{content.gifts.intro}</p>
-        )}
-
-        {state.kind === 'loading' && <p className="text-(--color-muted)">{text.loading}</p>}
-        {state.kind === 'error' && (
-          <div role="alert">
-            <p>{text.loadError}</p>
-            <button
-              type="button"
-              onClick={retry}
-              className="mt-3 rounded-full bg-(--color-sage-dark) px-5 py-2 text-(--color-paper)"
-            >
-              {text.retry}
-            </button>
-          </div>
-        )}
-        {list && list.gifts.length === 0 && <p className="text-lg">{text.empty}</p>}
-        {list && list.gifts.length > 0 && (
-          <>
-            <Notice slug={slug} list={list} contactMessage={content.rsvp.contactMessage} />
-            <div aria-live="polite">
-              {showProblem && (
-                <p role="alert" className="mb-4 text-(--color-dusty-blue)">
-                  {problemText[problem]}
-                </p>
-              )}
-              {saving && <p className="mb-4 text-(--color-muted)">{text.saving}</p>}
-            </div>
-            <ul className="flex flex-col gap-3">
-              {list.gifts.map((gift) => (
-                <GiftItem
-                  key={gift.id}
-                  list={list}
-                  gift={gift}
-                  saving={saving}
-                  onChoose={(id) => void choose(id)}
-                  onRelease={(id) => void release(id)}
-                />
-              ))}
-            </ul>
-          </>
-        )}
-
-        <div className="mt-8">
+    <div className="min-h-dvh bg-(--color-background)">
+      <div className="baby-shower-frame mx-auto min-h-dvh max-w-[454px] px-3">
+        <main className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) px-6 py-8 text-center font-(family-name:--font-body) text-(--color-ink)">
           <BackLink slug={slug} />
-        </div>
-      </main>
+          <div className="mt-8">
+            <SectionTitle>{text.listTitle}</SectionTitle>
+          </div>
+          <theme.giftsArt className="mx-auto mb-4 w-56" />
+          {content.gifts.intro && (
+            <p className="mx-auto mb-6 max-w-xs text-lg whitespace-pre-line">
+              {content.gifts.intro}
+            </p>
+          )}
+
+          {state.kind === 'loading' && <p className="text-(--color-muted)">{text.loading}</p>}
+          {state.kind === 'error' && (
+            <div role="alert">
+              <p>{text.loadError}</p>
+              <button
+                type="button"
+                onClick={retry}
+                className="mt-3 rounded-full bg-(--color-sage-dark) px-5 py-2 text-(--color-paper)"
+              >
+                {text.retry}
+              </button>
+            </div>
+          )}
+          {list && list.gifts.length === 0 && <p className="text-lg">{text.empty}</p>}
+          {list && list.gifts.length > 0 && (
+            <>
+              <Notice slug={slug} list={list} contactMessage={content.rsvp.contactMessage} />
+              <div aria-live="polite">
+                {showProblem && (
+                  <p role="alert" className="mb-4 text-(--color-dusty-blue)">
+                    {problemText[problem]}
+                  </p>
+                )}
+                {saving && <p className="mb-4 text-(--color-muted)">{text.saving}</p>}
+              </div>
+              <ul className="flex flex-col gap-3">
+                {list.gifts.map((gift) => (
+                  <GiftItem
+                    key={gift.id}
+                    list={list}
+                    gift={gift}
+                    saving={saving}
+                    onChoose={(id) => void choose(id)}
+                    onRelease={(id) => void release(id)}
+                  />
+                ))}
+              </ul>
+            </>
+          )}
+
+          <div className="mt-8">
+            <BackLink slug={slug} />
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

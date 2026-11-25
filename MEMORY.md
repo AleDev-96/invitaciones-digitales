@@ -4,7 +4,7 @@ Memoria del proyecto entre sesiones. Máximo unas 50 líneas: resumir o eliminar
 
 ## Estado actual — v0.1
 
-Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada; ilustraciones provisorias hasta la 006. Spec 003 (confirmación de asistencia, tabla `rsvps`) implementada. Spec 004 (lista de regalos en `/<slug>/regalos`, tablas `gifts` y `gift_reservations`) implementada. Siguen las specs 005 y 006 de `docs/specs/INDEX.md`.
+Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada; ilustraciones finales con la 006. Spec 003 (confirmación de asistencia, tabla `rsvps`) implementada. Spec 004 (lista de regalos en `/<slug>/regalos`, tablas `gifts` y `gift_reservations`) implementada. Spec 006 (primera invitación) validada y en pull request, antes que la 005 (pantalla de los dueños); falta cargarla en Supabase, probarla publicada y darla de baja después del evento.
 
 ## Aprendizajes y errores a evitar
 
@@ -12,6 +12,8 @@ Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales
 - La tarea `keepalive` solo se puede lanzar a mano cuando está en `main`. Lee Variables del repo (no Secrets); `KEEPALIVE_UNTIL` va hasta la fecha de baja.
 - `seed.sql` usa `on conflict do nothing`: para cambiar la `demo` ya cargada hace falta un `update`.
 - Las funciones de la base se prueban con `tests/support/rsvp-checks.sql` y `gifts-checks.sql` sobre un Supabase local (`npx supabase start` y `db reset`).
+- Las ilustraciones de Gemini llegan en JPG con fondo blanco: se limpian con ImageMagick (relleno desde la esquina y `-trim`) y se pasan a WebP.
+- La portada recuerda en el navegador que el sobre ya se abrió: para volver a verla, usar una ventana de incógnito.
 - En Cloudflare, el sitio se crea desde "Workers & Pages" → "Create" → pestaña "Pages". El asistente de Workers pide "API Token" y no sirve para este proyecto.
 
 ## Decisiones

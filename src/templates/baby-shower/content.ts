@@ -4,6 +4,7 @@ export type BabyShowerContent = {
   babyName: string | null;
   hosts: string | null;
   message: string | null;
+  endTime: string | null;
   closing: string | null;
   location: {
     address: string | null;
@@ -27,6 +28,7 @@ export function readBabyShowerContent(content: Content): BabyShowerContent {
     babyName: readText(content, 'babyName'),
     hosts: readText(content, 'hosts'),
     message: readText(content, 'message'),
+    endTime: readText(content, 'endTime'),
     closing: readText(content, 'closing'),
     location: {
       address: readText(location, 'address'),

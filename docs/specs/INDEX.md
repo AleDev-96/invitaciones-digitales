@@ -13,7 +13,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 | 003 | [Confirmación de asistencia](003-confirmacion-asistencia/spec.md) | Larga | 001, 002 | Implementada |
 | 004 | [Lista de regalos con reserva](004-lista-regalos/spec.md) | Larga | 001, 002, 003 | Implementada |
 | 005 | Pantalla de los dueños del evento | Larga | 003, 004 | Sin redactar |
-| 006 | Primera invitación: baby shower | Invitación | 002 a 005 | Sin redactar |
+| 006 | [Primera invitación: baby shower](006-primera-invitacion/spec.md) | Invitación | 002 a 004 | Aprobada |
 
 ## Qué cubre cada una
 
@@ -68,7 +68,7 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 
 - Datos reales del evento. Fiesta: 05/12/2026. Cierre de confirmaciones: 04/12/2026. Invitados esperados: 64.
 - Ilustraciones finales, propias o con licencia.
-- Lista de regalos real y palabra clave de los dueños.
+- Lista de regalos real. La palabra clave de los dueños queda para la 005, que crea ese dato.
 - Publicación, y baja con borrado de datos después del evento.
 
 ## Decisiones ya tomadas
@@ -88,6 +88,8 @@ Pantalla extra a la que los invitados no acceden. Reemplaza la decisión anterio
 - Las decisiones de arquitectura están en la [spec 001](001-arquitectura-base/spec.md).
 
 - Quien respondió se reconoce por un código guardado en su navegador; la base guarda solo su huella (spec 003). La spec 004 lo usa para elegir o cambiar el regalo sin volver a escribir el nombre.
+
+- La 006 se arma antes que la 005: mientras tanto, confirmaciones y reservas se consultan en Supabase. El link se reparte recién cuando la invitación funciona de punta a punta.
 
 ## Pendientes de definir
 
