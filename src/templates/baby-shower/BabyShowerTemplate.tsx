@@ -42,7 +42,11 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
         >
           <Presentation content={content} art={theme.presentationArt} />
           {has('countdown') && <CountdownSection eventAt={invitation.eventAt} />}
-          <EventDate eventAt={invitation.eventAt} timezone={invitation.timezone} />
+          <EventDate
+            eventAt={invitation.eventAt}
+            timezone={invitation.timezone}
+            endTime={content.endTime}
+          />
           {has('map') && <Location location={content.location} />}
           {has('gifts') && (
             <Gifts slug={invitation.slug} intro={content.gifts.intro} art={theme.giftsArt} />

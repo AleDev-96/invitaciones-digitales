@@ -16,12 +16,19 @@ const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
   hourCycle: 'h23',
 };
 
-function formatParts(eventAt: Date, options: Intl.DateTimeFormatOptions): EventDateParts {
+const CLOCK = /^([01]\d|2[0-3]):[0-5]\d$/;
+
+function formatParts(
+  eventAt: Date,
+  options: Intl.DateTimeFormatOptions,
+  endTime: string | null,
+): EventDateParts {
   const parts = new Intl.DateTimeFormat('es-AR', options).formatToParts(eventAt);
   const part = (type: Intl.DateTimeFormatPartTypes) =>
     parts.find((item) => item.type === type)?.value ?? '';
   const zone = part('timeZoneName');
-  const time = `${part('hour')}:${part('minute')} h`;
+  const start = `${part('hour')}:${part('minute')}`;
+  const time = endTime && CLOCK.test(endTime) ? `De ${start} a ${endTime} h` : `${start} h`;
   return {
     weekday: part('weekday'),
     month: part('month'),
@@ -31,11 +38,15 @@ function formatParts(eventAt: Date, options: Intl.DateTimeFormatOptions): EventD
   };
 }
 
-export function getEventDateParts(eventAt: string, timezone: string): EventDateParts {
+export function getEventDateParts(
+  eventAt: string,
+  timezone: string,
+  endTime: string | null = null,
+): EventDateParts {
   const date = new Date(eventAt);
   try {
-    return formatParts(date, { ...DATE_OPTIONS, timeZone: timezone });
+    return formatParts(date, { ...DATE_OPTIONS, timeZone: timezone }, endTime);
   } catch {
-    return formatParts(date, { ...DATE_OPTIONS, timeZoneName: 'short' });
+    return formatParts(date, { ...DATE_OPTIONS, timeZoneName: 'short' }, endTime);
   }
 }

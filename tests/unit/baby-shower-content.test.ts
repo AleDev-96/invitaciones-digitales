@@ -8,6 +8,7 @@ describe('readBabyShowerContent', () => {
         babyName: 'Bebé Demo',
         hosts: 'Ana y Juan',
         message: 'Te esperamos',
+        endTime: '18:30',
         closing: 'Gracias',
         location: {
           address: 'Calle Falsa 123',
@@ -19,6 +20,7 @@ describe('readBabyShowerContent', () => {
       babyName: 'Bebé Demo',
       hosts: 'Ana y Juan',
       message: 'Te esperamos',
+      endTime: '18:30',
       closing: 'Gracias',
       location: {
         address: 'Calle Falsa 123',
@@ -35,6 +37,7 @@ describe('readBabyShowerContent', () => {
       babyName: null,
       hosts: null,
       message: null,
+      endTime: null,
       closing: null,
       location: { address: null, mapsUrl: null, notes: [] },
       rsvp: { closedMessage: null, contactMessage: null },

@@ -2,8 +2,10 @@ import { messages } from '../../../content/messages';
 import { getEventDateParts } from '../../../domain/eventDate';
 import { Section, SectionTitle } from './SectionTitle';
 
-export function EventDate({ eventAt, timezone }: { eventAt: string; timezone: string }) {
-  const parts = getEventDateParts(eventAt, timezone);
+type Props = { eventAt: string; timezone: string; endTime: string | null };
+
+export function EventDate({ eventAt, timezone, endTime }: Props) {
+  const parts = getEventDateParts(eventAt, timezone, endTime);
   const title = messages.babyShower.date.title;
   return (
     <Section label={title}>

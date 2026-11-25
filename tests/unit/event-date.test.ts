@@ -12,6 +12,18 @@ describe('getEventDateParts', () => {
     });
   });
 
+  it('shows a time range when the invitation has an end time', () => {
+    expect(getEventDateParts('2026-12-05T17:30:00Z', 'America/Argentina/Salta', '18:30').time).toBe(
+      'De 14:30 a 18:30 h',
+    );
+  });
+
+  it('ignores an end time that is not a valid hour', () => {
+    expect(getEventDateParts('2026-12-05T17:30:00Z', 'America/Argentina/Salta', '6 pm').time).toBe(
+      '14:30 h',
+    );
+  });
+
   it('uses the time zone to decide the day', () => {
     expect(getEventDateParts('2026-12-06T01:30:00Z', 'America/Argentina/Salta').day).toBe('5');
     expect(getEventDateParts('2026-12-06T01:30:00Z', 'Europe/Madrid').day).toBe('6');

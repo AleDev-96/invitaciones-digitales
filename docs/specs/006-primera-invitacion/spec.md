@@ -14,7 +14,7 @@ El repositorio es público: acá no van nombres, dirección, slug ni palabra cla
 - **Plantilla (`template_key`):** `baby-shower`
 - **Estilo (`theme_key`):** `sage-geese`
 - **Slug de la URL:** lo define el responsable y no se anota en el repositorio.
-- **Fecha del evento:** 05/12/2026 a las 14:00, hora tentativa. Si cambia, se actualiza `event_at` en Supabase.
+- **Fecha del evento:** 05/12/2026, de 14:30 a 18:30. La hora de inicio es `event_at` y la de fin es `content.endTime`, un campo opcional nuevo de la plantilla `baby-shower`. Si cambian, se actualizan en Supabase.
 - **Cierre de confirmaciones:** 04/12/2026 a las 23:59 (`rsvp_closes_at`).
 - **Cierre de la lista de regalos:** el automático, hasta las 00:00 del 05/12/2026 (todo el 04/12).
 - **Invitados esperados:** 64 (`expected_guests`; lo usa la pantalla de los dueños de la spec 005).
