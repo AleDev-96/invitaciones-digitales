@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   canReopenRsvp,
+  formatOwnerDate,
+  formatOwnerDeadline,
   giftHasRoom,
   hasChosenGifts,
   rsvpCounts,
@@ -88,5 +90,13 @@ describe('canReopenRsvp', () => {
     expect(canReopenRsvp(panel({ rsvpClosed: true, rsvpOpen: false }), before)).toBe(true);
     expect(canReopenRsvp(panel({ rsvpClosed: true, rsvpOpen: false }), after)).toBe(false);
     expect(canReopenRsvp(panel(), before)).toBe(false);
+  });
+});
+
+describe('owner dates', () => {
+  it('formats in the invitation timezone', () => {
+    const tz = 'America/Argentina/Buenos_Aires';
+    expect(formatOwnerDate('2026-11-25T17:32:00Z', tz)).toBe('25/11 14:32');
+    expect(formatOwnerDeadline('2026-12-05T02:59:00Z', tz)).toBe('04/12 a las 23:59');
   });
 });
