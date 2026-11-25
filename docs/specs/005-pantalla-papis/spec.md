@@ -1,7 +1,7 @@
 # 005 — Pantalla de los dueños del evento: spec
 
 - **Tipo:** larga
-- **Estado:** aprobada
+- **Estado:** implementada
 - **Fecha:** 2026-11-25
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)

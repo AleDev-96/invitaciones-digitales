@@ -1,6 +1,6 @@
 # 006 — Invitación: primer baby shower: tareas
 
-- **Estado:** aprobada
+- **Estado:** implementada
 - **Spec:** [spec.md](spec.md) · **Plan:** [plan.md](plan.md)
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
