@@ -40,7 +40,7 @@ export function Cover({ onOpened, art: Art }: Props) {
           >
             <Art />
           </button>
-          <p className="font-(family-name:--font-script) text-2xl text-(--color-dusty-blue)">
+          <p className="font-(family-name:--font-script) text-3xl text-(--color-dusty-blue)">
             {text.hint}
           </p>
         </div>

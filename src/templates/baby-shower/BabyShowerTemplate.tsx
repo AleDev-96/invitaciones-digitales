@@ -48,11 +48,11 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
             endTime={content.endTime}
           />
           {has('map') && <Location location={content.location} />}
-          {has('gifts') && (
-            <Gifts slug={invitation.slug} intro={content.gifts.intro} art={theme.giftsArt} />
-          )}
           {has('rsvp') && (
             <Rsvp slug={invitation.slug} open={invitation.rsvpOpen} texts={content.rsvp} />
+          )}
+          {has('gifts') && (
+            <Gifts slug={invitation.slug} intro={content.gifts.intro} art={theme.giftsArt} />
           )}
           <Closing closing={content.closing} art={theme.closingArt} />
         </main>
