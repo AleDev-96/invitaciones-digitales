@@ -1,6 +1,6 @@
 # 005 — Pantalla de los dueños del evento: tareas
 
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Spec:** [spec.md](spec.md) · **Plan:** [plan.md](plan.md)
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)

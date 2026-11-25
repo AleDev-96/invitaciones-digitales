@@ -1,7 +1,7 @@
 # 005 — Pantalla de los dueños del evento: spec
 
 - **Tipo:** larga
-- **Estado:** borrador
+- **Estado:** aprobada
 - **Fecha:** 2026-11-25
 
 Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](tasks.md)
@@ -103,3 +103,4 @@ Ninguna.
 |---|---|
 | 2026-11-25 | Borrador inicial: alcance completo del INDEX, ruta `/<slug>/papis` y borrar una confirmación libera sus regalos |
 | 2026-11-25 | Los dueños también editan el nombre o la respuesta de una confirmación y agregan invitados a mano (por ejemplo, separar "Meli y Tomi") |
+| 2026-11-25 | Aprobada |

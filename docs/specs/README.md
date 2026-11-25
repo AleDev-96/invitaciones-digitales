@@ -57,7 +57,7 @@ La hoja de ruta de las specs del primer desarrollo está en [INDEX.md](INDEX.md)
 | 002 | [Plantilla `baby-shower` y estilo `sage-geese`](002-plantilla-baby-shower/spec.md) | Larga | Implementada | |
 | 003 | [Confirmación de asistencia](003-confirmacion-asistencia/spec.md) | Larga | Implementada | |
 | 004 | [Lista de regalos con reserva](004-lista-regalos/spec.md) | Larga | Implementada | |
-| 005 | [Pantalla de los dueños del evento](005-pantalla-papis/spec.md) | Larga | Borrador | |
+| 005 | [Pantalla de los dueños del evento](005-pantalla-papis/spec.md) | Larga | Aprobada | |
 | 006 | [Primera invitación: baby shower](006-primera-invitacion/spec.md) | Invitación | Aprobada | Borrador |
 
 La columna "Invitación" aplica solo a specs de invitación: borrador, publicada o dada de baja.
