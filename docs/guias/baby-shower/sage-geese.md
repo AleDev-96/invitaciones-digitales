@@ -11,7 +11,7 @@ La experiencia debe sentirse suave, luminosa, tierna y elegante; artesanal, con 
 ### Elementos de referencia
 
 - Fondo marfil/blanco cálido.
-- Borde lateral o marco con patrón de cuadros (gingham) verde muy claro.
+- Borde lateral o marco con patrón de cuadros (gingham) verde suave, al tono de los moños de las ilustraciones.
 - Sobre cerrado con lazo de tela a cuadros en la portada.
 - Ilustraciones acuareladas de patitos, gansos, pollitos y animalitos de granja. Los gansos van **sin sombreros**.
 - Globo aerostático, nubes, regalos, moños y tendedero de ropa de bebé.
@@ -29,7 +29,7 @@ Los valores son una **propuesta de aproximación**, no una extracción exacta de
 | `--color-background` | `#FAFAF5` | Fondo general marfil |
 | `--color-paper` | `#FFFFFF` | Paneles y tarjetas |
 | `--color-gingham-light` | `#F0F2E9` | Cuadros más claros del patrón |
-| `--color-gingham-sage` | `#DDE5D2` | Cuadros verdes del patrón |
+| `--color-gingham-sage` | `#C4C7A2` | Cuadros verdes del patrón, al tono de los moños de las ilustraciones |
 | `--color-sage` | `#7E8A63` | Acentos, etiquetas y destacados |
 | `--color-sage-dark` | `#5E6B4C` | Verde oscuro para texto/acento |
 | `--color-taupe` | `#A88B73` | Botones y etiquetas |
@@ -55,7 +55,7 @@ Los valores son una **propuesta de aproximación**, no una extracción exacta de
   --color-background: #FAFAF5;
   --color-paper: #FFFFFF;
   --color-gingham-light: #F0F2E9;
-  --color-gingham-sage: #DDE5D2;
+  --color-gingham-sage: #C4C7A2;
   --color-sage: #7E8A63;
   --color-sage-dark: #5E6B4C;
   --color-taupe: #A88B73;
@@ -160,9 +160,9 @@ La guía se armó a partir de cuatro capturas de una invitación de terceros, de
 Lo que mostraban:
 
 1. **Portada:** texto "Te invito a celebrar mi Baby Shower" (serif + manuscrita), sobre verde oliva cerrado con moño gingham, flecha punteada y la indicación de tocar el moño para ver más.
-2. **Presentación:** marco ovalado con follaje verde y moño arriba; "Estás invitado a mi Baby Shower", nombre del bebé en manuscrita azul grisáceo, mensaje breve y nombres de los papás; debajo, una familia de gansos con globos.
+2. **Presentación:** marco ovalado con follaje verde y moño arriba; "Estás invitado a mi Baby Shower", nombre del bebé en manuscrita grande verde oscuro, mensaje breve y nombres de los papás; debajo, una familia de gansos con globos.
 3. **Fecha y ubicación:** cuenta regresiva en cuatro columnas (días, horas, minutos, segundos), día de la semana en una etiqueta verde, fecha en formato mes / día grande / año, hora debajo; título "¿Cómo llegar?" entre líneas discontinuas, botón taupe "Ver mapa", dirección y estacionamiento en viñetas, con ilustraciones chicas a los costados.
-4. **Regalos y cierre:** globo aerostático con nubes, botón taupe hacia la lista de regalos, texto aclarando que es opcional, caja de regalo ilustrada, agradecimiento y título "Confirmar asistencia".
+4. **Regalos y cierre:** caja de regalo ilustrada, botón taupe hacia la lista de regalos, texto aclarando que es opcional, globo aerostático con nubes, agradecimiento y título "Confirmar asistencia".
 
 En todas, borde lateral gingham verde muy claro sobre fondo marfil.
 

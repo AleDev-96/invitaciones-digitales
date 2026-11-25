@@ -12,7 +12,7 @@ export type BabyShowerTheme = {
 };
 
 const themes: Record<string, BabyShowerTheme> = {
-  'sage-geese': { presentationArt: GooseFamily, giftsArt: HotAirBalloon, closingArt: GiftBox },
+  'sage-geese': { presentationArt: GooseFamily, giftsArt: GiftBox, closingArt: HotAirBalloon },
 };
 
 export function babyShowerTheme(themeKey: string): BabyShowerTheme {

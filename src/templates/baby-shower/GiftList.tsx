@@ -138,7 +138,7 @@ export function GiftList({ invitation }: TemplateProps) {
         <div className="mt-8">
           <SectionTitle>{text.listTitle}</SectionTitle>
         </div>
-        <theme.giftsArt className="mx-auto mb-4 w-40" />
+        <theme.giftsArt className="mx-auto mb-4 w-56" />
         {content.gifts.intro && (
           <p className="mx-auto mb-6 max-w-xs text-lg whitespace-pre-line">{content.gifts.intro}</p>
         )}

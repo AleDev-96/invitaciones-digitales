@@ -11,7 +11,7 @@ export function Gifts({ slug, intro, art: Art }: Props) {
   return (
     <Section id="regalos" label={text.title}>
       <SectionTitle>{text.title}</SectionTitle>
-      {Art && <Art className="mx-auto mb-4 w-48" />}
+      {Art && <Art className="mx-auto mb-4 w-56" />}
       {intro && <p className="mx-auto mb-6 max-w-xs text-lg whitespace-pre-line">{intro}</p>}
       <Link
         to={`/${slug}/regalos`}
