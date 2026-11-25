@@ -63,3 +63,4 @@ La palabra clave de los dueños queda para la spec 005, que crea el dato.
 
 - 2026-11-25: horario de 14:30 a 18:30 con el campo nuevo `content.endTime`; regalo y globo intercambiados entre regalos y cierre; sobre ilustrado en la portada; nombres en verde oscuro y borde a cuadros más marcado, fino en escritorio.
 - 2026-11-25: para que se lea mejor, la indicación del sobre es más grande y los textos azul y gris son más oscuros; la confirmación de asistencia pasa antes de los regalos; el aviso de nombre vacío dice "Ingrese su nombre, por favor.".
+- 2026-11-25: el campo del formulario dice "Nombre"; en regalos se suma el chanchito con alias para aportar dinero (`content.gifts.fund`). Lámpara sin "con luz roja", fuera las perchas y se agregan juguetes sin límite (solo datos).

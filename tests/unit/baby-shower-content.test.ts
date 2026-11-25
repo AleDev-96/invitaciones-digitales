@@ -28,7 +28,7 @@ describe('readBabyShowerContent', () => {
         notes: ['Hay estacionamiento'],
       },
       rsvp: { closedMessage: null, contactMessage: null },
-      gifts: { intro: null },
+      gifts: { intro: null, fund: { message: null, alias: null, holder: null } },
     });
   });
 
@@ -41,7 +41,7 @@ describe('readBabyShowerContent', () => {
       closing: null,
       location: { address: null, mapsUrl: null, notes: [] },
       rsvp: { closedMessage: null, contactMessage: null },
-      gifts: { intro: null },
+      gifts: { intro: null, fund: { message: null, alias: null, holder: null } },
     });
   });
 
@@ -72,8 +72,17 @@ describe('readBabyShowerContent', () => {
   it('reads the gifts intro', () => {
     expect(readBabyShowerContent({ gifts: { intro: ' Te dejamos ideas. ' } }).gifts).toEqual({
       intro: 'Te dejamos ideas.',
+      fund: { message: null, alias: null, holder: null },
     });
     expect(readBabyShowerContent({ gifts: { intro: 3 } }).gifts.intro).toBeNull();
+  });
+
+  it('reads the gifts fund', () => {
+    const { fund } = readBabyShowerContent({
+      gifts: { fund: { message: 'Sumate', alias: ' mi.alias ', holder: 'Ana', extra: 1 } },
+    }).gifts;
+    expect(fund).toEqual({ message: 'Sumate', alias: 'mi.alias', holder: 'Ana' });
+    expect(readBabyShowerContent({ gifts: { fund: 'alias' } }).gifts.fund.alias).toBeNull();
   });
 
   it('ignores a location that is not an object', () => {

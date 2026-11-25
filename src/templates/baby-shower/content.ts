@@ -17,6 +17,11 @@ export type BabyShowerContent = {
   };
   gifts: {
     intro: string | null;
+    fund: {
+      message: string | null;
+      alias: string | null;
+      holder: string | null;
+    };
   };
 };
 
@@ -24,6 +29,7 @@ export function readBabyShowerContent(content: Content): BabyShowerContent {
   const location = readSection(content, 'location');
   const rsvp = readSection(content, 'rsvp');
   const gifts = readSection(content, 'gifts');
+  const fund = readSection(gifts, 'fund');
   return {
     babyName: readText(content, 'babyName'),
     hosts: readText(content, 'hosts'),
@@ -41,6 +47,11 @@ export function readBabyShowerContent(content: Content): BabyShowerContent {
     },
     gifts: {
       intro: readText(gifts, 'intro'),
+      fund: {
+        message: readText(fund, 'message'),
+        alias: readText(fund, 'alias'),
+        holder: readText(fund, 'holder'),
+      },
     },
   };
 }

@@ -1,7 +1,13 @@
 import type { ComponentType } from 'react';
 import './sage-geese/fonts';
 import './sage-geese/theme.css';
-import { Envelope, GiftBox, GooseFamily, HotAirBalloon } from './sage-geese/illustrations';
+import {
+  Envelope,
+  GiftBox,
+  GooseFamily,
+  HotAirBalloon,
+  PiggyBank,
+} from './sage-geese/illustrations';
 
 type Art = ComponentType<{ className?: string }>;
 
@@ -9,6 +15,7 @@ export type BabyShowerTheme = {
   coverArt: Art;
   presentationArt: Art;
   giftsArt: Art;
+  fundArt: Art;
   closingArt: Art;
 };
 
@@ -17,6 +24,7 @@ const themes: Record<string, BabyShowerTheme> = {
     coverArt: Envelope,
     presentationArt: GooseFamily,
     giftsArt: GiftBox,
+    fundArt: PiggyBank,
     closingArt: HotAirBalloon,
   },
 };
