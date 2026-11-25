@@ -40,7 +40,7 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
           inert={!opened}
           className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) font-(family-name:--font-body) text-(--color-ink)"
         >
-          <Presentation content={content} art={theme.presentationArt} />
+          <Presentation content={content} art={theme.presentationArt} frame={theme.titleFrame} />
           {has('countdown') && <CountdownSection eventAt={invitation.eventAt} />}
           <EventDate
             eventAt={invitation.eventAt}

@@ -7,6 +7,7 @@ import {
   GooseFamily,
   HotAirBalloon,
   PiggyBank,
+  TitleFrame,
 } from './sage-geese/illustrations';
 
 type Art = ComponentType<{ className?: string }>;
@@ -14,6 +15,7 @@ type Art = ComponentType<{ className?: string }>;
 export type BabyShowerTheme = {
   coverArt: Art;
   presentationArt: Art;
+  titleFrame: Art;
   giftsArt: Art;
   fundArt: Art;
   closingArt: Art;
@@ -23,6 +25,7 @@ const themes: Record<string, BabyShowerTheme> = {
   'sage-geese': {
     coverArt: Envelope,
     presentationArt: GooseFamily,
+    titleFrame: TitleFrame,
     giftsArt: GiftBox,
     fundArt: PiggyBank,
     closingArt: HotAirBalloon,

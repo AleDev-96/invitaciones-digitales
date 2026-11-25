@@ -3,6 +3,7 @@ import envelopeUrl from '../../../../../assets/images/templates/baby-shower/sage
 import gooseFamilyUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-family.webp';
 import gooseGiftBoxUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-gift-box.webp';
 import piggyBankUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/piggy-bank.webp';
+import titleFrameUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/title-frame.webp';
 import gooseHotAirBalloonUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-hot-air-balloon.webp';
 
 type ArtProps = { className?: string };
@@ -79,4 +80,8 @@ export function PiggyBank({ className }: ArtProps) {
 
 export function Envelope({ className }: ArtProps) {
   return <Illustration src={envelopeUrl} alt="" width={700} height={528} className={className} />;
+}
+
+export function TitleFrame({ className }: ArtProps) {
+  return <img src={titleFrameUrl} alt="" width={1060} height={757} className={className} />;
 }
