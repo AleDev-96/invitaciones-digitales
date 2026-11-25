@@ -91,7 +91,7 @@ No escribir párrafos completos en tipografía manuscrita. Fechas, horarios, dir
 
 ## 5. Orden recomendado de secciones
 
-1. **Portada / sobre:** frase breve, sobre verde oliva y lazo gingham. Al tocar, el sobre se abre o conduce suavemente al contenido.
+1. **Portada / sobre:** frase breve y sobre a cuadros verde oliva atado con hilo y ramita. Al tocar, el sobre da un saltito, se acerca y se desvanece para mostrar el contenido.
 2. **Presentación:** “Estás invitado/a a mi Baby Shower”, nombre del bebé y/o de quienes invitan, mensaje breve e ilustración principal.
 3. **Cuenta regresiva:** días, horas, minutos y segundos; si el evento ya pasó, no mostrar valores negativos.
 4. **Fecha y horario:** día, fecha y hora con jerarquía clara.

@@ -32,7 +32,7 @@ Campos de `content` que lee cada plantilla. Todos son opcionales: si falta uno, 
 | `baby-shower` | `babyName` | Nombre del bebé |
 | `baby-shower` | `hosts` | Quienes invitan |
 | `baby-shower` | `message` | Mensaje de la presentación |
-| `baby-shower` | `endTime` | Hora de fin en formato `HH:MM`, por ejemplo `18:30`; si está, se muestra "De 14:30 a 18:30 h" |
+| `baby-shower` | `endTime` | Hora de fin en formato `HH:MM`, por ejemplo `18:30`; si está, se muestra "De 14:30 a 18:30 hs." |
 | `baby-shower` | `closing` | Mensaje de cierre |
 | `baby-shower` | `location.address` | Dirección, debajo del botón "Cómo llegar" |
 | `baby-shower` | `location.mapsUrl` | Link de Google Maps; si falta, se arma con la dirección |

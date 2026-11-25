@@ -28,7 +28,7 @@ function formatParts(
     parts.find((item) => item.type === type)?.value ?? '';
   const zone = part('timeZoneName');
   const start = `${part('hour')}:${part('minute')}`;
-  const time = endTime && CLOCK.test(endTime) ? `De ${start} a ${endTime} h` : `${start} h`;
+  const time = endTime && CLOCK.test(endTime) ? `De ${start} a ${endTime} hs.` : `${start} hs.`;
   return {
     weekday: part('weekday'),
     month: part('month'),

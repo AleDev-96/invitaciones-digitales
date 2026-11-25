@@ -14,7 +14,7 @@ El repositorio es público: acá no van nombres, dirección, slug ni palabra cla
 - **Plantilla (`template_key`):** `baby-shower`
 - **Estilo (`theme_key`):** `sage-geese`
 - **Slug de la URL:** lo define el responsable y no se anota en el repositorio.
-- **Fecha del evento:** 05/12/2026, de 14:30 a 18:30. La hora de inicio es `event_at` y la de fin es `content.endTime`, un campo opcional nuevo de la plantilla `baby-shower`. Si cambian, se actualizan en Supabase.
+- **Fecha del evento:** 05/12/2026, de 14:30 a 18:30, mostrado como "De 14:30 a 18:30 hs.". La hora de inicio es `event_at` y la de fin es `content.endTime`, un campo opcional nuevo de la plantilla `baby-shower`. Si cambian, se actualizan en Supabase.
 - **Cierre de confirmaciones:** 04/12/2026 a las 23:59 (`rsvp_closes_at`).
 - **Cierre de la lista de regalos:** el automático, hasta las 00:00 del 05/12/2026 (todo el 04/12).
 - **Invitados esperados:** 64 (`expected_guests`; lo usa la pantalla de los dueños de la spec 005).
@@ -29,7 +29,7 @@ El repositorio es público: acá no van nombres, dirección, slug ni palabra cla
 ## Imágenes
 
 - Las ilustraciones provisorias de la spec 002 (`data-placeholder="true"`) se reemplazan por las finales del estilo `sage-geese`, propias o con licencia verificada y registradas en [ASSET_SOURCES.md](../../guias/ASSET_SOURCES.md). Valen para todas las invitaciones con este estilo. Origen: las genera el responsable con IA, en PNG o JPG; el fondo se quita en el proyecto; en `ASSET_SOURCES.md` se anota la herramienta usada y que sus términos permiten el uso comercial.
-- Se reemplazan las 3 ilustraciones provisorias: presentación (familia de gansos), regalos (gansito con caja de regalo) y cierre (gansito en globo aerostático). El sobre de la portada sigue dibujado con CSS. Además, el nombre del bebé y el de los anfitriones pasan al verde oscuro del estilo, el nombre del bebé más grande, y los cuadros del borde toman el tono de los moños.
+- Se reemplazan las 3 ilustraciones provisorias: presentación (familia de gansos), regalos (gansito con caja de regalo) y cierre (gansito en globo aerostático). El sobre de la portada pasa a ser una ilustración (sobre a cuadros con hilo y ramita): al tocarlo da un saltito, se acerca y se desvanece. Además, el nombre del bebé y el de los anfitriones pasan al verde oscuro del estilo, el nombre del bebé más grande, y los cuadros del borde toman el tono de los moños.
 - Imagen de la vista previa del link (WhatsApp): una ilustración del gansito del estilo, sin datos del evento, en `public/og/`.
 - No hay fotos propias del evento.
 

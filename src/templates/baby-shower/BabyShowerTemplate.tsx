@@ -35,7 +35,7 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
   return (
     <div className="min-h-dvh bg-(--color-background)">
       <div className="baby-shower-frame mx-auto min-h-dvh max-w-[454px] px-3">
-        {!opened && <Cover onOpened={handleOpened} />}
+        {!opened && <Cover onOpened={handleOpened} art={theme.coverArt} />}
         <main
           inert={!opened}
           className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) font-(family-name:--font-body) text-(--color-ink)"

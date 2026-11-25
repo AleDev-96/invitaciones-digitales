@@ -1,4 +1,5 @@
 import { messages } from '../../../../content/messages';
+import envelopeUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/envelope-olive-gingham.webp';
 import gooseFamilyUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-family.webp';
 import gooseGiftBoxUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-gift-box.webp';
 import gooseHotAirBalloonUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-hot-air-balloon.webp';
@@ -61,4 +62,8 @@ export function GiftBox({ className }: ArtProps) {
       className={className}
     />
   );
+}
+
+export function Envelope({ className }: ArtProps) {
+  return <Illustration src={envelopeUrl} alt="" width={700} height={528} className={className} />;
 }
