@@ -21,5 +21,5 @@ Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
   - Hecho cuando: cerrar muestra el mensaje de cierre en `/demo` y reabrir vuelve a mostrar el formulario.
 - [x] **T7. Documentación.** —
   - Hecho cuando: README, `AGENTS.md`, `MEMORY.md`, arquitectura, modelo de datos, despliegue e índices describen la pantalla de los dueños.
-- [ ] **T8. Verificación visual y SQL para la invitación publicada.** Criterios de aceptación
+- [x] **T8. Verificación visual y SQL para la invitación publicada.** Criterios de aceptación
   - Hecho cuando: capturas de celular (360 px) y escritorio revisadas, y el SQL de la migración y de la palabra clave listo para el SQL Editor, fuera del repositorio.
