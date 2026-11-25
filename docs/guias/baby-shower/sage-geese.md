@@ -33,9 +33,9 @@ Los valores son una **propuesta de aproximación**, no una extracción exacta de
 | `--color-sage` | `#7E8A63` | Acentos, etiquetas y destacados |
 | `--color-sage-dark` | `#5E6B4C` | Verde oscuro para texto/acento |
 | `--color-taupe` | `#A88B73` | Botones y etiquetas |
-| `--color-dusty-blue` | `#657A98` | Nombres y acentos secundarios |
+| `--color-dusty-blue` | `#4A5C78` | Indicación del sobre, títulos manuscritos y acentos secundarios |
 | `--color-ink` | `#44463D` | Texto principal |
-| `--color-muted` | `#77776B` | Texto secundario |
+| `--color-muted` | `#5E5E54` | Texto secundario |
 | `--color-line` | `#DFDED3` | Líneas y divisores |
 
 ### Reglas de color
@@ -59,9 +59,9 @@ Los valores son una **propuesta de aproximación**, no una extracción exacta de
   --color-sage: #7E8A63;
   --color-sage-dark: #5E6B4C;
   --color-taupe: #A88B73;
-  --color-dusty-blue: #657A98;
+  --color-dusty-blue: #4A5C78;
   --color-ink: #44463D;
-  --color-muted: #77776B;
+  --color-muted: #5E5E54;
   --color-line: #DFDED3;
 }
 ```
@@ -96,8 +96,8 @@ No escribir párrafos completos en tipografía manuscrita. Fechas, horarios, dir
 3. **Cuenta regresiva:** días, horas, minutos y segundos; si el evento ya pasó, no mostrar valores negativos.
 4. **Fecha y horario:** día, fecha y hora con jerarquía clara.
 5. **Ubicación:** dirección, indicaciones opcionales y botón “Cómo llegar” que abre Google Maps.
-6. **Regalos:** productos con imagen de referencia, nombre exacto, descripción/características y acción para elegir o reservar.
-7. **Confirmación de asistencia:** formulario breve para confirmar, rechazar o actualizar la respuesta.
+6. **Confirmación de asistencia:** formulario breve para confirmar, rechazar o actualizar la respuesta. Va antes de los regalos porque para elegir un regalo hay que haber confirmado.
+7. **Regalos:** productos con imagen de referencia, nombre exacto, descripción/características y acción para elegir o reservar.
 8. **Cierre:** agradecimiento e ilustración pequeña.
 
 Esta secuencia es la estructura de la plantilla `baby-shower` y la comparten todos sus estilos. No es obligatorio imponerla a otras plantillas.

@@ -70,8 +70,7 @@ export const messages = {
       thanksAttending: (name: string) => `¡Gracias, ${name}! Tu asistencia está confirmada.`,
       thanksNotAttending: (name: string) => `¡Gracias por avisarnos, ${name}! Te vamos a extrañar.`,
       nameProblems: {
-        empty:
-          '¿Podrías poner tu nombre, por favor? Solo para no insistirte con la confirmación :D',
+        empty: 'Ingrese su nombre, por favor.',
         too_short: 'Escribí tu nombre completo, con al menos 2 letras.',
         too_long: 'El nombre puede tener hasta 60 caracteres.',
       },
