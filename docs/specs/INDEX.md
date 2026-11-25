@@ -12,7 +12,7 @@ Cada una se redacta, se clarifica y se aprueba por separado según la skill [`sd
 | 002 | [Plantilla `baby-shower` y estilo `sage-geese`](002-plantilla-baby-shower/spec.md) | Larga | 001 | Implementada |
 | 003 | [Confirmación de asistencia](003-confirmacion-asistencia/spec.md) | Larga | 001, 002 | Implementada |
 | 004 | [Lista de regalos con reserva](004-lista-regalos/spec.md) | Larga | 001, 002, 003 | Implementada |
-| 005 | Pantalla de los dueños del evento | Larga | 003, 004 | Sin redactar |
+| 005 | [Pantalla de los dueños del evento](005-pantalla-papis/spec.md) | Larga | 003, 004 | Borrador |
 | 006 | [Primera invitación: baby shower](006-primera-invitacion/spec.md) | Invitación | 002 a 004 | Aprobada |
 
 ## Qué cubre cada una
