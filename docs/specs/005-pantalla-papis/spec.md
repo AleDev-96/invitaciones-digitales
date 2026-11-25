@@ -14,7 +14,7 @@ Que los dueños del evento vean desde el celular quiénes confirmaron y quién e
 
 - Pantalla aparte en `/<slug>/papis`, para cualquier invitación, protegida con una palabra clave por invitación.
 - Contadores de asistirán, no asistirán y sin respuesta, con los nombres y el aviso de "colado".
-- Borrar confirmaciones; sus regalos vuelven a quedar disponibles.
+- Corregir, agregar y borrar confirmaciones; al borrar, sus regalos vuelven a quedar disponibles.
 - Por regalo: quién lo eligió, quitar una elección y anotar una elección a mano con el nombre de quien lo regala.
 - Cerrar y reabrir las confirmaciones.
 
@@ -23,7 +23,6 @@ Que los dueños del evento vean desde el celular quiénes confirmaron y quién e
 - Cargar o editar la invitación, sus textos o sus regalos: sigue siendo desde Supabase.
 - Cuentas de usuario, mails o recuperación de la palabra clave: la carga y la cambia quien administra, desde Supabase.
 - Exportar la lista a un archivo: se usa la función de imprimir del navegador o las consultas de Supabase.
-- Editar el nombre de una confirmación: se borra y la persona vuelve a confirmar.
 - Un nombre de ruta distinto por tipo de evento: `/papis` vale para todas las invitaciones.
 
 ## Requisitos funcionales
@@ -65,6 +64,12 @@ Errores y seguridad:
 - RF-21: EL SISTEMA comprueba la palabra clave en la base de datos en cada consulta y cada acción. Sin la palabra clave correcta no devuelve nombres ni permite cambios, y la palabra clave de una invitación no sirve para otra.
 - RF-22: EL SISTEMA guarda en la base solo una huella de la palabra clave, nunca la palabra clave.
 
+Corregir y agregar confirmaciones:
+
+- RF-23: CUANDO se toca "Editar" en una confirmación, se cambia el nombre (2 a 60 caracteres) o la respuesta y se toca "Guardar", EL SISTEMA guarda el cambio y actualiza los contadores. Los regalos elegidos siguen a su nombre.
+- RF-24: SI la edición pasa una confirmación de "Asistirá" a "No asistirá" y tenía regalos elegidos, ENTONCES EL SISTEMA pregunta "<nombre> tenía regalos elegidos. Si guardás, vuelven a quedar disponibles." y, al aceptar, los libera.
+- RF-25: CUANDO se toca "Agregar invitado", se escribe un nombre de 2 a 60 caracteres, se elige "Asistirá" o "No asistirá" y se toca "Guardar", EL SISTEMA guarda la confirmación con "(anotado a mano)" y la suma a los contadores, aunque las confirmaciones estén cerradas. Esa confirmación no tiene un navegador asociado: si esa persona quiere regalar, los dueños lo anotan a mano (RF-15).
+
 ## Reglas
 
 - Las del [README](../../../README.md#reglas-de-negocio-importantes) y la [constitución](../../CONSTITUTION.md), con las [decisiones del INDEX](../INDEX.md#decisiones-ya-tomadas): los dueños controlan las confirmaciones falsas, borrar una confirmación borra sus reservas y los dueños pueden anotar un regalo a mano.
@@ -79,6 +84,7 @@ Errores y seguridad:
 - [ ] Al cerrar la pestaña o tocar "Salir" vuelve a pedir la palabra clave.
 - [ ] Con la `demo` (esperados cargados), los contadores coinciden con las respuestas guardadas; al superar los esperados aparece el aviso de colado.
 - [ ] Al tocar cada contador se ven los nombres de ese grupo; al borrar una confirmación desaparece, bajan los contadores, sus regalos vuelven a estar disponibles en `/demo/regalos` y ese navegador vuelve a ver el formulario.
+- [ ] "Editar" cambia el nombre de "Meli y Tomi" a "Meli" y "Agregar invitado" suma a "Tomi": los contadores suben en uno y ambos nombres aparecen en su grupo. Pasar a "No asistirá" a alguien con regalos, tras aceptar el aviso, los libera.
 - [ ] Cada regalo muestra "n de m" y los nombres; "Quitar" libera la elección con la lista cerrada; "Anotar a mano" guarda el nombre con "(anotado a mano)" y la lista pública lo cuenta.
 - [ ] Anotar a mano en un regalo sin lugar, desde la pantalla o con una llamada directa, es rechazado.
 - [ ] "Cerrar confirmaciones" hace que `/demo` muestre el mensaje de cierre; "Reabrir confirmaciones" vuelve a mostrar el formulario.
@@ -96,3 +102,4 @@ Ninguna.
 | Fecha | Cambio |
 |---|---|
 | 2026-11-25 | Borrador inicial: alcance completo del INDEX, ruta `/<slug>/papis` y borrar una confirmación libera sus regalos |
+| 2026-11-25 | Los dueños también editan el nombre o la respuesta de una confirmación y agregan invitados a mano (por ejemplo, separar "Meli y Tomi") |
