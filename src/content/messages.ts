@@ -41,6 +41,13 @@ export const messages = {
     gifts: {
       title: 'Regalos',
       open: 'Ver lista de regalos',
+      fund: {
+        account: 'Cuenta',
+        alias: 'Alias',
+        holder: 'Nombre',
+        copy: 'Copiar alias',
+        copied: '¡Alias copiado!',
+      },
       listTitle: 'Lista de regalos',
       back: 'Volver a la invitación',
       loading: 'Cargando la lista de regalos…',
@@ -62,7 +69,7 @@ export const messages = {
     },
     rsvp: {
       title: 'Confirmar asistencia',
-      nameLabel: 'Nombre y apellido',
+      nameLabel: 'Nombre',
       hint: 'Cada persona responde desde su celular: escribí solo tu nombre.',
       attend: 'Sí, asistiré',
       notAttend: 'No podré ir',
@@ -81,6 +88,7 @@ export const messages = {
       gooseFamily: 'Familia de gansos con moños a cuadros',
       hotAirBalloon: 'Gansito en un globo aerostático',
       giftBox: 'Gansito junto a una caja de regalo',
+      piggyBank: 'Chanchito alcancía con moño de hilo',
     },
   },
 };

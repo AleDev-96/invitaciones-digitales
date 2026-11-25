@@ -97,7 +97,7 @@ No escribir párrafos completos en tipografía manuscrita. Fechas, horarios, dir
 4. **Fecha y horario:** día, fecha y hora con jerarquía clara.
 5. **Ubicación:** dirección, indicaciones opcionales y botón “Cómo llegar” que abre Google Maps.
 6. **Confirmación de asistencia:** formulario breve para confirmar, rechazar o actualizar la respuesta. Va antes de los regalos porque para elegir un regalo hay que haber confirmado.
-7. **Regalos:** productos con imagen de referencia, nombre exacto, descripción/características y acción para elegir o reservar.
+7. **Regalos:** productos con imagen de referencia, nombre exacto, descripción/características y acción para elegir o reservar. Opcional, debajo del botón: chanchito alcancía con el alias para aportar dinero y un botón para copiarlo.
 8. **Cierre:** agradecimiento e ilustración pequeña.
 
 Esta secuencia es la estructura de la plantilla `baby-shower` y la comparten todos sus estilos. No es obligatorio imponerla a otras plantillas.

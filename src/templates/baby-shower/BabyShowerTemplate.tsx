@@ -52,7 +52,13 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
             <Rsvp slug={invitation.slug} open={invitation.rsvpOpen} texts={content.rsvp} />
           )}
           {has('gifts') && (
-            <Gifts slug={invitation.slug} intro={content.gifts.intro} art={theme.giftsArt} />
+            <Gifts
+              slug={invitation.slug}
+              intro={content.gifts.intro}
+              fund={content.gifts.fund}
+              art={theme.giftsArt}
+              fundArt={theme.fundArt}
+            />
           )}
           <Closing closing={content.closing} art={theme.closingArt} />
         </main>

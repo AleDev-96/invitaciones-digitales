@@ -2,6 +2,7 @@ import { messages } from '../../../../content/messages';
 import envelopeUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/envelope-olive-gingham.webp';
 import gooseFamilyUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-family.webp';
 import gooseGiftBoxUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-gift-box.webp';
+import piggyBankUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/piggy-bank.webp';
 import gooseHotAirBalloonUrl from '../../../../../assets/images/templates/baby-shower/sage-geese/goose-hot-air-balloon.webp';
 
 type ArtProps = { className?: string };
@@ -59,6 +60,18 @@ export function GiftBox({ className }: ArtProps) {
       alt={text.giftBox}
       width={800}
       height={473}
+      className={className}
+    />
+  );
+}
+
+export function PiggyBank({ className }: ArtProps) {
+  return (
+    <Illustration
+      src={piggyBankUrl}
+      alt={text.piggyBank}
+      width={600}
+      height={533}
       className={className}
     />
   );
