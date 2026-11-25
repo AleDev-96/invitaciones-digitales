@@ -33,24 +33,26 @@ export function BabyShowerTemplate({ invitation }: { invitation: Invitation }) {
   }
 
   return (
-    <div className="baby-shower-frame min-h-dvh px-3 sm:px-8">
-      {!opened && <Cover onOpened={handleOpened} />}
-      <main
-        inert={!opened}
-        className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) font-(family-name:--font-body) text-(--color-ink)"
-      >
-        <Presentation content={content} art={theme.presentationArt} />
-        {has('countdown') && <CountdownSection eventAt={invitation.eventAt} />}
-        <EventDate eventAt={invitation.eventAt} timezone={invitation.timezone} />
-        {has('map') && <Location location={content.location} />}
-        {has('gifts') && (
-          <Gifts slug={invitation.slug} intro={content.gifts.intro} art={theme.giftsArt} />
-        )}
-        {has('rsvp') && (
-          <Rsvp slug={invitation.slug} open={invitation.rsvpOpen} texts={content.rsvp} />
-        )}
-        <Closing closing={content.closing} art={theme.closingArt} />
-      </main>
+    <div className="min-h-dvh bg-(--color-background)">
+      <div className="baby-shower-frame mx-auto min-h-dvh max-w-[454px] px-3">
+        {!opened && <Cover onOpened={handleOpened} />}
+        <main
+          inert={!opened}
+          className="mx-auto min-h-dvh max-w-[430px] bg-(--color-background) font-(family-name:--font-body) text-(--color-ink)"
+        >
+          <Presentation content={content} art={theme.presentationArt} />
+          {has('countdown') && <CountdownSection eventAt={invitation.eventAt} />}
+          <EventDate eventAt={invitation.eventAt} timezone={invitation.timezone} />
+          {has('map') && <Location location={content.location} />}
+          {has('gifts') && (
+            <Gifts slug={invitation.slug} intro={content.gifts.intro} art={theme.giftsArt} />
+          )}
+          {has('rsvp') && (
+            <Rsvp slug={invitation.slug} open={invitation.rsvpOpen} texts={content.rsvp} />
+          )}
+          <Closing closing={content.closing} art={theme.closingArt} />
+        </main>
+      </div>
     </div>
   );
 }

@@ -87,7 +87,7 @@ No escribir párrafos completos en tipografía manuscrita. Fechas, horarios, dir
 - Mantener el contenido centrado y con espacios generosos.
 - El marco gingham puede aparecer en laterales o como borde exterior fino.
 - Separar secciones con espacio, líneas finas o pequeños adornos; evitar tarjetas pesadas.
-- En desktop ampliar el margen exterior, pero conservar el carácter de invitación vertical.
+- En desktop la columna conserva el ancho de celular, con el borde gingham fino pegado a ella y el resto del fondo liso en marfil.
 
 ## 5. Orden recomendado de secciones
 
