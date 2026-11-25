@@ -7,7 +7,7 @@ Archivos de esta spec: [spec.md](spec.md) · [plan.md](plan.md) · [tasks.md](ta
 
 Cada tarea se marca como hecha (`- [x]`) y lleva su propio commit.
 
-- [ ] **T1. Ilustraciones finales del estilo `sage-geese`.**
+- [x] **T1. Ilustraciones finales del estilo `sage-geese`.**
   - Hecho cuando: ninguna ilustración tiene `data-placeholder="true"`, cada recurso figura en `ASSET_SOURCES.md` y `/demo` se ve bien en celular y escritorio.
 - [x] **T2. Imagen de la vista previa del link.**
   - Hecho cuando: el link de la `demo` en un validador de Open Graph muestra la imagen elegida.

@@ -78,9 +78,10 @@ export const messages = {
       networkError: 'No pudimos guardar tu respuesta. Probá de nuevo en unos segundos.',
       closed: 'Las confirmaciones ya están cerradas.',
     },
-    placeholderArt: 'Ilustración provisoria',
     art: {
-      gooseWithBow: 'Gansito con moño a cuadros',
+      gooseFamily: 'Familia de gansos con moños a cuadros',
+      hotAirBalloon: 'Gansito en un globo aerostático',
+      giftBox: 'Gansito junto a una caja de regalo',
     },
   },
 };

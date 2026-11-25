@@ -28,8 +28,8 @@ El repositorio es público: acá no van nombres, dirección, slug ni palabra cla
 
 ## Imágenes
 
-- Las ilustraciones provisorias de la spec 002 (`data-placeholder="true"`) se reemplazan por las finales del estilo `sage-geese`, propias o con licencia verificada y registradas en [ASSET_SOURCES.md](../../guias/ASSET_SOURCES.md). Valen para todas las invitaciones con este estilo. Origen: las genera el responsable con IA, en PNG con fondo transparente; en `ASSET_SOURCES.md` se anota la herramienta usada y que sus términos permiten el uso comercial.
-- Se reemplazan las 3 ilustraciones provisorias: presentación (familia de gansos), regalos (globo con nubes) y cierre (caja de regalo). El sobre de la portada sigue dibujado con CSS.
+- Las ilustraciones provisorias de la spec 002 (`data-placeholder="true"`) se reemplazan por las finales del estilo `sage-geese`, propias o con licencia verificada y registradas en [ASSET_SOURCES.md](../../guias/ASSET_SOURCES.md). Valen para todas las invitaciones con este estilo. Origen: las genera el responsable con IA, en PNG o JPG; el fondo se quita en el proyecto; en `ASSET_SOURCES.md` se anota la herramienta usada y que sus términos permiten el uso comercial.
+- Se reemplazan las 3 ilustraciones provisorias: presentación (familia de gansos), regalos (gansito en globo aerostático) y cierre (gansito con caja de regalo, que pasa a ocupar el ancho de la del globo para que se distinga). El sobre de la portada sigue dibujado con CSS.
 - Imagen de la vista previa del link (WhatsApp): una ilustración del gansito del estilo, sin datos del evento, en `public/og/`.
 - No hay fotos propias del evento.
 
