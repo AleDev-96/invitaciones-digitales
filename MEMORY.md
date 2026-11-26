@@ -4,7 +4,7 @@ Memoria del proyecto entre sesiones. Máximo unas 50 líneas: resumir o eliminar
 
 ## Estado actual — v0.1
 
-Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada; ilustraciones finales con la 006. Spec 003 (confirmación de asistencia, tabla `rsvps`) implementada. Spec 004 (lista de regalos en `/<slug>/regalos`, tablas `gifts` y `gift_reservations`) implementada. Spec 006 (primera invitación) publicada; falta darla de baja después del evento. Spec 005 (pantalla de los dueños en `/<slug>/papis`, palabra clave por invitación) armada.
+Spec 001 (arquitectura base) implementada y publicada en `invitaciones-digitales-bhi.pages.dev`: aplicación React con rutas `/<slug>`, tabla `invitations` con acceso por funciones, vista previa del link y keepalive. Spec 002 (plantilla `baby-shower` + estilo `sage-geese`) implementada; ilustraciones finales con la 006. Spec 003 (confirmación de asistencia, tabla `rsvps`) implementada. Spec 004 (lista de regalos en `/<slug>/regalos`, tablas `gifts` y `gift_reservations`) implementada. Spec 006 (primera invitación) publicada; falta darla de baja después del evento. Spec 005 (pantalla de los dueños en `/<slug>/papis`, palabra clave por invitación) implementada y aplicada en Supabase.
 
 ## Aprendizajes y errores a evitar
 
